@@ -1,0 +1,60 @@
+
+      <!-- Modal content-->
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Enter Marks</h4>
+        </div>
+        <form name="myForm">
+        <div class="modal-body">
+          <div class="row text-center">
+            <label class="text-danger" ng-bind="msg"></label>
+          </div>
+
+          <div class="form-group">
+          <div class="row form-inline">
+            <label class="col-sm-4 text-right">Select Student:</label>
+            <select ng-change="selStudent(selObj)" class="form-control col-sm-4" ng-model="selObj" ng-options="sObj as sObj.name for  sObj in stdList">
+            <option value="">Select Student</option>
+            </select>
+          </div></div>
+         
+          <div ng-show="selObj != null && selObj != ''">
+          <div class="form-group">
+           <div class="row form-inline">
+            <label class="col-sm-4 text-right">Name:</label>
+            <lable class="col-sm-8">{{selObj.name}}</label>
+          </div></div>
+          <div class="form-group">
+           <div class="row form-inline">
+            <label class="col-sm-4 text-right">Admission No:</label>
+            <lable class="col-sm-8">{{selObj.admNo}}</label>
+          </div>
+        </div>
+         <div class="form-group">
+            <div class="row form-inline">
+            <label class="col-sm-4 text-right">Max Marks:</label>
+            <input type="text" class="form-control col-sm-4" ng-model="maxMarks">
+          </div>
+         </div>
+          <div class="form-group" ng-repeat="sub in subList">
+            <div class="row form-inline">
+            <label class="col-sm-4 text-right">{{sub}}</label>
+            <input type="text" class="form-control col-sm-4" ng-model="marksInfo[sub]">
+          </div>
+         </div>
+       </div>
+        </div>
+        <div class="modal-footer">
+        <button ng-if="isSave" type="submit" ng-click="save('2')" class="btn btn-primary">Save & Continue</button>
+          <button ng-if="isSave" type="submit" ng-disabled="!myForm.$valid" ng-click="save('6')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave"type="submit" ng-click="save('7')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+      </form>
+      </div>
+    
+      
+  
+  

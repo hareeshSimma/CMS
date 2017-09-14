@@ -1,0 +1,110 @@
+ <!-- Modal content-->
+    <div class="modal-content">
+
+      <div class="modal-header">
+      <button type="button" ng-click="close()" class="close">&times;</button>
+      <h4 class="modal-title">Issue Book</h4>
+      </div>
+
+   <div class="modal-body">
+       <div class="row form-group form-inline ">
+       <div class="col-sm-offset-2 col-sm-6">
+       <label class="control-label text-right">User:</label>&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type="radio"  value="Student" name="user" ng-model="user"> &nbsp;Student&nbsp;
+       <input type="radio"  value="Staff" name="user" ng-model="user"> &nbsp;Staff</div>
+       </div>
+
+      <div ng-show="user =='Student'">
+
+      <div class="row form-group">
+      <label class="text-right col-sm-3">Course Type:</label>
+      <div class="col-sm-3">
+      <select class="form-control w-195" ng-model="cType" ng-change="changeCourseType(cType)">
+      <option value="">Select Course Type</option>
+      <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option></select></div>
+      <label class="control-label col-sm-2 text-right">Stream:</label>
+      <div class="col-sm-3">
+      <select  class="form-control w-195" ng-model="class" ng-change="changeStream(class)">
+      <option value="">Select Stream</option>
+      <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option></select></div>
+      </div>
+
+       <div class="row form-group">
+       <label class="col-sm-3 text-right">Semester:</label>
+       <div class="col-sm-3">
+       <select class="form-control w-195" ng-model="semesters" ng-change="getStdDet()">
+       <option value="">Select semester</option>
+       <option ng-repeat="obj in semList track by $index" value="{{obj.semester}}">{{obj.semester}}</option>
+       </select></div>
+       <label class="col-sm-2 text-right">Section:</label>
+       <div class="col-sm-3">
+       <select class="form-control w-195" ng-model="section" name="section" ng-change="getStdDet()">
+       <option value="">Select Section</option>
+       <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+       </select></div>
+      </div>
+
+       <div class="form-group form-inline row">
+       <label class="col-sm-3 text-right">Student AdmNo:</label>
+       <div class="col-sm-3">
+       <select class="form-control w-195" ng-model="admNo" ng-change="getStuNameList(admNo)">
+       <option value="">Select Student AdmNo</option>
+       <option ng-repeat="obj in stdList" value="{{obj}}">{{obj}}</option>
+       </select></div>
+       <label class="control-label col-sm-2 text-right">Student Name:</label>
+       <div class="col-sm-3">
+       <input type="text" ng-readonly="true" class="form-control" ng-model="name"></div>
+       </div>
+       
+       </div>
+
+       <div ng-show="user =='Staff'">
+
+       <div class="row form-group form-inline">
+       <label class="control-label col-sm-3 text-right">Employee Id:</label>
+       <div class="col-sm-3">
+       <select class="form-control w-195" ng-model="empId" name="name" ng-change="getEmpNameList(empId)">
+       <option value="">Employee Name</option>
+       <option ng-repeat="listObj in empIdList" value="{{listObj}}">{{listObj}}</option>
+       </select></div>
+       <label class="control-label col-sm-2 text-right">Employee Name:</label>
+       <div class="col-sm-3">
+       <input type="text" ng-readonly="true" class="form-control" ng-model="empName"></div>
+       </div>
+      
+       </div>
+    
+      <div class="row form-group"> 
+      <label class="control-label col-sm-3 text-right">Book Name:</label>
+      <div class="col-sm-3">
+      <input type="text" class="form-control" ng-model="bName"></div>
+      <label class="col-sm-2 text-right">Date of Issue:</label>
+      <div class="col-sm-3">
+<!--      <past-date date-callback="fnDate1(date)"></past-date>-->
+        <input type='date' ng-model="date1" class="form-control w-195">
+
+      </div>
+      </div>
+
+      <div class="row form-group">
+      <label class="col-sm-3 text-right">Valid Upto:</label>
+      <div class="col-sm-2" style="width:225px">
+      <!-- <past-date date-callback="fnValidDate1(date)"></past-date> -->
+<!--      <feature-date date-callback="fnValidDate1(date,obj)"></feature-date>-->
+  <input type='date' ng-model="date2" class="form-control w-195">
+      </div>
+      </div>
+
+      <div class="row text-center">
+      <label class="text-danger" ng-bind="msg"></label>
+      </div>
+
+      </div>
+
+<div class="modal-footer">
+<button ng-if="isSave" type="submit" ng-click="save('5')" class="btn btn-primary">Issue</button>
+<button ng-if="!isSave" ng-click="save('6')" type="reset" class="btn btn-primary">Edit</button>
+<button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+</div>
+  
+      </div>

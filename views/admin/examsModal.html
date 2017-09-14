@@ -1,0 +1,79 @@
+
+<div class="modal-content">
+ <form id="ExamForm">
+        
+        <div class="modal-header">
+        <button type="button" ng-click="close()" class="close">&times;</button>
+        <h4 class="modal-title">Exams</h4>
+        </div>
+
+      <div class="modal-body">
+       <div class="row text-center">
+            <label class="text-danger" ng-bind="msg"></label>
+        </div>
+      <div class="row form-group form-inline">
+      <label class="col-sm-5 text-right">Course Type:</label>
+      <select class="form-control w-195" ng-model="cType" ng-change="changeCourseType(cType)" name="cType">
+      <option value="">Select Course Type</option>
+      <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option></select></div>
+
+      <div class="row form-group form-inline">
+      <label class="col-sm-5 text-right">Stream:</label>
+      <select  class="form-control w-195" ng-model="class" ng-change="changeStream(class)" name="class">
+      <option value="">Select Stream</option>
+      <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option></select>
+      </div>
+
+     <div class="row form-group form-inline">
+     <label class="col-sm-5 text-right">Semester:</label>
+     <select class="form-control w-195" ng-model="semester" name="semester">
+     <option value="">Select semester</option>
+     <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+     </select></div>
+
+     <div class="row form-group form-inline">
+     <label class="col-sm-5 text-right">Section:</label>
+     <select class="form-control w-195" ng-model="section" name="section">
+     <option value="">Select Section</option>
+     <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+     </select>
+     </div>
+
+      <div class="form-group form-inline"> <div class="row">
+           <label class="col-sm-5 text-right">Academic Year:</label>
+          <select class="form-control w-195 col-md-3" ng-model="aceYear" name="aceYear">
+              <option value="">Select Acedemic Year</option>
+              <option value="2011-15">2011-15</option>
+              <option value="2012-16">2012-16</option>
+              <option value="2013-17">2013-17</option>
+              <option value="2014-18">2014-18</option>
+              <option value="2015-19">2015-19</option>
+              <option value="2016-20">2016-20</option>
+              <option value="2017-21">2017-21</option>
+              <option value="2018-22">2018-22</option>
+              <option value="2019-23">2019-23</option>
+          </select>
+          </div>
+          </div>
+
+
+
+
+   <div class="row form-group form-inline">
+   
+   <label class="col-sm-5 text-right">Exams:</label>
+   <ul class="chkList col-sm-6" style="list-style-type: none;font-weight:bold" ng-init="i=1;">
+   <li ng-repeat="obj in exams" ><input type="checkbox" ng-model="exm[obj.exam]" name="exm">{{obj.exam}} </li></ul>
+   </div>
+          
+   
+    </div>
+
+      <div class="modal-footer">
+      <button ng-if="isSave" type="submit" ng-click="save('9')" class="btn btn-primary">Save</button>
+      <button ng-if="!isSave" type="submit" ng-click="save('10')" class="btn btn-primary">Edit</button>
+      <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+      </div>
+
+  </form>
+</div>

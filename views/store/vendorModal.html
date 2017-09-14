@@ -1,0 +1,97 @@
+<!-- Modal content-->
+<div class="modal-content">
+   <form id="VendorForm">
+      <div class="modal-header">
+         <button type="button" ng-click="close()" class="close">&times;</button>
+         <h4 class="modal-title">Vendor Details</h4>
+      </div>
+      <div class="modal-body">
+
+         <div class="row form-group form-inline">
+            <label class="col-xs-12 col-sm-3 text-right">Vendor Name:</label>
+            <div class="col-xs-12 col-md-3"> 
+            <input type="text" class="form-control" ng-model="CompanyName" name="CompanyName"></div>
+            <label class="col-xs-12 col-sm-3 text-right">Vendor Phone:</label>
+            <div class="col-xs-12 col-md-3">
+         <input type="text" class="form-control" ng-model="CompanyPhone" name="CompanyPhone"></div>
+         </div>
+
+         <div class="row form-group form-inline">
+            <label class="col-xs-12 col-md-3 text-right" >Vendor Email:</label>
+            <div class="col-xs-12 col-md-3">
+         <input type="text" class="form-control" ng-model="CompanyEmail" name="CompanyEmail"></div>
+            <label class="col-xs-12 col-md-3 text-right">Country:</label>
+            <div class="col-xs-12 col-md-3">
+               <input type="text" class="form-control" ng-model="Country" name="Country"></div>
+         </div>
+
+         <div class="row form-group form-inline">
+            <label class="col-xs-12 col-md-3 text-right">State:</label>
+            <div class="col-xs-12 col-md-3">
+            <select class="form-control w-195 " ng-model="state" name="state" >
+               <option value="">Select State</option>
+               <option ng-repeat="Listobj in states" value="{{Listobj.stateName}}">{{Listobj.stateName}}</option>
+            </select></div>
+            <label class="col-xs-12 col-md-3 text-right">City:</label>
+            <div class="col-xs-12 col-md-3"><input type="text" class="form-control" ng-model="City" name="City"></div>
+         </div>
+
+        
+         <label class="control-label col-sm-offset-1" style="font-size:17px">Bank Details :</label>
+           
+           <div class="row form-group form-inline">
+               <label class="col-xs-12 col-md-3 text-right" >Bank Name :</label>
+               <div class="col-xs-12 col-md-3">
+                  <input type="text" class="form-control" ng-model="BankName" name="BankName">
+               </div>
+               <label class="control-label  col-xs-12 col-md-3 text-right" >Branch Name :</label>
+               <div class="col-xs-12 col-md-3  ">
+                  <input type="text" class="form-control" ng-model="BranchName" name="BranchName">
+               </div>
+            </div>
+
+          <div class="row form-group form-inline">
+               <label class="col-xs-12 col-md-3 text-right" >AccountNo :</label>
+               <div class="col-xs-12 col-md-3 ">
+                  <input type="text" class="form-control" ng-model="AccountNo" name="AccountNo">
+               </div>
+               <label class="col-xs-12 col-md-3  text-right" >IFSC Code:</label>
+               <div class="col-xs-12 col-md-3">
+                  <input type="text" class="form-control" ng-model="IFSCCode" name="IFSCCode">
+               </div>
+               </div>
+
+        
+         <label class="control-label col-sm-offset-1" style="font-size:17px":>Details of contact Person :</label>
+          <div class="row form-group form-inline">
+               <label class="col-xs-12 col-md-3 text-right" >Name :</label>
+               <div class="col-xs-12 col-md-3">
+                  <input type="text" class="form-control" ng-model="Name" name="Name">
+               </div>
+                <label class="col-xs-12 col-md-3 text-right">Phone:</label>
+               <div class="col-xs-12 col-md-3">
+                <input type="text" class="form-control" ng-model="Phone" name="Phone">
+               </div>
+            </div>
+      
+          <div class="row form-group from-inline">
+               <label class="col-xs-12 col-md-3 text-right" >Address :</label>
+               <div class="col-xs-12 col-md-3">
+                  <input type="text" class="form-control" ng-model="Address" name="Address">
+               </div>
+            </div>
+ 
+          <div class="row text-center">
+            <label class="text-danger" ng-bind="msg"></label>
+         </div>
+
+         </div> 
+    
+      <div class="modal-footer">
+      <button ng-if="isSave" type="button" ng-click="save('1')" class="btn btn-primary">Save</button>
+      <button ng-if="!isSave" type="button" ng-click="save('2')" class="btn btn-primary">Edit</button>
+      <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+      </div>
+
+   </form>
+</div>

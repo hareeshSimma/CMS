@@ -1,0 +1,111 @@
+<style type="text/css">
+@media screen and (max-width: 991px) and (min-width: 300px){
+.textRes{
+  text-align: left!important;
+}
+
+}
+</style>
+<!-- Modal content-->
+<div class="modal-content">
+<form id="ComProfileForm">
+<div class="modal-header">
+<button type="button" ng-click="close()" class="close">&times;</button>
+<h4 class="modal-title">Company Profile</h4>
+</div>
+
+<div class="modal-body">
+
+<div class="row form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label class="col-xs-12 col-sm-6 text-right textRes">Company Code:</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="CompanyCode" name="CompanyCode">
+</div></div>
+<div class=" col-xs-12 col-sm-6">
+<label class=" col-xs-12 col-sm-6 text-right textRes">Company Name:</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="CompanyName" name="CompanyName">
+</div></div>
+</div>
+
+<div class="row form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label class="col-xs-12 col-sm-6 text-right textRes">Year Of Establishment:</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="Estd"></div>
+</div>
+<div class=" col-xs-12 col-sm-6">
+<label class=" col-xs-12 col-sm-6 text-right textRes">Contact Person:</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="Contact" name="Contact"></div>
+</div>
+</div>
+
+<div class="row form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label  class="col-xs-12 col-sm-6 text-right textRes"> Phone Number:</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="Phone" name="Phone"></div>
+</div>
+<div class=" col-xs-12 col-sm-6">
+<label  class=" col-xs-12 col-sm-6 text-right textRes">Mobile Number:</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="Mobile" name="Mobile"></div>
+</div>
+</div>
+
+<div class="row form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label  class="col-xs-12 col-sm-6 text-right textRes">Email Address</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="Emailid" name="Emailid"></div>
+</div>
+<div class=" col-xs-12 col-sm-6">
+<label  class="col-xs-12 col-sm-6 text-right textRes">Fax:</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="Fax" name="Fax"></div>
+</div>
+</div>
+
+<div class="row form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label  class="col-xs-12 col-sm-6 text-right textRes">State:</label>
+<div class="col-sm-6">
+<select class="form-control w-195" ng-model="state" ng-change="changeState(state)" name="state">
+<option value="">Select State</option>
+<option ng-repeat="Listobj in states" value="{{Listobj.stateName}}">{{Listobj.stateName}}</option>
+</select></div>
+</div>
+<div class=" col-xs-12 col-sm-6">
+<label  class="col-xs-12 col-sm-6 text-right textRes">City:</label>
+<div class="col-sm-6">
+<input type="text" class="form-control" ng-model="City" name="City"></div>
+</div>
+</div>
+
+<div class="row form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label  class=" col-xs-12 col-sm-6 text-right textRes">Address:</label>
+<div class="col-sm-6">
+<textarea id="address"  class="form-control" name="address" rows=2   style="width: 196px;" ng-model="Address"></div>
+</textarea>
+</div>
+</div>
+
+<div class="row text-center">
+<label class="text-danger" ng-bind="msg"></label>
+</div>
+</div>
+
+<div class="modal-footer">
+<button ng-if="isSave" type="submit" ng-click="save('1')" class="btn btn-primary">Save</button>
+<button ng-if="!isSave" type="submit" ng-click="save('2')" class="btn btn-primary">Edit</button>
+<button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+</div>
+
+</form>
+</div>
+
+
+

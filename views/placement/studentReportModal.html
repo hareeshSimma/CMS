@@ -1,0 +1,119 @@
+<style type="text/css">
+@media screen and (max-width: 991px) and (min-width: 300px){
+.textRes{
+  text-align: left!important;
+}
+}
+</style>
+
+<!-- Modal content-->
+<div class="modal-content">
+<form id="StuReportForm">
+<div class="modal-header">
+<button type="button" ng-click="close()" class="close">&times;</button>
+<h4 class="modal-title">Student Report</h4>
+</div>
+
+<div class="modal-body">
+
+	<div class="row form-group form-inline row">
+    <label class="col-sm-3 text-right">Course Type:</label>
+    <div class="col-sm-3">
+    <select class="form-control w-195 " ng-model="cType" name="cType" ng-change="changeCourseType(cType)" >
+    <option value="">Select Course Type</option>
+    <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option></select></div>
+    <label class="col-sm-2 text-right">Stream:</label>
+    <div class="col-sm-3">
+    <select  class="form-control w-195 " ng-model="class" name="class" ng-change="changeStream(class)">
+    <option value="">Select Stream</option>
+    <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option></select></div>
+    </div>
+
+     <div class="form-group form-inline row">
+     <label class="col-sm-3 text-right">Semester:</label>
+     <div class="col-sm-3">
+     <select class="form-control w-195" ng-model="semesters" name="semesters" ng-change="getStdDet()">
+     <option value="">Select semester</option>
+     <option ng-repeat="obj in semList track by $index" value="{{obj.semester}}">{{obj.semester}}</option>
+     </select></div>
+     <label class="col-sm-2 text-right">Section:</label>
+     <div class="col-sm-3">
+     <select class="form-control w-195" ng-model="section" name="section" ng-change="getStdDet()">
+     <option value="">Select Section</option>
+     <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+     </select></div>
+     </div>
+
+     <div class="form-group form-inline row">
+     <label class="col-sm-3 text-right">Student AdmNo:</label>
+     <div class="col-sm-3">
+     <select class="form-control w-195" ng-model="stuObj" name="admNo" ng-options="listObj as listObj.admNo for listObj in stdList">
+     <option value="">AdmNo</option>
+     </select></div>
+     <label class="col-xs-12 col-sm-2 text-right textRes">Academic Year:</label>
+     <div class="col-sm-3">
+	 <select class="form-control w-195 col-xs-12" ng-model="AcdYr" name="AcdYr">
+	 <option value="">Select Year</option>
+	 <option value="2011-2012">2011-2012</option>
+	 <option value="2012-2013">2012-2013</option>
+	 <option value="2013-2014">2013-2014</option>
+	 <option value="2014-2015">2014-2015</option>
+	 <option value="2015-2016">2015-2016</option>
+	 <option value="2016-2017">2016-2017</option>
+	 <option value="2017-2018">2017-2018</option>
+	 </select></div>
+	 </div>
+    
+     <div class="form-group form-inline row">
+     <label class="col-sm-3 text-right" >Student Name:</label>
+     <div class="col-sm-3">
+     <input type="text" ng-readonly='true' class="form-control" ng-model="stuObj.name"></div>
+     <label class="col-xs-12 col-md-2 col-sm-2 text-right textRes">Company:</label>
+     <div class="col-sm-3">
+	 <select class="form-control w-195 col-xs-12 col-md-3" ng-model="CompanyName" name="CompanyName">
+	 <option value="">Company Name</option>
+	 <option ng-repeat="listObj in companyProfileList" value="{{listObj}}">{{listObj}}</option>
+	 </select></div>
+     </div>
+
+<div class="row form-group form-inline">
+<label class="col-xs-12 col-md-3 text-right textRes">Remarks:</label>
+<div class="col-sm-3">
+<textarea id="address"  class="form-control col-xs-12 col-md-3" name="Remarks" ng-model="Remarks" rows=2   style="width: 196px;" >
+</textarea></div>
+<label class="col-xs-12 col-md-2 text-right textRes">Date:</label> 
+<div class="col-xs-12 col-md-3 col-sm-3">
+<past-date date-callback="fnSinfoSelection(date)"></past-date>
+</div>
+</div>
+
+<div class="row form-group form-inline">
+<label  class="col-xs-12 col-md-3 text-right textRes" > Interview Status:</label>
+<div class="col-xs-12 col-md-3">
+<div class="checkbox">
+<label>
+<input type="radio" name="status" ng-model="Status" Value="Selected"> Selected</label>&nbsp;
+</div>
+<div class="checkbox">
+<label>
+<input type="radio" name="status" ng-model="Status" value="Not Selected"> Not Selected</label>
+</div>
+</div>
+</div>
+
+<div class="row text-center">
+<label class="text-danger" ng-bind="msg"></label>
+</div>
+</div>
+
+<div class="modal-footer">
+
+<button ng-if="isSave" type="submit" ng-click="save('9')" class="btn btn-primary">Save</button>
+
+<button ng-if="!isSave" type="submit" ng-click="save('10')" class="btn btn-primary">Edit</button>
+<button type="button" ng-click="sms()" class="btn btn-primary">SMS</button>
+<button  type="button" ng-click="close()" class="btn btn-primary">Close</button>
+</div>
+
+</form>
+</div>

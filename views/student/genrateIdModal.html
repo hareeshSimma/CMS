@@ -1,0 +1,68 @@
+<div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Generate Id</h4>
+        </div>
+        <form style="width: 700px">
+         <div class="modal-body">
+         <div class="panel"  ng-repeat="inGenStdObj in idGenStd" style="border-color: paleturquoise; width: 505px;margin: auto;width:500px">
+         <div class="panel-heading text-center" style="background-color:paleturquoise">
+         <div class="col-sm-2"><img src="images/s1.png" height="30px" width="30px"/></div>
+         <div class="col-sm-10"><span style="font-size:17px;font-weight:bold">{{sName}}</span></div></br>
+         <!-- <div class="row ">
+           <span style="margin-left:300px">ID CARD :
+           </span><b ng-bind="inGenStdObj.aceYear"></b></div></br> -->
+         </div>
+
+
+         <div class="panel-body">
+
+            <div class="row">
+               <div class="col-sm-3"><img src="images/s6.jpg" height="100px" width="100px" style="position:absolute" /></div>
+               <div class="col-sm-4"><span class="col-sm-8">Name</span><span class="pull-right">:</span></div>
+               <div class="col-sm-2"><i><b ng-bind="inGenStdObj.name"></b></i></div>
+                 <div class="col-sm-1"><i><b ng-bind="inGenStdObj.Surname"></b></i></div> 
+            </div>
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-8">Adm.No</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenStdObj.admNo"></b></i></div>
+            </div>
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-11">Father Name</span>
+               <span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenStdObj.fname"></b></i></div>
+            </div>
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-8">Class</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenStdObj.class"></b></i></div>
+            </div>
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-8">D.O.B</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenStdObj.dob"></b></i></div>
+            </div>
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-8">Phone.No</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenStdObj.phNo"></b></i></div>
+            </div>
+            <div class="row">
+            <div class="col-sm-3"><i>Principal Sign</i></div>
+               <div class="col-sm-4"><span class="col-sm-11">Blood Group</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenStdObj.bgroup"></b></i></div>
+            </div>
+          </div>
+          
+         
+         <div class="panel-footer" style="background-color:paleturquoise">School Address:{{sStreet}},{{sDistrict}},{{sState}},Pincode:{{sPinCode}},<br>Telephone:{{sPhoneNo}},Email:{{sEmail}}</div>
+        
+         </div></div>
+         </form>
+         <div class="modal-footer">
+          <button type="button" ng-click="printId()" class="btn btn-primary">Save&Print</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button> 
+        </div>
+
+   
+  </div>
+ 
+  <!-- modal -->
+  

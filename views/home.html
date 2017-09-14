@@ -1,0 +1,96 @@
+
+</br>
+<div ng-class="{'col-md-offset-2': isValidUser}">
+<div class="row clearfix">
+<div class="col-md-12 col-sm-12 col-xs-12">
+ <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides">
+        <img class="img-responsive" ng-src="images/{{slide.imgName}}.jpg" style="margin:auto; height:300px">
+      </slide>
+    </carousel>
+</div>
+</div>
+</br>
+<h2 class="myheadding text-center">WELCOME TO CVR CAMPUS MANAGEMENT SYSTEM </h2>
+<div class='row'>
+<div class="col-md-8 col-sm-6 col-xs-12 ">
+ <h3 class="colorGreen">About us</h3>
+ <div class="myhome">
+     <p class="mypara"><i class="fa fa-hand-o-right fa-lg fa-red" aria-hidden="true"></i>&nbsp;
+         Established in 2009, by AICTE, New Delhi and affliated to JNTUA, Anantapur. </p>
+     <p class="mypara"><i class="fa fa-hand-o-right fa-lg fa-red" aria-hidden="true"></i>&nbsp; Located at Tadipatri in Anantapur Dist. A.P. UG and PG Programs in Engineering Technology. Total Current intake of Student is 456. </p>
+   <p class="mypara"><i class="fa fa-hand-o-right fa-lg fa-red" aria-hidden="true"></i>&nbsp; The College is surrounded by municipality having underground drainage system, banned the usage of plastic and well known industrial sector for steel and cement industries with many historic temples viz., Chintala Venkataramana Swamy Temple, Bugga Ramalingeswara Swamy Temple and Alurkona Ranganatha Swamy Temple.
+</p>
+</div>
+</div>
+<div class=" col-md-4 col-sm-6 col-xs-12">
+    <div class="row" style="margin: 0px!important;">
+    <h3 class="colorGreen">News And Events</h3>
+    <marquee direction="up" scrollamount="2"onmouseOver="this.stop()" onmouseLeave="this.start()"  style="border: 3px solid #1e9a01;
+    
+    border-radius: 4px;
+    height: 163px;">
+    	<ul style="list-style: none;">
+    		<li ng-repeat="newsObj in newsList">
+                    <p style="border-bottom: 1px dotted;
+    padding-bottom: 15px;"><i class="fa fa-share fa-lg fa-red" aria-hidden="true"></i>&nbsp; {{newsObj.news}}</p>
+            </li>
+    	
+
+    	</ul>
+    </marquee>
+</div>
+</div>
+</div>
+<!--<div class="row">
+	<div class="col-xs-12">
+           
+	</div></div>-->
+<div class="row">
+<!--	<div class="col-xs-offset-1 col-md-3 col-sm-3 col-xs-10 m-l22 boxShadow">
+		<p>My child is loving school the more she goes and every day comes home with a great story whether it be about activities, friends or teachers she always has a good day and I have noticed a great increase in her skills like reading and writing, thank you all.</p>
+	</div>
+	<div class="col-md-3 col-sm-3 col-xs-10 boxShadow m-l22">
+		<p>My child is loving school the more she goes and every day comes home with a great story whether it be about activities, friends or teachers she always has a good day and I have noticed a great increase in her skills like reading and writing, thank you all.</p>
+	</div>
+	<div class="col-md-3 col-sm-3 col-xs-10 boxShadow m-l22">
+		<p>My child is loving school the more she goes and every day comes home with a great story whether it be about activities, friends or teachers she always has a good day and I have noticed a great increase in her skills like reading and writing, thank you all.</p>
+	</div>-->
+
+<div class="col-md-6 col-sm-6 col-xs-10 ">
+     <h3 class="colorGreen">Secretary / Correspondent Desk:</h3>
+  <div class="row corr_pri">
+      <div class="col-sm-3 col-xs-12">
+              <img src="images/s9.png" class="img-responsive img-thumbnail" style="height:147px; margin-bottom: 80px;"></img>
+      </div>
+       <div class="col-sm-9 col-xs-12">
+           <h4 style="color: #1e9a01;">B.V. Bhaskar Reddy</h4>
+           <h5> Secretary / Correspondent</h5>
+           <p style="text-align: justify;">
+               He is a post graduate having 16 years of experience in running the Educational Institutions. With a good motive under Sri.Varasiddi Vinayaka Educational Society,
+               he established Sir C V Raman Institute of Technology & Sciences in Tadipatri to uplift the village people to the global standards. 
+               He is always available at the college to maintain good discipline.
+           </p>
+      </div>
+  </div>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-10">
+     <h3 class="colorGreen">Principal Desk:</h3>
+    <div class="row corr_pri" >
+      <div class="col-sm-3 col-xs-12">
+              <img src="images/s12.png" class="img-responsive img-thumbnail" style="height:147px;margin-bottom: 80px;"></img>
+      </div>
+       <div class="col-sm-9 col-xs-12">
+           <h4 style="color: #1e9a01;">Dr. Indudhara Reddy</h4>
+           <h5> Principal</h5>
+           <p>
+               Dr. Indudhara Reddy, M.Sc. Ph.D., having 10 years of experience in the field of Technical Education. His vision : 
+               A nation’s real and sustainable growth is possible with technological advancement and development of its human resource.
+               The role of engineers, be it in the areas like construction, mechanical, electrical or software assumes so much more importance. 
+               Modern technology has made the world a level playing field. 
+               
+           </p>
+      </div>
+  </div> 
+</div>
+</div>

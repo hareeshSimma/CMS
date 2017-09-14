@@ -1,0 +1,284 @@
+<br>
+<div class="offsetMenu  ">
+    <div class="col-xs-12 p-0">
+        <div class="row mrow " ng-show="isDefault">
+            <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Employee Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Employee Module Contains 3 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Id Cards Issue</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Certificates Issue</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Report</li>
+                     
+              </ul>              
+        </div>
+        </div>
+
+        <div class="row form-group col-md-offset-2 mrow" ng-show="isAttendence">
+            <label class="col-sm-2 text-right">Employee Type:</label>
+            <div class="col-sm-2">
+                <select class="selectpicker form-control w-195 p-0" value="employeetype"  ng-model="empType" name="empType">
+                    <option value="">Select Employee Type</option>
+                    <option value="tStaff">Teaching Staff</option>
+                    <option value="nonTStaff">Non-Teaching Staff</option>
+                    <option value="others">Others</option>
+                </select></div>
+            <div class="col-md-2">
+                <div ng-show="isAttendence" style="display: inline-flex;">
+                    <label>Date:</label>
+                    <past-date date-callback="fnDSelection(date)"></past-date></div></div>
+
+            <input ng-if="(!saveAttendence)" type="button" class="btn btn-primary pull-right" value="Enter Attendence" ng-click="enterAttendence()" style=" margin-right: 3px;">
+            <input ng-if="(saveAttendence)" type="button" class="btn btn-primary pull-right" value="Save Attendence" ng-click="fnAttSave()" style=" margin-right: 3px;">
+        </div>
+        <div class="row mrow">
+            <div class="col-xs-12 p-0">
+                <div ng-show="isAttendence" style="margin-left: -15px;">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr class='t-head'>
+                                <th class='text-center'>Employee Id </th>
+                                <th class='text-center'>Name
+                                    <input type="text" style="width:200px;display:inline" class="form-control" ng-model="fName">
+                                </th>
+                                <th class='text-center'>Full Day</th>
+                                <th class='text-center'>Haly Day</th>
+                                <th class='text-center'>Absent</th>
+
+                            </tr>
+                            <tr ng-repeat="listObj in attEmp| filter:{name:fName}" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                                <td class="text-center">{{listObj.empId}}</td>
+                                <td class='text-center'>{{listObj.name}}</td>
+                                <td class="text-center"><input style="width:100%;height:1.5em" type="radio" name="{{listObj.empId}}" value="f" ng-model="att[listObj.empId]"></td>
+                                <td class="text-center"><input style="width:100%;height:1.2em" type="radio" name="{{listObj.empId}}" value="h" ng-model="att[listObj.empId]"></td>
+                                <td class="text-center"><input type="radio" name="{{listObj.empId}}" value="a" ng-model="att[listObj.empId]"></td>
+
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-xs-12 p-0">
+                <div ng-show="isIdCard">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <tr class='t-head'>
+                                <th class='text-center'>
+                                    <button class="btn btn-primary pull-left" ng-click="generateIdCard(checkList, employeeList)">Generate Id </button>
+                                     </th>
+                                    <th>S.No</th>
+                               
+                                <th class="text-center" ng-if="isIdCard">
+                                    <input type="checkbox" ng-change="checkAll(chkAll.isChk)" ng-model="chkAll.isChk">All
+                                <th class='text-center'>EmployeeType </th>
+                                <th class='text-center'>Name
+                                    <input type="text" style="width:200px;display:inline" class="form-control" ng-model="fName">
+                                </th>
+                                <th class='text-center'>Gender</th>
+                                <th class='text-center'>PhoneNumber</th>
+                                <th class='text-center'>Salary</th>
+                                <th class='text-center'>EmailId</th>
+                                <th class='text-center'>Photo</th>
+                            </tr>
+                            <tr ng-repeat="listObj in employeeList| filter:{name:fName}" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                                <td></td>
+                                <td class="text-center">{{$index + 1}}</td>
+                                <td class="text-center" ng-if="isIdCard">
+                                    <input type="checkbox" ng-model="checkList[listObj.empId]">
+                                <td class='text-center'>{{listObj.employee}}</td>
+                                <td class='text-center'>{{listObj.name}}</td>
+                                <td class='text-center'>{{listObj.gender}}</td>
+                                <td class='text-center'>{{listObj.phonenumber}}</td>
+                                <td class='text-center'>{{listObj.salary}}</td>
+                                <td class='text-center'>{{listObj.emailid}}</td>
+                                <td class='text-center'>{{listObj.photo}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div ng-if="isCertificate">
+            <div class="table-responsive"  >
+                <table class="table table-bordered">
+                    <tr class='t-head'>
+                        <th class='text-center'>
+                            <button class="btn btn-primary pull-left" ng-click="generateCertificate(checkList, employeeList)">Generate Certificate </button>
+                           </th>
+                         <th>S.No</th>
+                        <th class="text-center">
+                            <input type="checkbox" ng-change="checkAll(chkAll.isChk)" ng-model="chkAll.isChk">All
+                        </th>
+                        <th class='text-center'>EmployeeType </th>
+                        <th class='text-center'>Name
+                            <input type="text" style="width:200px;display:inline" class="form-control" ng-model="fName">
+                        </th>
+                        <th class='text-center'>Gender</th>
+                        <th class='text-center'>PhoneNumber</th>
+                        <th class='text-center'>Salary</th>
+                        <th class='text-center'>EmailId</th>
+                        <th class='text-center'>Photo</th>
+                    </tr>
+                    <tr ng-repeat="listObj in employeeList| filter:{name:fName}" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                    <td></td>
+                        <td class="text-center">{{$index + 1}}</td>
+                        <td class="text-center">
+                            <input type="checkbox" ng-model="checkList[listObj.empId]">
+                        <td class='text-center'>{{listObj.employee}}</td>
+                        <td class='text-center'>{{listObj.name}}</td>
+                        <td class='text-center'>{{listObj.gender}}</td>
+                        <td class='text-center'>{{listObj.phonenumber}}</td>
+                        <td class='text-center'>{{listObj.salary}}</td>
+                        <td class='text-center'>{{listObj.emailid}}</td>
+                        <td class='text-center'>{{listObj.photo}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 p-0">
+                <div ng-if="isLeave">
+                    <div class="table-responsive">
+                        <!--<tr class='t-head'>-->
+                        <!--<th class='text-center'>-->
+                        <button class="btn btn-primary" ng-click="applyLeave()" style="margin-left: 249px;margin-top: 3px;">Apply Leave</button>
+                        <!--</th>-->
+                        <!--</tr>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 p-0">
+            <div ng-show="isJobVacancy" style="margin-top: -15px;
+                 margin-left: -30px;">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr class='t-head'>
+                            <th class='text-center'>
+                                <button class="btn btn-primary pull-left" ng-click="addJobVacncy()">Add New</button>
+                                 </th>
+                                <th>S.No</th>
+                           
+                            <th class='text-center'>Job Title</th>
+                            <th class='text-center'>Vacancy Name</th>
+                            <th class='text-center'>Hiring Manager</th>
+                            <th class='text-center'>No.Of Positions</th>
+                            <th class='text-center'>Edit</th>
+                            <th class='text-center'>Delete</th>
+                        </tr>
+                        <tr ng-repeat="listObj in jobVacancyList" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                            <td></td>
+                            <td class="text-center">{{$index + 1}}</td>
+                            <td class='text-center'>{{listObj.title}}</td>
+                            <td class='text-center'>{{listObj.vName}}</td>
+                            <td class='text-center'>{{listObj.hManager}}</td>
+                            <td class='text-center'>{{listObj.positions}}</td>
+                            <td class="text-center"><a href ng-click="addJobVacncy(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td class="text-center"><a href ng-click="deleteJobVacancy(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>   
+
+        <div class="col-xs-12 p-0">
+            <div ng-show="isCanApply" style="margin-top: -15px;
+                 margin-left: -30px;">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr class='t-head'>
+                            <th class='text-center'>
+                                <button class="btn btn-primary pull-left" ng-click="addCanApply()">Add New</button>
+                                  </th>
+                                <th>S.No</th>
+                          
+                            <th class='text-center'>Name</th>
+                            <th class='text-center'>Email</th>
+                            <th class='text-center'>Contact.No</th>
+                            <th class='text-center'>Job Vacancy</th>
+                            <th class='text-center'>Comment</th>
+                            <th class='text-center'>Date of Application</th>
+                            <th class='text-center'>Edit</th>
+                            <th class='text-center'>Delete</th>
+                        </tr>
+                        <tr ng-repeat="listObj in jobApplyList" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                            <td></td>
+                            <td class="text-center">{{$index + 1}}</td>
+                            <td class='text-center'>{{listObj.name}}</td>
+                            <td class='text-center'>{{listObj.emailid}}</td>
+                            <td class='text-center'>{{listObj.phNo}}</td>
+                            <td class='text-center'>{{listObj.vacancy}}</td>
+                            <td class='text-center'>{{listObj.comment}}</td>
+                            <td class='text-center'>{{listObj.dao}}</td>
+                            <td class="text-center"><a href ng-click="addCanApply(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td class="text-center"><a href ng-click="deleteCanApply(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>   
+
+        <div class="col-xs-12 p-0">
+            <div ng-show="isCanStatus" style="margin-top: -15px;
+                 margin-left: -30px;">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr class='t-head'>
+                            <th class='text-center'>
+                                <button class="btn btn-primary pull-left" ng-click="addCanStatus()">Add New</button><span>S.No</span>
+                            </th>
+                            <!-- <th class='text-center'>Job Title</th> -->
+                            <th class='text-center'>Vacancy</th>
+                            <th class='text-center'>Hiring Manager</th>
+                            <th class='text-center'>Candidate Name</th>
+                            <th class='text-center'>Status</th>
+                            <th class='text-center'>Date of Application</th>
+                            <th class='text-center'>Method of Application</th>
+                            <th class='text-center'>Edit</th>
+                            <th class='text-center'>Delete</th>
+                        </tr>
+                        <tr ng-repeat="listObj in jobStatusList" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                            <td class="text-center">{{$index + 1}}</td>
+                            <!-- <td class='text-center'>{{listObj.title}}</td> -->
+                            <td class='text-center'>{{listObj.vacancy}}</td>
+                            <td class='text-center'>{{listObj.hManager}}</td>
+                            <td class='text-center'>{{listObj.name}}</td>
+                            <td class='text-center'>{{listObj.status}}</td>
+                            <td class='text-center'>{{listObj.dao}}</td>
+                            <td class='text-center'>{{listObj.mao}}</td>
+                            <td class="text-center"><a href ng-click="addCanStatus(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td class="text-center"><a href ng-click="deleteCanStatus(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>   
+    </div>
+
+

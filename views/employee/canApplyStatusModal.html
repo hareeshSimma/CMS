@@ -1,0 +1,92 @@
+<!-- Modal content-->
+<div class="modal-content">
+<form id="CanStatusForm">
+
+  <div class="modal-header">
+  <button type="button" ng-click="close()" class="close">&times;</button>
+  <h4 class="modal-title">Candidate Application Status</h4>
+  </div>
+
+      <div class="modal-body">
+
+      <!-- <div class="row form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-3 text-right">
+      <label>Job Title:</label></div>
+      <div class="col-sm-3">
+      <input type="text" ng-model="title" class="form-control" name="title"></div>
+      </div> -->
+
+      <div class="row form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-3 text-right">
+      <label>Job Vacancy:</label></div>
+      <div class="col-sm-5">
+      <select class="form-control w-195 col-sm-3" ng-model="vacancy" name="vacancy" ng-change="getHrName(vacancy)">
+      <option value="">job Vacancy</option>
+      <option ng-repeat="listObj in vacancyList" value="{{listObj}}">{{listObj}}</option>
+      </select></div>
+      </div>
+
+      <div class="row form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-3 text-right">
+      <label>Hiring Manager:</label></div>
+      <div class="col-sm-5">
+      <input type="text" ng-readonly="true" class="form-control" ng-model="hManager"></div>
+      </div>
+
+      <div class="row form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-3 text-right">
+      <label>Candidate Name:</label></div>
+      <span class="col-sm-5">
+      <input type="text" ng-model="name" class="form-control" name="name">
+      </span>
+      </div>
+
+      <div class="row form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-3 text-right">
+      <label>Status:</label></div>
+      <div class="col-sm-5">
+      <select class="form-control w-195" ng-model="status" name="status">
+      <option value="">Status</option>
+      <option value="Application Initiated">Application Initiated</option>
+      <option value="Shortlisted">Shortlisted</option>
+      <option value="Interview Scheduled">Interview Scheduled</option>
+      <option value="Interview Passed">Interview Passed</option>
+      <option value="Interview Failed">Interview Failed</option>
+      <option value="Offer Declined">Offer Declined</option>
+      <option value="Rejected">Rejected</option>
+      <option value="Hired">Hired</option>
+      </select>
+      </div></div>
+
+      <div class="row form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-3 text-right">
+      <label>Date of Application:</label></div>
+      <div class="col-sm-5">
+      <past-date date-callback="fnDOASelection(date)"></past-date>
+      </div></div>
+
+      <div class="row form-group form-inline">
+      <div class="col-sm-offset-2 col-sm-3 text-right">
+      <label>Method of Application:</label></div>
+      <div class="col-sm-5">
+      <select class="form-control w-195" ng-model="mao" name="mao">
+      <option value="">Method of Application</option>
+      <option value="Manual">Manual</option>
+      <option value="Online">Online</option>
+      </select>
+      </div>
+
+      <div class="row text-center">
+      <label class="text-danger" ng-bind="msg"></label>
+      </div>
+
+      </div>
+        
+  <div class="modal-footer">
+  <button ng-if="isSave" type="submit" ng-click="save('0')" class="btn btn-primary">Save</button>
+  <button ng-if="!isSave" type="submit" ng-click="save('1')" class="btn btn-primary">Edit</button>
+  <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+  </div>
+
+  </form>
+  </div>

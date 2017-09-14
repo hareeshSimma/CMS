@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>student management</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+     <link rel="stylesheet" href="css/main.css">
+     <link rel="stylesheet" href="css/bootstrap.min.css" />
+     <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+      <link rel="stylesheet" href="css/nv.d3.min.css" />
+       <link href="css\font-awesome-4.6.3\css\font-awesome.min.css" rel="stylesheet">
+       <link rel="stylesheet" href="css/bootstrap-datepicker.min.css" />
+     <link rel="icon" href="images/s1.jpg">
+  </head>
+<body ng-app="SMSApp" style="background-color:#fafafc">
+     <div class="container-fluid">
+        <div  ng-include="'views/header.html'" ></div>
+        <div id="myView" class="m-b50" ng-view=""></div>
+        <div ng-include="'views/footer.html'"></div>
+     </div>
+        <script src="lib/jquery.js"></script>
+        <script src="lib/angular.js"></script>
+        <script src="lib/bootstrap.js"></script>
+        <script src="lib/angular-route.js"></script>
+        <script src="lib/jquery.validate.js"></script>
+        <script src="lib/ui-bootstrap-tpls.js"></script>
+        <script src="lib/angular-nvd3.min.js"></script>
+        <script src="lib/d3.min.js"></script>
+        <script src="lib/nv.d3.min.js"></script>
+        <script src="lib/bootstrap-datepicker.min.js"></script>
+         
+         
+        <script src="lib/app.js"></script>
+        <script src="controllers/main.js"></script>
+        <script src="controllers/ExamCtrl.js"></script>
+        <script src="controllers/ExamFeeCtrl.js"></script>
+        <script src="controllers/StudentCtrl.js"></script>
+        <script src="controllers/AdminCtrl.js"></script>
+        <script src="controllers/EmpCtrl.js"></script>
+        <script src="controllers/AttendenceCtrl.js"></script>
+        <script src="controllers/TransportCtrl.js"></script>
+         <script src="controllers/HostelCtrl.js"></script>
+        <script src="controllers/LibraryCtrl.js"></script>
+        <script src="controllers/StoreCtrl.js"></script>
+        <script src="controllers/FinanceCtrl.js"></script>
+        <script src="controllers/PlacementCtrl.js"></script>
+
+        <script src="services/ServerCall.js"></script>
+        <script src="services/AdminService.js"></script>
+       
+         <script src="directives/datePicker.js"></script>
+         <script src="directives/graphDir.js"></script>
+          <script src="lib/base64.js"></script>
+        <script src="lib/jquery.base64.js"></script>
+        <script src="lib/jspdf.js"></script>
+        <script src="lib/sprintf.js"></script>
+        <script src="lib/tableExport.js"></script>
+
+         </body>
+</html>
+               

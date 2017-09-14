@@ -1,0 +1,195 @@
+<br>
+<div class=" offsetMenu ">
+<div class="col-xs-12 p-0" >
+    <div class="row mrow" ng-show="isDefault">
+       <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Transport Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Transport Module Contains 4 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Vehicle Details</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Vehicle Route</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Route Allotment</li>
+                     <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Vehicle Insurance </li>
+                
+              </ul>              
+        </div>
+    </div>
+ <!-- vehicle details Start-->
+  <div ng-if="isVehicle">
+  <div class="text-center stuHead" style="margin-top:10px">Transport : Vehicle Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head' style="white-space:nowrap">
+          <th class='text-center'><button class="btn btn-primary" ng-click="addVehicle()">Add New</button></th>
+          <th>S.No</th>
+          <th class='text-center'>Vehicle Number</th>
+          <th class='text-center'>Vehicle Type</th>
+          <th class='text-center'>Fuel Type</th>
+          <th class='text-center'>Odometer</th>
+          <th class='text-center'>Capacity</th>
+          <th class='text-center'>Vehicle Ownership</th>
+          <th class='text-center'>Purchase Date</th>
+          <th class='text-center'>Lease Owner Name</th>
+          <th class='text-center'>Lease From Date</th>
+          <th class='text-center'>Lease To Date</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+
+        <tr ng-repeat="listObj in vehicleList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td></td>
+            <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.vehicle}}</td>
+            <td class='text-center'>{{listObj.vehicleType}}</td>
+            <td class='text-center'>{{listObj.fuelType}}</td>
+            <td class='text-center'>{{listObj.odometer}}</td>
+            <td class='text-center'>{{listObj.capacity}}</td>
+            <td class='text-center'>{{listObj.ownership}}</td>
+            <td class='text-center'>{{listObj.purchase}}</td>
+            <td class='text-center'>{{listObj.ownName}}</td>
+            <td class='text-center'>{{listObj.lstart}}</td>
+            <td class='text-center'>{{listObj.lend}}</td>
+            <td class="text-center"><a href ng-click="addVehicle(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td class="text-center"><a href ng-click="deleteVehicle(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- vehicle details End-->
+
+  
+<!-- vehicle Route details Start-->
+  <div ng-if="isVehicleRoute">
+  <div class="text-center stuHead" style="margin-top:10px">Transport : Vehicle Route Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head' style="white-space:nowrap;">
+          <th class='text-center'><button class="btn btn-primary" ng-click="addVehicleRoute()">Add New</button>
+             </th> 
+              <th>S.No</th>
+          <th class='text-center'>Vehicle Number</th>
+          <th class='text-center'>Vehicle Type</th>
+          <th class='text-center'>Capacity</th>
+          <th class='text-center'>Route</th>
+          <!-- <th class='text-center'>Source</th> -->
+          <th class='text-center'>Destination</th>
+          <th class='text-center'>Driver Name</th>
+          <th class='text-center'>Driver Number</th>
+          <th class='text-center'>License</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in vehicleRouteList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.vehicleNum}}</td>
+            <td class='text-center'>{{listObj.vehicleType}}</td>
+            <td class='text-center'>{{listObj.capacity}}</td>
+            <td class='text-center'>{{listObj.route}}</td>
+            <!-- <td class='text-center'>{{listObj.source}}</td> -->
+            <td class='text-center'>{{listObj.destination}}</td>
+            <td class='text-center'>{{listObj.driverName}}</td>
+            <td class='text-center'>{{listObj.driverNumber}}</td>
+            <td class='text-center'>{{listObj.license}}</td>
+            <td class="text-center"><a href ng-click="addVehicleRoute(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td class="text-center"><a href ng-click="deleteVehicleRoute(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- vehicle Route details End-->
+
+ 
+  <!-- vehicle insurance Start-->
+  <div ng-if="isInsurance">
+  <div class="text-center stuHead" style="margin-top:10px">Transport : Vehicle Insurance</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addInsurance()">Add New</button>
+                  </th>
+                  <th>S.No</th>
+           <th class='text-center'>Vehicle Number</th>
+          <th class='text-center'>Insurance Company</th>
+          <th class='text-center'>Insurer</th>
+          <th class='text-center'>Date</th>
+          <th class='text-center'>Expires On</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in insuranceList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.vehicleNumber}}</td>
+            <td class='text-center'>{{listObj.insuranceCompany}}</td><td class='text-center'>{{listObj.insurer}}</td>
+            <td class='text-center'>{{listObj.date}}</td>
+            <td class='text-center'>{{listObj.expiresOn}}</td>
+            <td class='text-center'><a href ng-click="addInsurance(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteInsurance(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- vehicle insurance End-->
+
+
+
+<!-- vehicle Route details Start-->
+  <div ng-if="isAllotment">
+  <div class="text-center stuHead" style="margin-top:10px">Transport : Route Allotment</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head' style="white-space:nowrap;">
+          <th class='text-center'><button class="btn btn-primary" ng-click="addAllotment()">Add New</button>
+              </th>
+              <th>S.No</th>
+          <th class='text-center'>Course</th>
+          <th class='text-center'>Stream</th>
+          <th class='text-center'>Section</th>
+          <th class='text-center'>Semester</th>
+          <th class='text-center'>Student Number</th>
+          <th class='text-center'>Student Name</th>
+          <th class='text-center'>Route</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in allotmentList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.cType}}</td>
+            <td class='text-center'>{{listObj.className}}</td>
+            <td class='text-center'>{{listObj.section}}</td>
+            <td class='text-center'>{{listObj.semester}}</td>
+            <td class='text-center'>{{listObj.admNo}}</td>
+            <td class='text-center'>{{listObj.name}}</td>
+            <td class='text-center'>{{listObj.route}}</td>
+           
+            <td class="text-center"><a href ng-click="addAllotment(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td class="text-center"><a href ng-click="deleteAllotment(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- vehicle Route details End-->
+
+
+</div>
+</div>
+<div class="row text-center mrow">
+         <label class="text-danger font" ng-bind="msg">   
+         </label>
+          </div>
+</div>

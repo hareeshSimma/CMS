@@ -1,0 +1,102 @@
+<!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Fee Allocation</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Course Type:</label>
+            <select class="form-control w-195" ng-model="cType" ng-change="changeCourseType(cType)" >
+              <option value="">Select Course Type</option>
+              <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+            </select>
+          </div></div>
+
+          <div class="row">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Stream:</label>
+            <select  class="form-control w-195" ng-model="class" ng-change="changeStream(class)">
+              <option value="">Select Stream</option>
+              <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>
+            </select>
+          </div></div>
+           
+
+          <div class="row">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Semesters:</label>
+            <select class="form-control w-195" ng-model="semesters">
+              <option value="">Select semester</option>
+                <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+            </select>
+          </div></div>
+
+          <div class="row">
+          <div class="form-group form-inline">
+         <label class="col-md-4 text-right">Academic Year:</label>
+            <select class="form-control w-195 " ng-model="AcdYear">
+              <option value="">Select Academic Year</option>
+              <option value="2016-17">2016-17</option>
+              <option value="2017-18">2017-18</option>
+            </select>
+            </div></div>
+           
+           <div class="row">
+            <div class="form-group form-inline">
+            <label class="col-md-4 text-right">Admission Fee:</label><input type="text" class="form-control w-195" ng-model="AdmFee">
+           </div></div>
+
+           <div class="row">
+            <div class="form-group form-inline">
+            <label class="col-md-4 text-right">Academic Fee:</label><input type="text" class="form-control w-195" ng-model="AcdFee">
+           </div></div>
+
+           <div class="row">
+            <div class="form-group form-inline">
+            <label class="col-md-4 text-right">Transport Fee:</label><input type="text" class="form-control w-195" ng-model="TransFee">
+           </div></div>
+
+           <div class="row">
+            <div class="form-group form-inline">
+            <label class="col-md-4 text-right">Hostel Fee:</label><input type="text" class="form-control w-195" ng-model="HstlFee">
+           </div></div>
+
+           <div class="row">
+            <div class="form-group form-inline">
+            <label class="col-md-4 text-right">Examination Fee:</label><input type="text" class="form-control w-195" ng-model="ExamFee">
+           </div></div>
+
+           <div class="row">
+            <div class="form-group form-inline">
+            <label class="col-md-4 text-right">Stationary Fee:</label><input type="text" class="form-control w-195" ng-model="StatFee">
+           </div></div>
+
+        <div class="row" >
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Others</label>
+            <input type="text" class="form-control" ng-model="sub.others1">
+            <a href ng-click="addOthTextBox()"><span class="glyphicon glyphicon-plus"></span></a>
+          </div>
+          <div  ng-repeat="subObj in subList">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">{{subObj.subName}}</label>
+            <input type="text" class="form-control" ng-model="sub[subObj.subName]">
+            <a href ng-click="deleteOthTextBox(subObj.subName)"><span class="glyphicon glyphicon-trash"></span></a>
+          </div></div>
+          </div>
+
+
+       <div class="row text-center">
+          <label class="text-danger" ng-bind="msg"></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button ng-if="isSave" type="button" ng-click="save('0')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave" type="button" ng-click="save('1')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+      </div>
+  

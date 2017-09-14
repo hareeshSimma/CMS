@@ -1,0 +1,80 @@
+
+<div class="modal-content">
+<form id="LeaveForm">
+
+        <div class="modal-header">
+        <button type="button" ng-click="close()" class="close">&times;</button>
+        <h4 class="modal-title">Leave Application</h4>
+        </div>
+
+        <div class="modal-body">
+      <div style="width:500px;height:400px;margin: auto; margin-bottom:15px" >
+           <div class="form-group form-inline">
+           <label class="col-sm-3 text-right">Employee Id:</label>
+           <select class="form-control w-195" ng-model="empObj" ng-options="listObj as listObj.empId for listObj in empIdsList" value="{{listObj.empId}}"{{listObj.empId}} name="empid">
+           </select>
+           </div>
+
+<div class="form-group form-inline">
+<label class="col-sm-3 text-right">EmpType:</label>
+<input type="text" class="form-control" value="employeetype"  ng-model="empObj.employee" name="empType" ng-readonly="true">
+</div>
+
+<div class="form-group form-inline">
+<label class="col-sm-3 text-right">Leave Type:</label>
+<select class="selectpicker form-control w-195"   ng-model="leaveType" name="LeaveType"  ng-change="lType(leaveType)" > <!--ng-options="listObj as listObj.leaveType for listObj in leavesList"-->
+<option value="">leaveType</option>
+<option value="Casual">Casual</option>
+<option value="Meternity">Meternity</option>
+<option value="Sick">Sick</option>
+</select>
+</div>
+       <div class="form-group form-inline">
+         <label class="col-sm-3 text-right">Used leaves:</label>
+         <input type="text" class="form-control" ng-readonly='true' ng-model="usdlvs">
+      </div>
+      <div class="form-group form-inline">
+         <label class="col-sm-3 text-right">Available leaves:</label>
+         <input type="text" class="form-control" ng-model="avlbllvs" ng-readonly="true">
+      </div>
+     
+     <!--  <div class="form-group form-inline">
+         <label class="col-sm-3 text-right">Left leaves:</label>
+         <input type="text" class="form-control" ng-model="leftlvs"  value="{{left()}}">
+      </div>
+    -->
+<div class="form-group form-inline" >
+<label class="col-sm-3 text-right">Start Date:</label>
+<div class="col-sm-9" style="margin-left:-15px;
+    margin-bottom:15px;"><past-date date-callback="fnLeavSelection(date)"></past-date>
+</div>
+</div>
+
+<div class="form-group form-inline">
+<label class="col-sm-3 text-right">End Date:</label>
+<div class="col-sm-9 " style="margin-left:-15px;
+    margin-bottom:15px;
+"><past-date date-callback="fnLeaveSelection(date)"></past-date>
+</div>
+</div>
+
+<div class="form-group form-inline">
+  <label class="col-sm-3 text-right ">No. Of Days:</label>
+  <input type="text" class="form-control " ng-model="nod">
+</div>
+
+<div class="form-group form-inline">
+  <label class="col-sm-3 text-right ">Reason:</label>
+  <textarea rows="3" cols="22" ng-model="Reason" class="form-control col-md-3" name="Reason"></textarea> 
+</div>
+</div>
+</div>
+<br><br><br>
+<div class="modal-footer" style="margin-top:52px;">
+<button ng-if="isSave" type="submit" ng-click="save('0')" class="btn btn-primary">Save</button>
+<button ng-if="!isSave" type="submit" ng-click="save('1')" class="btn btn-primary">Edit</button>
+<button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+</div>
+
+</form>
+</div>

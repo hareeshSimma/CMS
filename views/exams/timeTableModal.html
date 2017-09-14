@@ -1,0 +1,62 @@
+
+      <!-- Modal content-->
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Time Table</h4>
+        </div>
+        
+        <div class="modal-body">
+          <div class="form-group">
+          <div class="row">
+             <label class="col-sm-3 col-xs-6">Select Subject:</label>
+             <select class="form-control w-195 dispInline" ng-model="selSub" required>
+              <option value="">Select Subject</option>
+              <option ng-repeat="obj in subArr" value="{{obj}}">{{obj}}</option>
+            </select>
+          </div>
+         </div>
+
+         
+
+         <div class="form-group">
+         <div class="row">
+              <label class="col-sm-3 " >Select Date</label>
+             <!-- <feature-date class="col-sm-3 m-t-30 m-l-m-12px" date-callback="fnTTDateSel(date,obj)"></feature-date>-->
+             <input type="date" ng-model="ttDate" class="form-control w-195">
+<!--             <input type='date' ng-model="ttDate" class="form-control w-195">-->
+          </div>
+         </div>
+         <div class="form-group">
+          <div class="row">
+              <label class="col-sm-3">Start Time</label>
+               <div class="col-sm-3">
+        <input type ="text" class="form-control" ng-model="startttime" name="starttime" style="margin-left: -13px;"></div>
+          </div>
+         </div>
+          <div class="form-group">
+          <div class="row">
+              <label class="col-sm-3">End Time</label>
+               <div class="col-sm-3">
+           <input type ="text" class="form-control" ng-model="endttime" name="endtime" style="margin-left: -13px;"></div>
+
+          </div>
+         </div>
+        
+          <div class="row text-center">
+            <label class="text-danger" ng-bind="msg"></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button ng-if="isSave" type="submit" ng-click="save('1')" class="btn btn-primary">Save & Continue</button>
+          <button ng-if="isSave" type="submit" ng-click="save('2')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave"  type="submit" ng-click="save('3')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+      
+      </div>
+    
+      
+  
+  

@@ -1,0 +1,284 @@
+<br>
+<div class=" offsetMenu">
+<div class="col-xs-12 p-0" >
+<div class="row mrow" ng-show="isDefault">
+       <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Placement Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Placements Module Contains 3 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Company Profile</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Interview Schedule</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Student Report</li>
+                     
+              </ul>              
+        </div>
+    </div>
+ <!-- company details Start-->
+  <div ng-if="isCompanyProfile">
+  <div class="text-center stuHead">Placement : Company Profile</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head' style="white-space:nowrap;">
+          <th class='text-center'><button class="btn btn-primary" ng-click="addCompanyProfile()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Company Code</th>
+          <th class='text-center'>Company Name</th>
+          <th class='text-center'>Year Of Establishment</th>
+          <th class='text-center'>Contact Number</th>
+          <th class='text-center'>Phone Number</th>
+          <th class='text-center'>Mobile Number</th>
+          <th class='text-center'>Email Address</th>
+          <th class='text-center'>Fax</th>
+          <th class='text-center'>State</th>
+          <th class='text-center'>City</th>
+          <th class='text-center'>Address</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in companyProfileList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.companyCode}}</td>
+            <td class='text-center'>{{listObj.companyName}}</td>
+            <td class='text-center'>{{listObj.estd}}</td>
+             <td class='text-center'>{{listObj.contact}}</td>
+            <td class='text-center'>{{listObj.phone}}</td>
+            <td class='text-center'>{{listObj.mobile}}</td>
+            <td class='text-center'>{{listObj.emailid}}</td>
+            <td class='text-center'>{{listObj.fax}}</td>
+            <td class='text-center'>{{listObj.state}}</td>
+            <td class='text-center'>{{listObj.city}}</td>
+            <td class='text-center'>{{listObj.address}}</td>
+            <td class="text-center"><a href ng-click="addCompanyProfile(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td class="text-center"><a href ng-click="deleteCompanyProfile(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- company details End-->
+
+<!-- interview details Start-->
+  <div ng-if="isInterview">
+  <div class="text-center stuHead">Placement : Interview Schedule</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head' style="white-space:nowrap;">
+          <th class='text-center'><button class="btn btn-primary" ng-click="addInterview()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Academic Year<input type="text" style="width:100px;display:inline" class="form-control" ng-model="ayear"></input></th>
+          <th class='text-center'>Company<input type="text" style="width:100px;display:inline" class="form-control" ng-model="com"></input></th>
+          <th class='text-center'>Course type<input type="text" style="width:100px;display:inline" class="form-control" ng-model="ctype"></input></th>
+          <th class='text-center'>Stream<input type="text" style="width:100px;display:inline" class="form-control" ng-model="str"></input></th>
+          <th class='text-center'>Semester<input type="text" style="width:100px;display:inline" class="form-control" ng-model="sem"></input></th>
+          <th class='text-center'>Contact Person</th>
+          <th class='text-center'>Interview Date</th>
+          <th class='text-center'>Closing Date</th>
+          <th class='text-center'>Starting Time</th>
+          <th class='text-center'>Closing Time</th>
+          <th class='text-center'>Venue</th>
+          <th class='text-center'>Personh Mobile Number</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in interviewList |filter:{acdYr:ayear,company:com,cType:ctype,className:str,semester:sem}" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.acdYr}}</td>
+            <td class='text-center'>{{listObj.company}}</td>
+            <td class='text-center'>{{listObj.cType}}</td>
+            <td class='text-center'>{{listObj.className}}</td>
+            <td class='text-center'>{{listObj.semester}}</td>
+            <td class='text-center'>{{listObj.person}}</td>
+            <td class='text-center'>{{listObj.idate}}</td>
+            <td class='text-center'>{{listObj.cdate}}</td>
+            <td class='text-center'>{{listObj.start}}</td>
+            <td class='text-center'>{{listObj.close}}</td>
+            <td class='text-center'>{{listObj.venue}}</td>
+            <td class='text-center'>{{listObj.mobile}}</td>
+           
+            <td class="text-center"><a href ng-click="addInterview(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td class="text-center"><a href ng-click="deleteInterview(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- interview details End-->
+
+<!-- students allocation details Start-->
+  <div ng-if="isStudents">
+  <div class="text-center stuHead">Placement : Student Report</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head' style="white-space:nowrap;">
+          <th class='text-center'><button class="btn btn-primary" ng-click="addStudents()">Add New</button><span>S.No</span></th>
+           <th class='text-center'>Course type</th>
+          <th class='text-center'>Stream</th>
+          <th class='text-center'>Section</th>
+          <th class='text-center'>Semester</th>
+          <th class='text-center'>Academic Year</th>
+          <th class='text-center'>Adm No</th>
+          <th class='text-center'>Candidate Name</th>
+          <th class='text-center'>Company Name<input type="text" style="width:150px" class="form-control" ng-model="cName"></input></th>
+          <th class='text-center'>Interview Status</th>
+          <th class='text-center'>Remarks</th>
+          <th class='text-center'>Date<input type="text" style="width:150px" class="form-control" ng-model="dte"></input></th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in studentsList|filter:{companyName:cName,date:dte}" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.cType}}</td>
+            <td class='text-center'>{{listObj.className}}</td>
+            <td class='text-center'>{{listObj.section}}</td>
+            <td class='text-center'>{{listObj.medium}}</td>
+            <td class='text-center'>{{listObj.acdYr}}</td>
+            <td class='text-center'>{{listObj.admNo}}</td>
+            <td class='text-center'>{{listObj.name}}</td>
+            <td class='text-center'>{{listObj.companyName}}</td>
+            <td class='text-center'>{{listObj.status}}</td>
+            <td class='text-center'>{{listObj.remarks}}</td>
+            <td class='text-center'>{{listObj.date}}</td>
+            <td class="text-center"><a href ng-click="addStudents(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td class="text-center"><a href ng-click="deleteStudents(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- students allocation details End-->
+
+<!-- <div class="form-group form-inline">
+  <div class="row">
+            <label class="col-sm-3 text-right"> From Date:</label>
+            <div class="col-sm-2"><past-date date-callback="fnInsuranceSelection(date)"></past-date>
+            </div>
+            <label class="col-sm-3 text-right"> To Date:</label>
+            <div class="col-sm-2"><past-date date-callback="fnInsuranceSelection(date)"></past-date>
+            </div>
+      </div>
+    </div>
+
+            <div class="form-group form-inline">
+            <div class="row">
+            <label class="col-sm-3 text-right">Company:</label>
+            <div class="col-sm-2">
+            <select class="form-control w-195">
+            <option value="">Company Name</option>
+            <option ng-repeat="listObj in companyProfileList" value="{{listObj.companyName}}">{{listObj.companyName}}</option>
+            </select>
+          </div>
+          <div class="col-md-offset-3 col-sm-2">
+          <input type="submit" class="btn btn-primary" value="Search" ng-click="Search()">
+        </div>
+      </div></div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head' style="white-space:nowrap;">
+          <th class='text-center'><span>S.No</span></th>
+           <th class='text-center'>Course type</th>
+          <th class='text-center'>Stream</th>
+          <th class='text-center'>Semester</th>
+          <th class='text-center'>Academic Year</th>
+         <!  <th class='text-center'>Interview Schedule</th> -->
+          <!-- <th class='text-center'>Candidate Name</th>
+          <th class='text-center'>Roll Number</th>
+          <th class='text-center'>Interview Status</th>
+          <th class='text-center'>Remarks</th>
+          <th class='text-center'>Date</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+        </div> -->
+
+  <!-- reports  details Start-->
+<br>
+<div ng-if="isReports">
+<div class="row">
+<div class="form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label  class="col-xs-8 col-sm-6 text-right">Course Type:</label>
+<select class="form-control w-195" ng-model="cType" ng-change="changeCourseType(cType)" required>
+<option value="">Select Course Type</option>
+<option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+</select>
+</div>
+</div>
+<div class="form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label  class="col-xs-8 col-sm-6 text-right">Stream:</label>
+<select  class="form-control w-195" ng-model="class" ng-change="changeStream(class)">
+<option value="">Select Stream</option>
+<option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>   
+</select>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label  class="col-xs-8 col-sm-6 text-right">Semester:</label>
+<select class="form-control w-195 col-sm-3" ng-model="semester">
+<option value="">Select semester</option>
+<option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+</select>
+</div>
+</div>
+
+
+
+<div class="form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label class="col-xs-8 col-sm-6 text-right">Academic Year:</label>
+<select class="form-control w-195 col-md-3" ng-model="AcdYr" ng-change="getAcdYr()">
+<option value="">Select Year</option>
+<option value="2011-2012">2011-2012</option>
+<option value="2012-2013">2012-2013</option>
+<option value="2013-2014">2013-2014</option>
+<option value="2014-2015">2014-2015</option>
+<option value="2015-2016">2015-2016</option>
+<option value="2016-2017">2016-2017</option>
+<option value="2017-2018">2017-2018</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="row"> 
+<div class="form-group form-inline">
+<div class=" col-xs-12 col-sm-6">
+<label class="col-xs-8 col-sm-6 text-right">Company Name:</label>
+<select class="form-control w-195 col-md-3" ng-model="Company" ng-change="getCompany()">
+<option value="">Company Name</option>
+<option ng-repeat="listObj in companyProfileList track by $index" value="{{listObj.companyName}}">{{listObj.companyName}}</option>
+</select>
+</div>
+</div>
+ <div class="col-md-offset-3 col-sm-2">
+<input type="submit" class="btn btn-primary" value="Search" ng-click="Search()">
+</div>
+</div>
+
+<div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head' style="white-space:nowrap;">
+          <th class='text-center'><span>S.No</span></th>
+          <th class='text-center'>Student Name</th>
+          <th class='text-center'>Roll Number</th>
+          </tr>
+        </div>
+ <!-- reports  details End-->
+
+
+</div>
+</div>

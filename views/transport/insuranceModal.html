@@ -1,0 +1,67 @@
+<style>
+#transport{
+  margin-right:  -90px;
+}
+</style>
+<!-- Modal content-->
+  <div class="modal-content">
+  <form id="VehInsuForm">
+
+    <div class="modal-header">
+      <button type="button" ng-click="close()" class="close">&times;</button>
+      <h4 class="modal-title">Vehicle Insurance</h4>
+    </div>
+        
+    <div class="modal-body">
+       <div class="row form-group form-inline" id="transport">
+      <label class="col-xs-12 col-md-4 text-right">Vehicle Number:</label>
+      <div class="col-xs-12 col-md-4">
+        <select class="form-control w-195 " ng-model="VehicleNumber" name="VehicleNumber">
+          <option value="">VehicleNumber</option>
+          <option ng-repeat="listObj in vehicleList" value="{{listObj}}">{{listObj}}</option>
+        </select></div>
+      </div>
+
+      <div class="row form-group form-inline" id="transport">
+      <label class="col-xs-12 col-md-4 text-right">Insurance Company:</label>
+      <div class="col-xs-12 col-md-4 ">
+        <input type="text" class="form-control" ng-model="InsuranceCompany" name="InsuranceCompany"> 
+        </div></div>
+
+     <div class="row form-group form-inline" id="transport">
+    <label class="col-xs-12 col-md-4 text-right">Insurer:</label>
+    <div class="col-xs-12 col-md-4">
+  <input type="text" class=" form-control" ng-model="Insurer" name="Insurer">
+   </div></div>
+
+      <div class="row form-group form-inline" id="transport">
+      <label class="col-xs-12 col-md-4 text-right">Date</label>
+      <div class="col-xs-12 col-md-4">
+<!--          <past-date date-callback="fnInsuranceSelection(date)"></past-date>-->
+  <input type='date' ng-model="Date" class="form-control w-195">
+      </div></div>
+
+      <div class="row form-group form-inline" id="transport">
+      <label class="col-xs-12 col-md-4 text-right">Expires On:</label>
+      <div class="col-xs-12 col-md-4">
+<!--          <feature-date date-callback="fnFutureDateSelection(date)"></feature-date>-->
+        <input type='date' ng-model="ExpiresOn" class="form-control w-195">
+
+      </div></div>
+
+      <div class="row text-center">
+      <label class="text-danger" ng-bind="msg"></label>
+      </div>
+  </div>
+
+<div class="modal-footer" style="margin-top:21px">
+<button ng-if="isSave" type="submit" ng-click="save('9')" class="btn btn-primary">Save</button>
+<button ng-if="!isSave" type="submit" ng-click="save('10')" class="btn btn-primary">Edit</button>
+<button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+</div>
+
+      </form>
+      </div>
+      
+  
+  

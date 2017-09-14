@@ -1,0 +1,112 @@
+<style type="text/css">
+@media screen and (max-width: 991px) and (min-width: 300px){
+.textRes{
+  text-align: left!important;
+}
+}
+</style>
+
+<!-- Modal content-->
+<div class="modal-content">
+<form id="InterviewForm">
+
+<div class="modal-header">
+<button type="button" ng-click="close()" class="close">&times;</button>
+<h4 class="modal-title">Interview Schedule</h4>
+</div>
+
+<div class="modal-body">
+
+<div class="row form-group form-inline">
+<label class="col-xs-12 col-md-3 text-right textRes">Academic Year:</label>
+<div class="col-xs-12 col-md-3">
+<select class="form-control w-195 " ng-model="AcdYr" name="AcdYr">
+<option value="">Select Year</option>
+<option value="2011-2012">2011-2012</option>
+<option value="2012-2013">2012-2013</option>
+<option value="2013-2014">2013-2014</option>
+<option value="2014-2015">2014-2015</option>
+<option value="2015-2016">2015-2016</option>
+<option value="2016-2017">2016-2017</option>
+<option value="2017-2018">2017-2018</option>
+</select></div>
+<label class="col-xs-12 col-md-3 text-right textRes">Company Name:</label>
+<div class="col-xs-12 col-md-3">
+<select class="form-control w-195" ng-model="Company" name="Company">
+<option value="">Company Name</option>
+<option ng-repeat="listObj in companyProfileList" value="{{listObj}}">{{listObj}}</option>
+</select></div>
+</div>
+
+<div class="row form-group form-inline">
+<label  class="col-xs-12 col-md-3 text-right textRes">Course Type:</label>
+<div class="col-xs-12 col-md-3">
+<select class="form-control w-195 " ng-model="cType" ng-change="changeCourseType(cType)" name="cType">
+<option value="">Select Course Type</option>
+<option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+</select></div>
+<label  class="col-xs-12 col-md-3 text-right textRes">Stream:</label>
+<div class="col-xs-12 col-md-3">
+<select  class="form-control w-195 " ng-model="class" ng-change="changeStream(class)" name="class">
+<option value="">Select Stream</option>
+<option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>   
+</select></div>
+</div>
+
+<div class=" row form-group form-inline">
+<label  class="col-xs-12 col-md-3 text-right textRes">Semester:</label>
+<div class="col-xs-12 col-md-3">
+<select class="form-control w-195 " ng-model="semester" name="semester">
+<option value="">Select semester</option>
+<option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+</select></div>
+<label class="col-xs-12 col-md-3 text-right textRes">Contact Person:</label>
+<div class="col-xs-12 col-md-3 ">
+<input type="text" class="form-control" ng-model="Person" name="Person">
+</div></div>
+
+<div class="row form-group form-inline">
+<label  class="col-xs-12 col-md-3 text-right textRes"> Interview Date:</label>
+<div class="col-xs-12 col-md-3">
+    <input type="date" ng-model="IDate" class="form-control w-195">
+<!--<past-date date-callback="fnInterviewSelection(idate)"></past-date>-->
+</div>
+<label class="col-xs-12 col-md-3 text-right textRes">Closing Date:</label>
+<div class="col-xs-12 col-md-3">
+    <input type="date" ng-model="CDate" class="form-control w-195">
+<!--<past-date date-callback="fnClosingSelection(cdate)"></past-date>-->
+</div>
+</div>
+
+
+<div class="row form-group form-inline">
+<label  class="col-xs-12 col-md-3 text-right textRes"> Starting Time:</label>
+<div class="col-xs-12 col-md-3 ">
+<input type="text" class=" form-control" ng-model="Start" style="width: 196px;" name="Start"></div>
+<label  class="col-xs-12 col-md-3 text-right textRes">Closing Time:</label>
+<div class="col-xs-12 col-md-3 ">
+<input type="text" class="form-control" ng-model="Close" style="width: 196px;" name="Close">
+</div></div>
+
+<div class="row form-group form-inline">
+<label  class="col-xs-12 col-md-3 text-right textRes" >Venue:</label>
+<div class="col-xs-12 col-md-3">
+<input type="text" class="  form-control" ng-model="Venue" name="Venue"></div>
+<label class="col-xs-12  col-md-3 text-right textRes">Person Mobile Number:</label>
+<div class="col-xs-12 col-md-3">
+<input type="text" class=" form-control" ng-model="Mobile" name="Mobile">
+</div></div>
+
+<div class="row text-center">
+<label class="text-danger" ng-bind="msg"></label>
+</div>
+</div> 
+
+<div class="modal-footer">
+<button ng-if="isSave" type="submit" ng-click="save('5')" class="btn btn-primary">Save</button>
+<button ng-if="!isSave" type="submit" ng-click="save('6')" class="btn btn-primary">Edit</button>
+<button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+</div>
+
+</form>
+</div>

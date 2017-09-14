@@ -1,0 +1,53 @@
+ <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Enter Attendence</h4>
+        </div>
+
+        <form>
+        <div class="modal-body">
+        <div class=" form-group row">
+        <label class="col-sm-3 text-right">Date</label>
+        <div class="col-md-3 p-0">
+<!--            <past-date date-callback="fnDSelection(date)">
+           
+            </past-date>-->
+<input type='date' ng-model="selDate" class="form-control w-195"> 
+        </div><div class="form-group form-inline">
+        </div>
+        </div>
+
+              <div class="row">
+              <div class="col-sm-10">
+              <div class="form-group form-inline">
+              <div class="table-responsive">
+              <table class="table table-bordered">
+              <tr class='t-head'>
+              <th class="text-center">S.No</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">Adm.No</th>
+              <th class='text-center'> All<input type="checkbox" ng-change="checkModalAll(chkAll.isChk)" ng-model="chkAll.isChk"></th>
+              </tr>
+
+              <tr ng-repeat="inGenStdObj in attEntStd" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td class="text-center">{{$index+1}}</td>
+              <td class='text-center'>{{inGenStdObj.name}}</td>
+              <td class='text-center'>{{inGenStdObj.admNo}}</td>
+              <td class="text-center"><input type="checkbox" ng-model="std[inGenStdObj.admNo]"></td>
+              </tr>
+              </table>
+              </div>
+              </div>
+              </div>
+   
+   </div>
+   </div>
+        <div class="modal-footer">
+          <button type="submit" ng-click="saveAtten()" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+      </div>
+
+
+
+  

@@ -1,0 +1,31 @@
+
+      <!-- Modal content-->
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Course Type</h4>
+        </div>
+        <form name="myForm">
+        <div class="modal-body">
+          <div class="row">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Course Type:</label><input type="text" name="cType" id="cType" class="form-control" ng-model="cType" required>
+              <span class="colorRed" ng-show="myForm.cType.$error.required && myForm.cType.$dirty">required!!</span>
+          </div></div>
+          
+          <div class="row text-center">
+            <label class="text-danger" ng-bind="msg"></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button ng-if="isSave" type="submit" ng-disabled="!myForm.$valid" ng-click="save('0')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave" ng-disabled="!myForm.$valid" type="submit" ng-click="save('1')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+      </form>
+      </div>
+    
+      
+  
+  

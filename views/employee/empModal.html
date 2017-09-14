@@ -1,0 +1,509 @@
+  <!-- Modal content-->
+      
+         <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Employee Registration</h4>
+        </div>
+        <form id="employeeFormId">
+        <div class="modal-body">
+          
+          <div ng-show="isPreview">
+        <div ng-show="isPersonlDet">
+         <div class="form-group form-inline">
+         <div class="row">
+         <label class="col-sm-3 text-right">Employee Type:</label>
+         <div class="col-sm-3">
+         <select class="selectpicker form-control w-195" value="employeetype"  ng-model="empType">
+         <option value="">Select Employee Type</option>
+         <option value="Teaching Staff">Teaching Staff</option>
+         <option value="Non-Teaching Staff">Non-Teaching Staff</option>
+         <option value="Others">Others</option>
+         </select>
+         </div>
+          <label class="col-sm-2 text-right">SurName:</label>
+          <div class="col-sm-3">
+          <input type ="text" value="salary" class="form-control" ng-model="salary">
+          </div>
+          </div>
+          </div>
+
+          <div class="form-group form-inline">
+          <div class="row">
+          <label class="col-sm-3 text-right">Name:</label>
+          <div class="col-sm-3">
+          <input type ="text" value="name" class="form-control" ng-model="name">
+          </div>
+          <label class="col-sm-2 text-right">Gender:</label>
+          <div class="col-sm-3">
+         <select class="selectpicker form-control w-195" value="gender"  ng-model="gender">
+         <option value="">Select gender</option>
+         <option value="male">Male</option>
+         <option value="female">Female</option>
+         </select>
+         </div>
+         </div>
+         </div>
+
+         <div class="form-group form-inline">
+         <div class="row">
+          <label class="col-sm-3 text-right">Qualification:</label>
+         <div class="col-sm-3">
+         <select class="selectpicker form-control w-195" value="qualification"  ng-model="qulf">
+         <option value="">Select qualification </option>
+         <option value="B.Ed">B.Ed</option>
+         <option value="B.Com">B.Com</option>
+         <option value="B.Sc">B.Sc</option>
+         <option value="B.Tech">B.Tech</option>
+         <option value="M.Tech">M.Tech</option>
+         <option value="P.G">P.G</option>
+         <option value="Others">Others</option>
+         </select>
+         </div>
+           <label class="col-sm-2 text-right">Joining Date:</label>
+         <div class="col-sm-3 ">
+<!--             <past-date date-callback="fnDOJSelection(date)">-->
+                  <input type='date' ng-model="Joiningdate" class="form-control w-195">  
+             </past-date></div>
+          </div>
+          </div>
+
+         <div class="form-group form-inline">
+         <div class="row">
+          <label class="col-sm-3 text-right">Date of Birth:</label>
+         <div class="col-sm-3 ">
+<!--          <past-date date-callback="fnDOBSelection(date)"></past-date>-->
+         <input type='date' ng-model="dob" class="form-control w-195">   
+         </div>
+           <label class="col-sm-2 text-right">Previous Organisation:</label>
+          <div class="col-sm-3">
+          <input type ="text" value="previous organisation" class="form-control" ng-model="Prvorg">
+          </div>
+          </div> </div>
+        
+
+          <div class="form-group form-inline">
+          <div class="row">
+          <label class="col-sm-3 text-right">Experience:</label>
+           <div class="col-sm-3">
+          <input type ="text" value="experience" class="form-control" ng-model="exprnc">
+          </div>
+           <label class="col-sm-2 text-right">Phone Number:</label>
+          <div class="col-sm-3">
+          <input type ="text" class="form-control" ng-model="phNo">
+          </div>
+          </div>
+          </div>
+
+           <div class="form-group form-inline">
+          <div class="row"> 
+          <label class="col-sm-3 text-right">Email Id:</label>
+          <div class="col-sm-3">
+          <input type="email" class="form-control" id="email" ng-model="email">
+          </div>
+          <label class="col-sm-2 text-right">Blood Group:</label>
+          <div class="col-sm-3">
+          <select class="selectpicker form-control w-195" value="blood group"  ng-model="Bldgrp">
+         <option value="">Select Blood Group</option>
+         <option value="A+">A+</option>
+         <option value="A-">A-</option>
+         <option value="B+">B+</option>
+         <option value="B-">B-</option>
+         <option value="O+">O+</option>
+         <option value="O-">O-</option>
+         <option value="AB+">AB+</option>
+         <option value="AB-">AB-</option>
+         </select>
+          </div>
+          </div>
+          </div>
+
+         <div class="form-group form-inline">
+         <div class="row">
+           <label class="col-sm-3 text-right">Marital Status:</label>
+         <div class="col-sm-3">
+         <select class="selectpicker form-control w-195" value="Marital Status" ng-model="Maritalstatus">
+         <option value="">Select status </option>
+         <option value="unmarried">Unmarried</option>
+         <option value="married">Married</option>
+         </select>
+          </div>
+         <label class="col-sm-2 text-right">Nationality:</label>
+         <div class="col-sm-3">
+         <input type ="text" value ="vehicle" class="form-control" ng-model="vehicle">
+          </div>
+          </div>
+          </div>
+
+      
+   
+           <div class="form-group form-inline">
+           <div class="row">
+          <label class="col-sm-3 text-right">Address:</label>
+          <div class="col-sm-3">
+          <textarea class="form-control" rows="5" cols='22' ng-model="address"></textarea>
+          </div>
+          <label class="col-sm-2 text-right">Photo:</label>
+          <div class="col-sm-3">
+          <input type ="file" value="name"  ng-model="photo">
+          </div>
+          </div>
+          </div> 
+            </div>
+    
+          <div ng-show="!isPersonlDet">
+         <div class="form-group form-inline">
+         <div class="row">
+          <label class="col-sm-3 text-right">Designation :</label>
+          <div class="col-sm-3">
+         <select class="selectpicker form-control w-195" value="blood group"  ng-model="desig">
+         <option value="">Select Designation</option>
+         <option value="Chief Executive Officer">Chief Executive Officer</option>
+         <option value="Head Of Department">Head Of Department</option>
+         <option value="Professor">Professor</option>
+         <option value="Assistant Professor">Assistant Professor</option>
+         </select>
+          </div>
+         <label class="col-sm-2 text-right">Salary Component:</label>
+         <div class="col-sm-3">
+         <input type ="text" value ="component" class="form-control" ng-model="component">
+          </div>
+          </div>
+          </div>
+
+        <div class="form-group form-inline">
+         <div class="row">
+          <label class="col-sm-3 text-right">Pay Frequency :</label>
+          <div class="col-sm-3">
+         <select class="selectpicker form-control w-195" value="blood group"  ng-model="freq">
+         <option value="">Select Pay Frequency</option>
+         <option value="Weekly">Weekly</option>
+         <option value="Hourly">Hourly</option>
+         <option value="Monthly">Monthly</option>
+         <option value="Monthly on First Pay Month">Monthly on First Pay Month</option>
+         <option value="Semi Monthly">Semi Monthly</option>
+         <option value="Weekly">Weekly</option>
+         </select>
+          </div>
+         <label class="col-sm-2 text-right">Currency:</label>
+         <div class="col-sm-3">
+         <input type ="text" value ="currency" class="form-control" ng-model="currency">
+          </div>
+          </div>
+          </div>
+             
+      <div class="row form-group form-inline">
+      <label class="col-sm-3 text-right">Casual Leaves:</label>
+      <div class="col-sm-3">
+      <input type="text" class="form-control" ng-model="casual">
+    </div>
+      <label class="col-sm-2 text-right">Maternity leaves:</label>
+      <div class="col-sm-3">
+      <input type="text" class="form-control" ng-model="maternity">
+      </div> </div>
+           
+      <div class="row form-group form-inline">
+         <label class="col-sm-3 text-right">Sick leaves:</label>
+         <div class="col-sm-3">
+         <input type="text" class="form-control" ng-model="sick">
+      </div>
+       <label class="col-sm-2 text-right">Amount :</label>
+          <div class="col-sm-3">
+          <input type ="text" value="amount" class="form-control" ng-model="amt">
+          </div>
+        </div>
+
+       <div class="row form-group form-inline">
+         <label class="col-sm-3 text-right">Comments:</label>
+          <div class="col-sm-3">
+         <textarea rows="3" cols="22" ng-model="comments" class="form-control" name="comments"></textarea></div>
+          </div>
+        <label class="col-sm-3 text-right">Add Direct Deposit Details</label>
+        <input type="checkbox" ng-model="isChecked" />
+          <div ng-show="isChecked">
+         <br>
+          <div class="row form-group form-inline">
+          <label class="col-sm-3 text-right">Account Number:</label>
+          <div class="col-sm-3">
+          <input type ="text" value="salary" class="form-control" ng-model="acNo">
+          </div>
+          <label class="col-sm-2 text-right">Account Type :</label>
+          <div class="col-sm-3">
+          <input type ="text" value="salary" class="form-control" ng-model="acType">
+          </div>
+        </div>
+
+          <div class="row form-group form-inline">
+          <label class="col-sm-3 text-right">Bank Name:</label>
+          <div class="col-sm-3">
+        <select  class="form-control w-195" ng-model="bank">
+        <option value="">Select Bank</option>
+       <option ng-repeat="obj in banks" value="{{obj.bankName}}">{{obj.bankName}}</option> 
+            </select>
+          </div>
+          <label class="col-sm-2 text-right">IFSC Code:</label>
+          <div class="col-sm-3">
+          <input type ="text" value="salary" class="form-control" ng-model="ifsc">
+          </div>
+          </div>
+          </div>
+           </div></div>
+
+
+           <div ng-show="!isPreview && !isPersonlDet">
+             <div style="position: absolute" class="col-sm-offset-10">
+       <img src="images/s7.jpg" height="90px" width="95px"/>
+             </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+       <label class="col-sm-3 control-label ">Employee Type </label>
+       <label>:</label>
+        <b  class="" ng-bind="empType"></b>
+        
+        </div>
+        </div>
+           
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label">SurName</label>
+         <label>:</label>
+        <b class="" ng-bind="salary"></b>
+        
+        </div>
+        </div>
+    
+
+
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Name</label>
+        <label>:</label>
+        <b class="" ng-bind="name"></b>
+        </div>
+        </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Gender</label>
+        <label>:</label>
+        <b class="" ng-bind="gender"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Qualification</label>
+        <label>:</label>
+        <b class="" ng-bind="qulf"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Joining Date</label>
+        <label>:</label>
+        <b class="" ng-bind="dob"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Date of Birth</label>
+        <label>:</label>
+        <b class="" ng-bind="dob"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Previous Organisation</label>
+        <label>:</label>
+        <b class="" ng-bind="Prvorg"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Experience</label>
+        <label>:</label>
+        <b class="" ng-bind="exprnc"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Phone Number</label>
+        <label>:</label>
+        <b class="" ng-bind="phNo"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Email Id</label>
+        <label>:</label>
+        <b class="" ng-bind="email"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1 ">
+            
+        <label class="col-sm-3 control-label ">Blood Group</label>
+        <label>:</label>
+        <b class="" ng-bind="Bldgrp"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Marital Status</label>
+        <label>:</label>
+        <b class="" ng-bind="Maritalstatus"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Nationality</label>
+        <label>:</label>
+        <b class="" ng-bind="vehicle"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Address</label>
+        <label>:</label>
+        <b class="" ng-bind="address"></b>
+        </div>
+        </div>
+         <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Designation</label>
+        <label>:</label>
+        <b class="" ng-bind="desig"></b>
+        </div>
+        </div>
+
+         
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Salary Component</label>
+        <label>:</label>
+        <b class="" ng-bind="component"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Pay Frequency</label>
+        <label>:</label>
+        <b class="" ng-bind="freq"></b>
+        </div>
+        </div>
+
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Currency</label>
+        <label>:</label>
+        <b class="" ng-bind="currency"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Casual Leaves</label>
+        <label>:</label>
+        <b class="" ng-bind="casual"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Maternity leaves</label>
+        <label>:</label>
+        <b class="" ng-bind="maternity"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Sick leaves</label>
+        <label>:</label>
+        <b class="" ng-bind="sick"></b>
+        </div>
+        </div>
+
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Amount</label>
+        <label>:</label>
+        <b class="" ng-bind="amt"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Comments</label>
+        <label>:</label>
+        <b class="" ng-bind="comments"></b>
+        </div>
+        </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Account Number</label>
+        <label>:</label>
+        <b class="" ng-bind="acNo"></b>
+        </div>
+        </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Account Type</label>
+        <label>:</label>
+        <b class="" ng-bind="acType"></b>
+        </div>
+        </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Bank Name</label>
+        <label>:</label>
+        <b class="" ng-bind="comments"></b>
+        </div>
+        </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">IFSC Code</label>
+        <label>:</label>
+        <b class="" ng-bind="ifsc"></b>
+        </div>
+        </div>
+       </div>
+           
+          <div class="row text-center">
+          <label class="text-danger" ng-bind="msg"></label>
+          </div>
+      
+     
+          <div class="modal-footer">
+          <button type="button" ng-if="isPersonlDet" ng-click="goNext()" class="btn btn-primary">Next</button>
+          <button type="button" ng-if="!isPersonlDet" ng-click="goBack()" class="btn btn-primary">Back</button>
+
+          <button type="button" ng-if="isPreview && !isPersonlDet" ng-click="goPreview()" class="btn btn-primary">Preview</button>
+
+       <button type="button" ng-if="!isPreview && !isPersonlDet" ng-click="goModify()" class="btn btn-primary">Modify</button>
+       
+          <button ng-if="isSave && !isPersonlDet" type="submit" ng-click="save('1')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave && !isPersonlDet" type="submit" ng-click="save('2')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+      </form>
+      </div>

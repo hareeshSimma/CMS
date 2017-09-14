@@ -1,0 +1,154 @@
+<style type="text/css">
+@media screen and (max-width: 991px) and (min-width: 300px){
+.textRes{
+  text-align: left!important;
+}
+
+}
+</style>
+<!-- Modal content-->
+
+      <div class="modal-content">
+      <form id="SinfoForm">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Campus Info</h4>
+        </div>
+        <div class="modal-body">
+
+        <div class="form-group form-inline ">
+       <div class="row">
+       <label class="control-label col-xs-12 col-md-3 text-right textRes">College Name:</label>
+       <div class="col-xs-12 col-md-3">
+       <input type="text" class="form-control" ng-model="CollegeName" name="CollegeName">
+       </div>
+       <label class="control-label col-xs-12 col-md-2 text-right textRes">College Caption:</label>
+       <div class="col-xs-12 col-md-3">
+       <input type="text" class="form-control" ng-model="CollegeCaption" name="CollegeCaption">
+       </div>
+       </div>
+       </div>
+
+
+       <div class="form-group form-inline ">
+       <div class="row">
+       <label class="control-label col-xs-12 col-md-3 text-right textRes">Campus Name:</label>
+       <div class="col-xs-12 col-md-3">
+       <input type="text" class="form-control" ng-model="CampusName" name="CampusName">
+       </div>
+       <label class="control-label col-xs-12 col-md-2 text-right textRes">Campus Code:</label>
+       <div class="col-xs-12 col-md-3">
+       <input type="text" class="form-control" ng-model="CampusCode" name="CampusCode">
+       </div>
+       </div>
+       </div>
+
+       <div class="form-group form-inline">
+       <div class="row">
+       <label class="control-label col-xs-12 col-md-3 text-right textRes">State:</label>
+       <div class="col-xs-12 col-md-3">
+       <select class="form-control w-195" ng-model="state" ng-change="changeState(state)" name="state">
+       <option value="">Select State</option>
+       <option ng-repeat="Listobj in states" value="{{Listobj.stateName}}">{{Listobj.stateName}}</option>
+       </select>
+       </div>
+       <label class="control-label col-xs-12 col-md-2 text-right textRes">District:</label>
+       <div class="col-xs-12 col-md-3">
+       <select class="form-control  w-195" ng-model="District" name="District">
+          <option value="">Select District</option>
+          <option ng-repeat="Listobj in districts" value="{{Listobj.districtName}}">{{Listobj.districtName}}</option>
+        </select>
+        </div>
+        </div>
+        </div>
+
+
+        
+
+           <div class="form-group form-inline">
+           <div class="row">
+            <label class="control-label col-xs-12 col-md-3 text-right textRes">Pin Code:</label> 
+            <div class="col-xs-12 col-md-3">
+            <input type="text" class="form-control" ng-model="PinCode" name="PinCode">
+            </div>
+            <label class="control-label col-xs-12 col-md-2 text-right textRes">Phone Number:</label>
+            <div class="col-xs-12 col-md-3">
+        <input type="text" class="form-control"  ng-model="PhoneNumber" name="PhoneNumber">
+            </div>
+           </div>
+           </div>
+
+           <div class="form-group form-inline">
+           <div class="row">
+            <label class="control-label col-xs-12 col-md-3 text-right textRes">Email:</label> 
+            <div class="col-xs-12 col-md-3">
+            <input type="text" class="form-control" ng-model="Email" name="Email">
+            </div>
+            <label class="control-label col-xs-12 col-md-2 text-right textRes">Website</label>
+          <div class="col-xs-12 col-md-3">
+          <input type="text" class="form-control"  ng-model="Website" name="Website">
+            </div>
+           </div>
+           </div>
+
+            
+          <div class="form-group form-inline">
+          <div class="row">
+            <label class="control-label col-xs-12 col-md-3 text-right textRes">College Code:</label> 
+            <div class="col-xs-12 col-md-3">
+            <input type="text" class="form-control" ng-model="CollegeCode" name="CollegeCode">
+            </div>
+             <label class="control-label col-xs-12 col-md-2 text-right textRes">Logo:</label>
+            <div class="col-xs-12 col-md-3">
+        <input type="file" class="form-control" ng-model="Logo" name="Logo" style="width: 100%">
+            </div>
+         
+           </div>
+           </div>
+
+          <div class="form-group form-inline">
+    <div class="row">
+    <label class="control-label col-xs-12 col-md-3 text-right textRes">Fax:</label>
+    <div class="col-xs-12 col-md-3">
+    <input type="text" class="form-control"  ng-model="Street" name="Street">
+    </div>
+  
+
+ <label class="control-label col-xs-12 col-md-2 text-right textRes">Established in:</label> 
+    <div class="col-xs-12 col-md-3">
+<!--        <past-date date-callback="fnSinfoSelection(date)">
+        </past-date>-->
+                <input type='date' ng-model="Estd" class="form-control w-195">    
+
+    </div>
+
+    </div>
+    </div>
+
+    <div class="form-group form-inline">
+    <div class="row">
+    <label class="control-label col-xs-12 col-md-3 text-right textRes">Address:</label>
+    <div class="col-xs-12 col-md-3">
+    <textarea type="text" class="form-control" ng-model="city" rows="3" cols="22"  name="address"></textarea>
+    </div>
+    </div>
+    </div>
+
+
+        
+        </div>
+
+        <div class="modal-footer">
+             <div class="row text-center">
+          <label class="text-danger" ng-bind="msg"></label>
+          </div>
+          <button ng-if="isSave" type="submit" ng-click="save('0')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave" type="submit" ng-click="save('1')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+
+        </form>
+      </div>
+      
+  
+  

@@ -1,0 +1,218 @@
+
+</br>
+<div class="row offsetMenu ">
+    <div class="col-xs-12 p-0">
+
+        <!-- Default Data-->
+        <form name="myForm">
+             <div ng-if="isDefault">
+                <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome to Student Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Student Module Contains 4 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Student Registration</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Student Id Card Generation</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Student Certificates Generation</li>
+                     <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Final Report </li>
+                      
+                     
+              </ul>              
+        </div>
+
+            </div>
+            <div class="form-group" ng-show="!isDefault">
+                
+                 <div class="row mrow">
+ <div class="col-sm-3 form-group">
+    <select class="form-control  dispInline" ng-model="cType" ng-change="changeCourseType(cType)" required >
+      <option value="">Select Course Type</option>
+      <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+      </select>
+ </div>
+ <div class="col-sm-3 form-group">
+    <select  class="form-control  dispInline" ng-model="class" ng-change="changeStream(class)">
+                                <option value="">Select Stream</option>
+                                <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option></select> 
+ </div>
+ <div class="col-sm-3 form-group">
+    <select class="form-control dispInline" ng-model="semester">
+                                <option value="">Select semester</option>
+                                <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+                            </select>
+ </div>
+ <div class="col-sm-3 form-group">
+    <select class="form-control  dispInline" ng-model="section" required>
+                                <option value="">Select Section</option>
+                                <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+                            </select>
+ </div>
+
+ </div>
+                
+          
+ <div class="row mrow">
+ <div class="col-sm-3 form-group" ng-show="!isAttendence">
+          <input type="submit" class="btn btn-primary  btn-block" value="Search" ng-click="stdSearch()" >
+    
+ </div>
+ <div class="col-sm-3 form-group" >
+    <input ng-if="isRegister" type="button" class="btn btn-primary btn-block" value="New Registration" ng-click="addNewStudent()" tyle="margin-right: 49px;">
+
+                        
+ </div>
+ <div class="col-sm-3 form-group"  ng-show="isAttendence">
+<!--     <div class="row form-group ">
+   <label class="col-sm-2">Date:</label>
+   <div class="col-sm-10">
+   <past-date date-callback="fnDSelection(date)"></past-date>
+
+   </div>
+     </div>-->
+ </div>
+ <div class="col-sm-3 form-group">
+    <select class="form-control" ng-change="export(etype)" ng-model="etype"  ng-show="isRegister">
+            <option value="">Export</option>
+            <option value="excel">EXCEL</option>
+                        </select> 
+     
+                        <input ng-if="isIdCard" type="button" class="btn btn-primary   btn-block" value="Generate IdCard" ng-click="generateIdCard(std, stdList)" tyle="margin-right: 49px;">
+                        <input ng-if="isCertificates" type="button" class="btn btn-primary   btn-block" value="Generate Certificates" ng-click="generateCertificates(std, stdList)" tyle="margin-right: 49px;">
+                        <input ng-if="(!saveAttendence && isAttendence)" type="button" class="btn btn-primary   btn-block" value="Enter Attendence" ng-click="enterAttendence()" tyle=" margin-right: 49px;">
+                        <input ng-if="(saveAttendence && isAttendence)" type="button" class="btn btn-primary  btn-block" value="Save Attendence" ng-click="fnAttSave()" tyle=" margin-right: 493px;">
+                  
+ </div>
+ 
+ </div>
+    
+            </div>
+
+
+        </form>
+    </div>
+    <!--default Data End -->
+
+    <div class="form-group" style="margin-top:-20px" ng-show="!isDefault">
+
+        <div class="table-responsive"  ng-show="!isAttendence">
+            <table class="table table-bordered" id="tableID">
+                <thead>
+                    <tr class='t-head'>
+                        <th class='text-center'><span>S.No</span>
+                        <th ng-if="isOther" class='text-center'> All<input type="checkbox" ng-change="checkAll(chkAll.isChk)" ng-model="chkAll.isChk"></th>
+                        <th class='text-center'>Admission No</th>
+                        <th class='text-center'>Name <input type="text" style="width:200px;display:inline" class="form-control" ng-model="fName"></input></</th>
+                        <th class='text-center'>Gender</th>
+                        <th class='text-center'>Date of Admission</th>
+                        <th class='text-center'>Date of Birth</th>
+                        <th class='text-center'>Acedemic Year</th>
+                        <th class='text-center'>ph.No</th>
+                        <th class='text-center' ng-if="!isOther">Edit</th>
+                        <th ng-if="!isOther" class='text-center'>Delete</th>
+                        <th ng-if="!isOther" class='text-center'>Upload</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="listObj in stdList| 
+          filter:{name:fName}" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                    <td class="text-center">{{$index + 1}}</td>
+                    <td ng-if="isOther" class="text-center"><input type="checkbox" ng-model="std[listObj.admNo]"></td>
+                    <td class='text-center'>{{listObj.admNo}}</td>
+                    <td class='text-center'>{{listObj.name}}</td>
+                    <td class='text-center'>{{listObj.gender}}</td>
+                    <td class='text-center'>{{listObj.doa}}</td>
+                    <td class='text-center'>{{listObj.dob}}</td>
+                    <td class='text-center'>{{listObj.aceYear}}</td>
+                    <td class='text-center'>{{listObj.phNo}}</td>
+                    <td ng-if="!isOther" class="text-center"><a href ng-click="addNewStudent(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td ng-if="!isOther" class="text-center"><a href ng-click="deleteStudent(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    <td class="text-center" ng-if="!isOther"><a title="Upload Attachments"href ng-click="uploads(listObj)"><span class="glyphicon glyphicon-upload"></span></a></td>
+                </tr>
+                 
+            </table>
+          
+        </div>
+
+       
+        <div class="form-group" >
+            <div ng-show="isSearchView" >
+                <div class="row">
+                    <input type="button" class="btn btn-primary" style="margin-top: -13px;
+                           margin-bottom: 10px;" value="Enquiry Registration" ng-click="enquiryRegistration()">
+                </div>
+                <div class="table-responsive" style="margin-left: -30px;">
+                    <table class="table table-bordered" >
+                        <thead>
+                            <tr class='t-head'>
+                                <th class='text-center'><span>S.No</span></th>
+                                <th class='text-center'>Name <input type="text" style="width:200px;display:inline" class="form-control" ng-model="fName"></input></</th>
+                                <th class='text-center'>Class</th>
+                                <th class='text-center'>Gender</th>
+                                <th class='text-center'>Father's Name</th>
+                                <th class='text-center'>Acedemic Year</th>
+                                <th class='text-center'>ph.No</th>
+                                <th class='text-center'>Edit</th>
+                                <th class='text-center'>Delete</th>
+                            </tr>
+                        </thead>
+                        <tr ng-repeat="listObj in enquiryStuList| 
+          filter:{name:fName}" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                            <td class="text-center">{{$index + 1}}</td>
+                            <td class='text-center'>{{listObj.name}}</td>
+                            <td class='text-center'>{{listObj.className}}</td>
+                            <td class='text-center'>{{listObj.gender}}</td>
+                            <td class='text-center'>{{listObj.fname}}</td>
+                            <td class='text-center'>{{listObj.acdemicYear}}</td>
+                            <td class='text-center'>{{listObj.phno}}</td>
+                            <td class="text-center"><a href ng-click="enquiryRegistration(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                            <td class="text-center"><a href ng-click="deleteStudent(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                        </tr>
+                       
+                    </table>
+                </div>
+            </div>
+            
+            <div class="table-responsive" ng-show="isAttendence">
+                <table class="table table-bordered">
+                    <tr class='t-head'>
+                        <th class="text-center">S.No</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Adm.No</th>
+                        <th class="text-center">Full Day</th>
+                        <th class="text-center">Haly Day</th>
+                        <th class="text-center">Absent</th>
+                    </tr>
+
+                    <tr ng-repeat="sObj in attEntStds" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                        <td class="text-center">{{$index + 1}}</td>
+                        <td class='text-center'>{{sObj.name}}</td>
+                        <td class='text-center'>{{sObj.admNo}}</td>
+                        <td class="text-center"><input style="width:100%;height:1.5em" type="radio" name="{{sObj.admNo}}" value="f" ng-model="att[sObj.admNo]"></td>
+                        <td class="text-center"><input style="width:100%;height:1.2em" type="radio" name="{{sObj.admNo}}" value="h" ng-model="att[sObj.admNo]"></td>
+                        <td class="text-center"><input type="radio" name="{{sObj.admNo}}" value="a" ng-model="att[sObj.admNo]"></td>
+                    </tr>
+                    
+                </table>
+                
+            </div>
+          
+        </div>
+    </div>
+     <div class="row text-center mrow">
+         <label class="text-danger font" ng-bind="msg">   
+         </label>
+          </div>
+</div>

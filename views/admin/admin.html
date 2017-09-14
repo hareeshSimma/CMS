@@ -1,0 +1,322 @@
+
+<br>
+<div class="row offsetMenu">
+<div class="col-xs-12 p-0">
+    <div ng-if="isDefault">
+        <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Administration</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Admin Module Contains 6 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;College Information</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Subject's Information</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Exam's Information</li>
+                     <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;News </li>
+                      <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;User's Allocation</li>
+                       <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Employee Information</li>
+                        
+              </ul>              
+        </div>
+        
+        
+    </div>
+    <!--employee start-->
+    <div ng-show="isEmployee">
+    <div class="table-responsive">
+    <table class="table table-bordered">
+    <tr class='t-head'>
+    <th class='text-center'>
+        <button class="btn btn-primary pull-left" ng-click="addEmployee()">Add New</button></th>
+    <th class='text-center'>S.No</th>
+    <th class='text-center'>Employee Type</th>
+    <th class='text-center'>Name <input type="text" style="width:200px;display:inline" class="form-control" ng-model="fName"></input></</th>
+    <th class='text-center'>Gender</th>
+    <th class='text-center'>Qualification</th>
+    <th class='text-center'>PhoneNumber</th>
+    <th class='text-center'>Address</th>
+    <th class='text-center'>EmailId</th>
+    <th class='text-center'>Photo</th>
+    <th class='text-center'>Nationality</th>
+    <th class='text-center'>Designation</th>
+    <th class='text-center'>Salary Component</th>
+    <th class='text-center'>Pay Frequency</th>
+    <th class='text-center'>Currency</th>
+    <th class='text-center'>Casual Leaves</th>
+    <th class='text-center'>Maternity Leaves</th>
+    <th class='text-center'>Sick leaves</th>
+    <th class='text-center'>Amount</th>
+    <th class='text-center'>Comments</th>
+    <th class='text-center'>Account Number</th>
+    <th class='text-center'>Account Type</th>
+    <th class='text-center'>Bank Name</th>
+    <th class='text-center'>IFSC Code</th>
+    <th class='text-center'>Edit</th>
+    <th class='text-center'>Delete</th>
+        </tr>
+    <tr ng-repeat="listObj in employeeList | 
+    filter:{name:fName}" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+        <td></td>
+    <td class="text-center">{{$index+1}}</td>
+    <td class='text-center'>{{listObj.employee}}</td>
+    <td class='text-center'>{{listObj.name}}</td>
+    <td class='text-center'>{{listObj.gender}}</td>
+    <td class='text-center'>{{listObj.qualification}}</td>
+    <td class='text-center'>{{listObj.phonenumber}}</td>
+    <td class='text-center'>{{listObj.address}}</td>
+    <td class='text-center'>{{listObj.emailid}}</td>
+    <td class='text-center'>{{listObj.photo}}</td>
+    <td class='text-center'>{{listObj.vehicle}}</td>
+    <td class='text-center'>{{listObj.desig}}</td>
+    <td class='text-center'>{{listObj.component}}</td>
+    <td class='text-center'>{{listObj.freq}}</td>
+    <td class='text-center'>{{listObj.currency}}</td>
+    <td class='text-center'>{{listObj.casual}}</td>
+    <td class='text-center'>{{listObj.maternity}}</td>
+    <td class='text-center'>{{listObj.sick}}</td>
+    <td class='text-center'>{{listObj.amt}}</td>
+    <td class='text-center'>{{listObj.comments}}</td>
+    <td class='text-center'>{{listObj.acNo}}</td>
+    <td class='text-center'>{{listObj.acType}}</td>
+    <td class='text-center'>{{listObj.bank}}</td>
+    <td class='text-center'>{{listObj.ifsc}}</td>
+    <td class="text-center"><a href ng-click="addEmployee(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteEmployee(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+        </tr>
+        </table>
+        </div>
+        </div>
+
+    <!--employee end-->
+  <!-- Course Type Start-->
+  <div ng-if="isCtype">
+      <div class="table-responsive" >
+        <table class="table table-bordered">
+          <tr class='t-head'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addCtype()">Add New</button>
+                  </th>
+                  <th>S.No</th><th class='text-center'>Course type</th><th class='text-center'>Edit</th><th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in cTypeList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td><td class='text-center'>{{listObj.cType}}</td><td class="text-center"><a href ng-click="addCtype(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteCType(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Course Type End-->
+
+<!-- Class Start-->
+  <div ng-if="isClass">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addClass()">Add New</button><span>S.No</span></th><th class='text-center'>Course type</th><th class='text-center'>Class</th><th class='text-center'>Edit</th><th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in classList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class="text-center">{{$index+1}}</td><td class='text-center'>{{listObj.cType}}</td><td class='text-center'>{{listObj.stream}}</td><td class="text-center"><a href ng-click="addClass(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteClass(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Class End-->
+
+<!-- Class Start-->
+  <div ng-if="isSection">
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addSection()">Add New</button>
+                  </th>
+                  <th>S.No</th>
+              <th class='text-center'>Course type</th><th class='text-center'>Class</th><th class='text-center'>Section</th><th class='text-center'>Edit</th><th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in sectionList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td><td class='text-center'>{{listObj.cType}}</td><td class='text-center'>{{listObj.class}}</td><td class='text-center'>{{listObj.section}}</td><td class="text-center"><a href ng-click="addSection(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteSection(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Class End-->
+
+<!-- Subjects Start-->
+  <div ng-if="isSubjects">
+  <div class="text-center stuHead">Admin : Subjects</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addSubjects()">Add New</button>
+          </th>
+                  <th>S.No</th>
+          <th class='text-center'>Course type</th>
+          <th class='text-center'>Stream</th>
+          <th class='text-center'>Semester</th>
+          <th class='text-center'>Section</th>
+          <th class='text-center'>Ace Year</th>
+          <th class='text-center'>Subjects</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in subjectsList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.cType}}</td>
+            <td class='text-center'>{{listObj.class}}</td>
+            <td class='text-center'>{{listObj.semester}}</td>
+            <td class='text-center'>{{listObj.section}}</td> 
+            <td class='text-center'>{{listObj.aceYear}}</td> 
+            <td class='text-center'>{{listObj.subjects}}</td>
+            <td class="text-center"><a href ng-click="addSubjects(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteSubjects(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Subjects End-->
+  
+  <!-- news Start-->
+  <div ng-if="isNews">
+  <div class="text-center stuHead">Admin : News</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head'>
+          <th class='text-center'><button class="btn btn-primary pull-left" ng-click="addNews()">Add New</button>
+          </th>
+          <th class='text-center'>S.No</th>
+          <th class='text-center'>News</th>
+          <th class='text-center'>Date</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in newsList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.news}}</td>
+            <td class='text-center'>{{listObj.ndate}}</td>
+            <td class="text-center"><a href ng-click="addNews(listObj)">
+            <span class="glyphicon glyphicon-pencil"></span></a></td>
+            <td class="text-center"><a href ng-click="deleteNews(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- News End-->
+  
+   <!-- School info Start-->
+  <div ng-if="isSinfo">
+  <div class="text-center stuHead">Admin : College Information</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head ws-nw'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addSinfo()">Add New</button></th>
+              <th>S.No</th>
+              <th class='text-center'>College Name</th>
+          <th class='text-center'>College Caption</th>
+          <th class='text-center'>Campus Name</th>
+          <th class='text-center'>Campus Code</th>
+          <th class='text-center'>State</th>
+          <th class='text-center'>District</th>
+          <th class='text-center'>Address</th>
+          <th class='text-center'>Fax</th>
+          <th class='text-center'>Pin Code</th>
+          <th class='text-center'>Phone Number</th>
+          <th class='text-center'>Email</th>
+          <!-- <th class='text-center'>Logo</th> -->
+          <th class='text-center'>College Code</th>
+          <th class='text-center'>Website</th>
+          <th class='text-center'>Established In</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in sinfoList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            
+            <td></td>
+            <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.collegeName}}</td>
+            <td class='text-center'>{{listObj.collegeCaption}}</td>
+            <td class='text-center'>{{listObj.campusName}}</td>
+            <td class='text-center'>{{listObj.campusCode}}</td>
+            <td class='text-center'>{{listObj.state}}</td>
+            <td class='text-center'>{{listObj.district}}</td>
+            <td class='text-center'>{{listObj.city}}</td>
+            <td class='text-center'>{{listObj.street}}</td> 
+            <td class='text-center'>{{listObj.pinCode}}</td>
+            <td class='text-center'>{{listObj.phoneNumber}}</td>
+            <td class='text-center'>{{listObj.email}}</td>
+            <!-- <td class='text-center'>{{listObj.logo}}</td> -->
+            <td class='text-center'>{{listObj.collegeCode}}</td>
+            <td class='text-center'>{{listObj.website}}</td>
+            <td class='text-center'>{{listObj.estd}}</td><td class="text-center"><a href ng-click="addSinfo(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteSinfo(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- School info End-->
+
+ <!-- Exam Start-->
+  <div ng-if="isExams">
+  <div class="text-center stuHead">Admin : Exams</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addExams()">Add New</button>
+                  </th>
+                  <th>S.No</th>
+              <th class='text-center'>Course type</th>
+              <th class='text-center'>Class</th>
+          <th class='text-center'>Section</th>
+          <th class='text-center'>Semester</th>
+          <th class='text-center'>Ace Year</th>
+          <th class='text-center'>Exams</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in examsList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td><td class='text-center'>{{listObj.cType}}</td>
+            <td class='text-center'>{{listObj.className}}</td>
+            <td class='text-center'>{{listObj.section}}</td>
+            <td class='text-center'>{{listObj.semester}}</td>
+            <td class='text-center'>{{listObj.aceYear}}</td>
+            <td class='text-center'>{{listObj.exams}}</td>
+            <td class="text-center"><a href ng-click="addExams(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteExams(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+ <!-- Exams End-->
+ <!-- Users Start-->
+  <div ng-if="isUsers">
+  <div class="text-center stuHead">Admin : Users</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr class='t-head'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addUsers()">Add New</button>
+                  </th>
+                  <th>S.No</th>
+          <th class='text-center'>UserName</th>
+          <th class='text-center'>Password</th>
+          <th class='text-center'>Permissions</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in usersList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class="text-center">{{$index+1}}</td>
+            <td class='text-center'>{{listObj.uname}}</td>
+            <td class='text-center'>{{listObj.pwd}}</td>
+            <td class='text-center'>{{listObj.tabs}}</td>
+            <td class="text-center"><a href ng-click="addUsers(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteUsers(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+ <!-- Exams End-->
+</div>
+</div> 
+ 

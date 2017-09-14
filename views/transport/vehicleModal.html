@@ -1,0 +1,97 @@
+<!-- Modal content-->
+  <div class="modal-content">
+  <form id="VehDetailsForm">
+
+    <div class="modal-header">
+    <button type="button" ng-click="close()" class="close">&times;</button>
+    <h4 class="modal-title">Vehicle Details</h4>
+    </div>
+
+    <div class="modal-body">
+         
+      <div class="row form-group form-inline">
+      <label class="col-sm-4 text-right">Vehicle Number:</label>
+      <div class="col-sm-6">
+      <input type="text" class="form-control" ng-model="Vehicle" name="Vehicle"></div>
+      </div>
+
+      <div class="row  form-group form-inline">
+      <label class="col-sm-4 text-right">Vehicle Type:</label>
+      <div class="col-sm-6">
+      <input type="text" class="form-control" ng-model="VehicleType" name="VehicleType"></div>
+      </div>
+
+      <div class="row form-group form-inline">
+      <label class="col-sm-4 text-right">Fuel Type:</label>
+      <div class="col-sm-6">
+      <input type="text" class="form-control" ng-model="FuelType" name="FuelType"></div>
+      </div>
+
+<div class="row form-group form-inline">
+      <label class="col-sm-4 text-right">Odometer:</label>
+      <div class="col-sm-6">
+      <input type="text" class="form-control" ng-model="Odometer" name="Odometer"></div>
+      </div>
+
+     <div class="row form-group form-inline">
+      <label class="col-sm-4 text-right">Capacity:</label>
+      <div class="col-sm-6">
+      <input type="text" class="form-control" ng-model="Capacity" name="Capacity"></div>
+      </div>
+
+   <div class="row form-group form-inline">
+   <label class="col-sm-4 text-right">Vehicle Ownership:</label>
+   <div class="col-sm-6">
+   <select class="selectpicker form-control w-195" ng-change="selOwnership(Ownership)" value="Ownership Type"  ng-model="Ownership" name="Ownership">
+   <option value="">Ownership Type</option>
+   <option value="Own">Own</option>
+   <option value="Rent">Rent</option>
+   </select></div>
+</div>
+ 
+<div ng-show="isOwn">
+
+  <div class="row form-group form-inline">
+  <label class="col-sm-4 text-right">Purchase Date:</label>
+  <div class="col-sm-6">
+  <input type="text" class="form-control" ng-model="Purchase">
+  </div></div>
+ </div>
+
+<div  ng-show="isRent">
+  
+    <div class="row form-group form-inline">
+    <label  class="col-sm-4 text-right">Lease Owner Name:</label>
+    <div class="col-sm-6">
+    <input type="text" class="form-control" ng-model="OwnName"></div>
+    </div>
+    <div class="row form-group form-inline">
+    <label  class="col-sm-4 text-right">Lease From Date:</label>
+    <div class="col-sm-6">
+    <input type="text" class="form-control" ng-model="Lstart"></div>
+    </div>
+    <div class="row form-group form-inline">
+    <label  class="col-sm-4 text-right">Lease End Date:</label>
+    <div class="col-sm-6">
+    <input type="text" class="form-control" ng-model="Lend"></div>
+    </div>
+
+</div>
+ 
+    <div class="row text-center">
+    <label class="text-danger" ng-bind="msg"></label>
+    </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button ng-if="isSave" type="submit" ng-click="save('1')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave" type="submit" ng-click="save('2')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+
+        </form>
+      </div>
+      
+  
+  

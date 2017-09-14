@@ -1,0 +1,51 @@
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Medium</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Course Type:</label>
+            <select class="form-control w-195" ng-model="cType" ng-change="changeCourseType(cType)">
+              <option value="">Select Course Type</option>
+              <option ng-repeat="listObj in cTypeList" value="{{listObj.cType}}">{{listObj.cType}}</option>
+            </select>
+          </div></div>
+          <div class="row">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Class:</label>
+            <select ng-change="changeClass(class)" class="form-control w-195" ng-model="class">
+              <option value="">Select Class</option>
+              <option ng-repeat="listObj in selClassList" value="{{listObj}}">{{listObj}}</option>
+            </select>
+          </div></div>
+
+          <div class="row">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Section:</label>
+            <select class="form-control w-195" ng-model="section" >
+              <option value="">Select Section</option>
+              <option ng-repeat="listObj in selSectionList" value="{{listObj}}">{{listObj}}</option>
+            </select>
+          </div></div>
+
+          <div class="row">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Medium:</label><input type="text" class="form-control" ng-model="medium">
+          </div></div>
+          <div class="row text-center">
+            <label class="text-danger" ng-bind="msg"></label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button ng-if="isSave" type="button" ng-click="save('0')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave" type="button" ng-click="save('1')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+      </div>
+      
+  
+  

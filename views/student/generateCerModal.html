@@ -1,0 +1,243 @@
+<div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Generate Certificate</h4>
+        </div>
+
+        <div class="modal-body">
+
+         <div class="form-group form-inline">
+         <div class="row">
+         <label class="col-sm-3 text-right">Type Of Certificate:</label>
+         <div class="col-sm-3">
+         <select class="selectpicker form-control w-195" ng-change="selCertType(certType)" value="certificates"  ng-model="certType">
+         <option value="">Select Certificate </option>
+         <option value="Bonafide">BonafideCer</option>
+         <option value="Study">Study/ConductCer</option>
+         <option value="Transfer">TransferCer</option>
+         <option value="Merit">MeritCer</option>
+         </select>
+         </div>
+         </div>
+         </div>
+        
+         <div class="cerBonaBoarder" ng-show="isBonified" ng-repeat="inGenStdObj in stdCertList">
+
+             <div class="form-group text-center m-t10">
+             <div class="col-sm-3">
+<img src="images/s1.png" height="100px" width="95px"/>
+</div>
+             <span style="font-size:25px;font-weight:bold">{{sName}}</span>
+             <h5 style="margin-bottom:30px">{{sState}},{{sDistrict}},{{sStreet}},{{sPinCode}},{{sPhoneNo}},{{sEmail}}</h5>
+             </div>
+
+             <div class="form-group text-center ">
+               <span class="bonifiedHeader">BONAFIDE/DOMICILE CERTIFICATE</span>
+             </div>
+             <div class="form-group" >
+            <span class="m-l20">Admn.No: <i><b ng-bind="inGenStdObj.admNo"></b></i></span></div>
+            <div  class="form-group" style="font-family:sans-serif;font-size: medium;word-spacing:5px">
+            <p class="m-l20 m-r25">
+                This  is  to  certify  that  Shri/Kumari <u><i>  <b ng-bind="inGenStdObj.name"></b></i></u> son/daughter of<u><i> <b ng-bind="inGenStdObj.fname"></b></i></u> residing at <u><i> <b ng-bind="inGenStdObj.address"></b></i></u> is bonafide  student  of  our  school  in  the  <u><i> <b ng-bind="inGenStdObj.class"></b></i></u> class,for the academic year <u><i> <b ng-bind="inGenStdObj.aceYear"></b></i></u>.
+                </p>
+                <p class="m-l20 m-r25">To the best of my knowledge he/she is/was very obedient, sincere and hardworking.</p>
+                <p class="m-l20 m-r25">He/She bears a good moral character.
+                His/Her Date of Birth as recorded is<u><i> <b ng-bind="inGenStdObj.dob"></b></i></u>.
+                <br></br>
+                 </p>
+                 </div>
+
+             </br></br>
+
+             <div class="form-group" style="margin-bottom:40px">
+                 <b class="pull-left m-l20">Date: {{today| date:'shortDate'}}</b><b class="pull-right m-r40"><i >Principal</i></b>
+             </div>
+             </br>
+         </div>
+
+          <!-- Coduct Cer Start -->
+          <div class="cerBoarder" ng-show="isStudy" ng-repeat="inGenStdObj in stdCertList">
+
+             <div class="form-group text-center  m-t10">
+             <div class="col-sm-3">
+<img src="images/s1.png" height="100px" width="95px"/>
+</div>
+             <span style="font-size:30px;font-weight:bold">{{sName}}</span>
+             <h5 style="margin-bottom:30px">{{sState}},{{sDistrict}},{{sStreet}},{{sPinCode}},{{sPhoneNo}},{{sEmail}}</h5>
+             </div>
+
+             <div class="form-group text-center ">
+               <span class="bonifiedHeader">Study & Conduct Certificate</span>
+             </div>
+             <div class="form-group" style="font-family:sans-serif;font-size: medium;word-spacing:8px;line-height:175%">
+            <p class="m-l20 m-r25">
+            Admn.No:<i><b ng-bind="inGenStdObj.admNo"></b></i></br></br>
+            This  is  to  certify  that  Shri/Kumari<u><i>  <b ng-bind="inGenStdObj.name"></b></i></u>   son/daughter of<u><i> <b ng-bind="inGenStdObj.fname"></b></i></u>
+            is/was  a  bonafide  student  of  this  school  and  he/she studied/is studying  class <u><i> <b ng-bind="inGenStdObj.class"></b></i></u>
+            during the academic year<u><i> <b ng-bind="inGenStdObj.aceYear"></b></i></u>. His/Her conduct and character during the period of his/her study is Satisfactory.</p>
+            </div></br></br>
+
+             <div class="form-group" style="margin-bottom:50px">
+                 <b class="pull-left m-l20 ">Date: {{today| date:'shortDate'}}</b><b class="pull-right m-r40"><i >Principal</i></b>
+             </div>
+             </br>
+         </div>
+         <!-- Coduct Cer End -->
+
+          <!-- Transfer Cer Start -->
+          <div class="cerBoarder" ng-show="isTc" ng-repeat="inGenStdObj in stdCertList">
+
+             <div class="form-group text-center  m-t10">
+             <div class="col-sm-3">
+<img src="images/s1.png" height="100px" width="95px"/>
+</div>
+             <span style="font-size:30px;font-weight:bold">{{sName}}</span>
+             <h5 style="margin-bottom:30px">{{sState}},{{sDistrict}},{{sStreet}},{{sPinCode}},{{sPhoneNo}},{{sEmail}}</h5>
+             </div>
+
+             <div class="form-group text-center ">
+               <span class="bonifiedHeader">Transfer Certificate</span>
+             </div>
+
+            <div class="form-group row ">
+           <div class="pull-left" style="margin-left: 35px;font-size: initial">Academic Year: <i><b ng-bind="inGenStdObj.aceYear"></b></i></div>
+           </div>
+            
+        <div class="form-group" style="margin-bottom: 75px;margin-left: 5px;line-height:initial;">
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Name of the Pupil</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.name"></b></i></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Admn.No</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.admNo"></b></i></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Father's/Gaurdian Name</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.fname"></b></i></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Mother's Name</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.mname"></b></i></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Gender</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.gender"></b></i></div>
+            </div>
+             <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Nationality</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.national"></b></i></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Date of Admission</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.doa"></b></i></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Class into which Admitted</span><span class="pull-right">:</span></div>
+               <div class="col-sm-3"><b></b><input class="form-control" type="text" name="remarks"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Date of Birth as per Admission Register</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.dob"></b></i></div>
+            </div>
+           
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Religion</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.religion"></b></i></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Whether the candidate belongs to Scheduled Caste/Scheduled Tribe:</span><span class="pull-right">:</span></div>
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="caste"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Class in which the pupil studied last</span><span class="pull-right">:</span></div>
+               <div class="col-sm-6"><i><b ng-bind="inGenStdObj.class"></b></i></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Whether qualified for promotion to higher class</span><span class="pull-right">:</span></div>
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="promotion"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">School fee dues if any</span><span class="pull-right">:</span></div>
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="fee"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Total number of Working Daya</span><span class="pull-right">:</span></div>
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="workingdays"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Total number of Days Present</span><span class="pull-right">:</span></div>
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="dayspresent"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Date of application of certificate</span><span class="pull-right">:</span></div>
+               <!-- <div class="col-sm-3"><past-date date-callback="fnDOACSelection(date)"></past-date> -->
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="doac"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Date of issue of certificate</span><span class="pull-right">:</span></div>
+               <!-- <div class="col-sm-3"><past-date date-callback="fnDOISelection(date)"></past-date> -->
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="doi"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">General Conduct</span><span class="pull-right">:</span></div>
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="conduct"></b></div>
+            </div>
+            <div class="form-group row">
+               <div class="col-sm-5"><span class="col-sm-11">Other Remarks if any</span><span class="pull-right">:</span></div>
+               <div class="col-sm-3"><b><input class="form-control" type="text" name="remarks"></b></div>
+            </div>
+
+             <div class="form-group" style="margin-top:80px">
+                 <b class="pull-left m-l20">Signature of Class Teacher</b></br>
+                 <b class="pull-left m-l20">Date: {{today| date:'shortDate'}}</b>
+                 <b class="pull-right m-r40"><i >Principal Sign.with Seal</i></b>
+             </div>
+             </div>
+       </div>
+         <!-- Merit Cer End -->
+         <div class="cerBoarder"  ng-show="isMerit" ng-repeat="inGenStdObj in stdCertList">
+
+             <div class="form-group text-center  m-t10">
+             <div class="col-sm-3">
+<img src="images/s1.png" height="100px" width="95px"/>
+</div>
+             <span style="font-size:30px;font-weight:bold">{{sName}}</span>
+             <h5 style="margin-bottom:30px">{{sState}},{{sDistrict}},{{sStreet}},{{sPinCode}},{{sPhoneNo}},{{sEmail}}</h5>
+             </div>
+
+             <div class="form-group text-center ">
+               <span class="bonifiedHeader">Certificate of Merit</span>
+             </div>
+
+            <div class="form-group" style="font-family:sans-serif;font-size: medium">
+            <p class="m-l20 m-r25" style="text-align:-webkit-center">
+            Awarded to </br>
+             <i><b ng-bind="inGenStdObj.name"></b></i></br>
+            as one of the outstanding pupils in
+             <i><b ng-bind="inGenStdObj.class"></b></i></br>
+            for the </br>
+            <div class="col-sm-offset-4 col-sm-4">
+            <input type="text" name="reason" class="form-control" placeholder="Reason"></div>
+            </br></br>
+            <div class="text-center"> during the academic year  <i><b ng-bind="inGenStdObj.aceYear"></b></i></div></p>
+            </br></br></div>
+
+             <div class="row m-b20">
+              <div class="col-xs-4"><b style="margin-left:50px">Date: {{today| date:'shortDate'}}</b> </div>
+              <div class="col-xs-4" style="text-align:center"><b>signature of the class teacher</b></div>
+              <div class="col-xs-4" style="text-align:center"><b>Principal</b></div>
+             </div>
+             </br>
+         </div>
+         <!-- Merit Cer End -->
+      </div>
+         <!-- modal Body -->
+        
+        <div class="modal-footer">
+          <button type="button" ng-click="printId()" class="btn btn-primary">Save&Print</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+      
+      </div>
+ 

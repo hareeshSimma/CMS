@@ -1,0 +1,136 @@
+<div class="visible-xs visible-sm hidden-md  hidden-lg pull-right ">
+    <button type="button" ng-click="menuToggle()" >
+        <i class="fa fa-bars fa-2x fa-color" aria-hidden="true"></i>
+           
+     </button>
+</div>
+   <ul class="menu">
+      <li ng-if="(adminPer||isAll)" id="adminTop" data-toggle="collapse" href="#admin" data-ng-click="clickMainTab('/admin',1,'adminTop')">  <i class="fa fa-unlock-alt fa-lg"></i>&nbsp;Admin
+      <span ng-if="!adminTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="adminTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+       <ul id="admin" class="colList list-group  collapse">
+          <li ng-click="setTab('adminMenu',1)" class="list-group-item">College info</li>
+          <li ng-click="setTab('adminMenu',2)" class="list-group-item">Subjects</li>
+          <li ng-click="setTab('adminMenu',3)" class="list-group-item">Exams</li>
+          <li ng-click="setTab('adminMenu',4)" class="list-group-item">News</li>
+          <li ng-click="setTab('adminMenu',5)" class="list-group-item">Users</li>
+          <li ng-click="setTab('adminMenu',6)" class="list-group-item">Employees</li>
+        </ul>
+    <li ng-if="(studentPer||isAll)" id="studentTop" data-toggle="collapse" href="#student" data-ng-click="clickMainTab('/student',2,'studentTop')"><i class="fa fa-graduation-cap fa-lg"></i>&nbsp;Student
+      <span ng-if="!studentTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="studentTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="student" class="colList list-group  collapse">
+          <li ng-click="setTab('studentMenu',1)" class="list-group-item">Register</li>
+          <li ng-click="setTab('studentMenu',2)" class="list-group-item">Id Cards</li>
+          <li ng-click="setTab('studentMenu',3)" class="list-group-item">Certificates</li>
+          <li ng-click="setTab('studentMenu',4)" class="list-group-item">Report</li>
+        </ul>
+        
+      <li ng-if="(examPer||isAll)" id="examTop" data-toggle="collapse" href="#exams" data-ng-click="clickMainTab('/exam',3,'examTop')"><i class="fa fa-pencil-square-o fa-lg"></i>&nbsp;Exams
+        <span ng-if="!examTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="examTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="exams" class="colList list-group  collapse">
+          <li ng-click="setTab('examMenu',1)" class="list-group-item">Time Table</li>
+          <li ng-click="setTab('examMenu',2)" class="list-group-item">Hall Tickets</li>
+          <li ng-click="setTab('examMenu',3)" class="list-group-item">Marks</li>
+          <li ng-click="setTab('examMenu',4)" class="list-group-item">Report</li>
+          <li ng-click="setTab('examMenu',5)" class="list-group-item">Final Report</li>
+     </ul>
+        <li ng-if="(examFeePer||isAll)" id="examFeeTop" data-toggle="collapse" href="#examFee" data-ng-click="clickMainTab('/examFee',4,'examFeeTop')"><i class="fa fa-money fa-lg"></i> &nbsp;Exam Fee
+        <span ng-if="!examFeeTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="examFeeTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="examFee" class="colList list-group  collapse">
+          <li ng-click="setTab('examFeeMenu',1)" class="list-group-item">Enter Results</li>
+          <li ng-click="setTab('examFeeMenu',2)" class="list-group-item">Regular Fee</li>
+          <li ng-click="setTab('examFeeMenu',3)" class="list-group-item">Supply Fee</li>
+          <li ng-click="setTab('examFeeMenu',4)" class="list-group-item">Report</li>
+     </ul>
+        <li ng-if="(attendencePer||isAll)" id="attendenceTop" data-toggle="collapse" href="#attendence" data-ng-click="clickMainTab('/attendence',5,'attendenceTop')"><i class="fa fa-calendar fa-lg"></i>&nbsp;Attendence
+        <span ng-if="!attendenceTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="attendenceTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="attendence" class="colList list-group  collapse">
+          <li ng-click="setTab('attendenceMenu',1)" class="list-group-item">Student</li>
+          <li ng-click="setTab('attendenceMenu',2)" class="list-group-item">Staff</li>
+           <li ng-click="setTab('attendenceMenu',3)" class="list-group-item">Hostel</li>
+     </ul>
+      <li ng-if="(employeePer||isAll)" id="hrTop" data-toggle="collapse" href="#hr" data-ng-click="clickMainTab('/hr',4,'hrTop')"> <i class="fa fa-user fa-lg"></i>&nbsp;Employee
+        <span ng-if="!hrTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="hrTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="hr" class="colList list-group  collapse">
+         
+          <li ng-click="setTab('hrMenu',1)" class="list-group-item">Id cards</li>
+          <li ng-click="setTab('hrMenu',2)" class="list-group-item">Certificate</li>
+          <li ng-click="setTab('hrMenu',3)" class="list-group-item">Report</li>
+     </ul>
+       <li ng-if="(financePer||isAll)" id="financeTop" data-toggle="collapse" href="#finance" data-ng-click="clickMainTab('/finance',4,'financeTop')"><i class="fa fa-area-chart fa-lg"></i>&nbsp;Finanace
+        <span ng-if="!financeTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="financeTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="finance" class="colList list-group  collapse">
+          <li ng-click="setTab('financeMenu',1)" class="list-group-item">Fee Allocation</li>
+          <li ng-click="setTab('financeMenu',2)" class="list-group-item">Fee Collection</li>
+          <li ng-click="setTab('financeMenu',3)" class="list-group-item">Accounts</li>
+          <li ng-click="setTab('financeMenu',4)" class="list-group-item">Report</li>
+     </ul>
+      <li ng-if="(transportPer||isAll)" id="transportTop" data-toggle="collapse" href="#transport" data-ng-click="clickMainTab('/transport',5,'transportTop')"> <i class="fa fa-bus fa-lg"></i>&nbsp;Transport
+        <span ng-if="!transportTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="transportTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="transport" class="colList list-group  collapse">
+          <li ng-click="setTab('transportMenu',1)" class="list-group-item">Vehicle Details</li>
+          <li ng-click="setTab('transportMenu',2)" class="list-group-item">Vehicle Route</li>
+            <li ng-click="setTab('transportMenu',3)" class="list-group-item">Route Allotment</li>
+          <li ng-click="setTab('transportMenu',4)" class="list-group-item">Vehicle Insurance</li>
+     </ul>
+      
+     <li ng-if="(storePer||isAll)" id="storeTop" data-toggle="collapse" href="#store" data-ng-click="clickMainTab('/store',5,'storeTop')"> <i class="fa fa-cart-plus fa-lg"></i>&nbsp;Store
+      <span ng-if="!storeTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="storeTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="store" class="colList list-group  collapse">
+          <li ng-click="setTab('storeMenu',1)" class="list-group-item">Vendor Registration</li>
+          <li ng-click="setTab('storeMenu',2)" class="list-group-item">Add Category</li>
+          <li ng-click="setTab('storeMenu',3)" class="list-group-item">Add Inventory</li>
+          <li ng-click="setTab('storeMenu',4)" class="list-group-item">Stock Pricing Details</li>
+          <li ng-click="setTab('storeMenu',5)" class="list-group-item">Stock Issue Details</li>
+          <li ng-click="setTab('storeMenu',6)" class="list-group-item">Vendor Payment details</li>
+          <li ng-click="setTab('storeMenu',7)" class="list-group-item">Report</li>
+     </ul>
+     <li ng-if="(placementPer||isAll)" id="placementTop" data-toggle="collapse" href="#placement" data-ng-click="clickMainTab('/placement',6,'placementTop')"> <i class="fa fa-thumbs-up fa-lg"></i>&nbsp;Placement
+      <span ng-if="!placementTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="placementTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+     <ul id="placement" class="colList list-group  collapse">
+          <li ng-click="setTab('placementMenu',1)" class="list-group-item">Company Profile</li>
+          <li ng-click="setTab('placementMenu',2)" class="list-group-item">Interview Schedule</li>
+          <li ng-click="setTab('placementMenu',3)" class="list-group-item">Student Report</li>
+     </ul>
+      <li ng-if="(hostelPer||isAll)" id="hostelTop" data-toggle="collapse" href="#hostel" data-ng-click="clickMainTab('/hostel',7,'hostelTop')"><i class="fa fa-bed fa-lg"></i>&nbsp;Hostel
+        <span ng-if="!hostelTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="hostelTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+
+     <ul id="hostel" class="colList list-group  collapse">
+          <li ng-click="setTab('hostelMenu',1)" class="list-group-item">Add Hostel</li>
+          <li ng-click="setTab('hostelMenu',2)" class="list-group-item">Add Room</li>
+          <li ng-click="setTab('hostelMenu',3)" class="list-group-item">Allocate Student</li>
+          <li ng-click="setTab('hostelMenu',4)" class="list-group-item">Vacated Student</li>
+     </ul>
+     <li ng-if="(libraryPer||isAll)" id="libraryTop" data-toggle="collapse" href="#library" data-ng-click="clickMainTab('/library',8,'libraryTop')"><i class="fa fa-book fa-lg"></i>&nbsp;Library
+      <span ng-if="!libraryTop" class="glyphicon glyphicon-chevron-right pull-right"></span>
+      <span ng-if="libraryTop"class="glyphicon glyphicon-chevron-down pull-right"></span>
+      </li>
+      <ul id="library" class="colList list-group  collapse">
+         <li ng-click="setTab('libMenu',1)" class="list-group-item">Add Books</li>
+          <li ng-click="setTab('libMenu',2)" class="list-group-item" style="height:initial">Issue Book/Receive Book</li>
+          <li ng-click="setTab('libMenu',3)" class="list-group-item">Books Report</li>
+          <li ng-click="setTab('libMenu',4)" class="list-group-item">Date report</li>
+     </ul>
+
+     </ul>

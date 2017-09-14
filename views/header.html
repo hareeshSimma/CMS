@@ -1,0 +1,21 @@
+<div id="headerid" ng-controller="mainCtrl" class="row"  style="height:136px;color:white; background:rgb(36, 138, 141);font-family: initial;">
+   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+       <img src="images/s8.png" class="hidden-xs img-responsive" id="myimglogo" style="height:140px">
+       
+       </img>
+   </div> 
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-6 text-center " >
+        <h1 class="hidden-xs hidden-sm" id="h1id">SIR C.V RAMAN INSTITUTE OF TECHNOLOGY & SCIENCE</h1>
+        <p class="text-center hidden-xs hidden-sm Pgreen">(  Think Green   )</p>
+        <h2 class="hidden-xs hidden-sm " id="h2id" style="text-shadow:5px 5px 10px #000080;font-size:30px;margin: 0!important;">CAMPUS MANAGEMENT SYSTEM</h2>
+        <h1 class="visible-xs visible-sm cms" style="text-shadow:5px 5px 10px #000080;font-size:30px; margin-left: 50px;">C M S</h1>
+
+    </div>
+    <div  class='col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-right' >
+        <a ng-if="!isValidUser"id="loginId" style="font-size:23px;font-weight:bold;color:aliceblue;font-style:italic;margin-top: 0px;" href="" class="pull-right log_in" ng-click="openLogin()">
+            <i class="fa fa-sign-in fa-lg fa-small" aria-hidden="true"></i>&nbsp;Login</a>
+        <a ng-if="isValidUser" id="logoutId" data-ng-click="logout()" style="font-size:21px;font-weight:bold;color:aliceblue;font-style:italic;margin-top: 94px;" href="" class="pull-right" ng-click="openLogin()">
+            <i class="fa fa-sign-out fa-lg fa-small" aria-hidden="true"></i>&nbsp;Logout</a>
+    </div>
+    <div style="margin-top:100px"  ng-if="isValidUser"  ng-include="'views/menu.html'" ></div>
+</div>

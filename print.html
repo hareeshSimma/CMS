@@ -1,0 +1,14 @@
+<head>
+	 <link rel="stylesheet" href="css/main.css">
+     <link rel="stylesheet" href="css/bootstrap.min.css" />
+     <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+     <link rel="stylesheet" href="css/nv.d3.min.css" />
+     <link rel="stylesheet" href="css/bootstrap-datepicker.min.css" />
+</head>
+<script>
+setTimeout(function(){
+var data=sessionStorage.getItem('printData');
+document.getElementById('printData').innerHTML=data;},1000);
+</script>
+<a href="" onclick="print()" style="float:right">Print</a>
+<div id="printData"></div>

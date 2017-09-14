@@ -1,0 +1,156 @@
+<!--  <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Fee Collection</h4>
+        </div>
+
+
+      <div class="modal-body">
+      <div class="row">
+      <div class="form-group form-inline">
+      <label class="col-md-4 text-right">Course Type:</label>
+      <select class="form-control w-195" ng-model="cType" ng-change="changeCourseType(cType)" >
+      <option value="">Select Course Type</option>
+      <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+      </select>
+      </div>
+      </div>
+
+      <div class="row">
+      <div class="form-group form-inline">
+      <label class="col-md-4 text-right">Class:</label>
+      <select  class="form-control w-195" ng-model="class">
+      <option value="">Select Class</option>
+      <option ng-repeat="obj in classes" value="{{obj.class}}">{{obj.class}}</option>
+      </select>
+      </div>
+      </div>
+           
+
+      <div class="row">
+      <div class="form-group form-inline">
+      <label class="col-md-4 text-right">Medium:</label>
+      <select class="form-control w-195" ng-model="medium">
+      <option value="">Select Medium</option>
+      <option ng-repeat="obj in mediums" value="{{obj.medium}}">{{obj.medium}}</option>
+      </select>
+      </div>
+      </div>
+
+        <div class="row">
+        <div class="form-group form-inline">
+        <label class="col-md-4 text-right">Acedemic Year:</label>
+        <select class="form-control w-195 " ng-model="aceYear">
+          <option value="">Select Acedemic Year</option>
+          <option value="2016-17">2016-17</option>
+          <option value="2017-18">2017-18</option>
+
+        </select>
+        </div>
+        </div>
+
+
+        <div class="form-group form-inline">
+        <div class="row">
+        <label class="col-md-4 text-right">Receipt No:</label>
+        <div class="col-md-4">
+        <input type ="text" value="receipt no" class="form-control" ng-model="Receiptno">
+          </div>
+          </div>
+          </div>
+        
+         <div class="form-group form-inline">
+         <div class="row">
+         <label class="col-sm-4 text-right">Pay Date:</label>
+         <div class="col-md-3 p-0"><past-date date-callback="fnPDSelection(date)"></past-date></div>
+         </div>
+         </div>
+
+        <div class="row">
+        <div class="form-group form-inline">
+        <label class="col-md-4 text-right">Mode Of Payment:</label>
+        <select class="form-control w-195 " ng-model="MOD">
+          <option value="">Select Mode of Payment</option>
+          <option value="cash">cash</option>
+          <option value="check">check</option>
+          <option value="D.D">D.D</option>
+       </select>
+        </div>
+        </div>
+
+
+        <div class="row">
+        <div class="form-group form-inline">
+        <label class="col-md-4 text-right">Bank Name:</label>
+        <select class="form-control w-195 " ng-model="Bankname">
+          <option value="">Select Bank Name</option>
+          <option value="SBI">SBI</option>
+          <option value="SBH">SBH</option>
+          <option value="Andhra Bank">ANDHRA BANK</option>
+          <option value="Axis Bank">AXIS BANK</option>
+          <option value="ICICI">ICICI</option>
+          <option value="IDBI">IDBI</option>
+          <option value="Bank Of India">BANK OF INDIA</option>
+          <option value="Bank Of Baroda">BANK OF BARODA</option>
+          <option value="canara bank">CANARA BANK</option>
+      </select>
+        </div>
+        </div>
+
+
+
+        <div class="form-group form-inline">
+        <div class="row">
+        <label class="col-md-4 text-right">Total Fee:</label>
+        <div class="col-md-4">
+        <input type ="text" value="Total fee" class="form-control" ng-model="Totalfee">
+          </div>
+          </div>
+          </div>
+
+
+        <div class="form-group form-inline">
+        <div class="row">
+        <label class="col-md-4 text-right">Paid fee:</label>
+        <div class="col-md-3">
+        <input type ="text" value="paid fee" class="form-control" ng-model="Paidfee">
+          </div>
+          </div>
+          </div>
+
+        <div class="form-group form-inline">
+        <div class="row">
+        <label class="col-md-4 text-right">Balance Fee:</label>
+        <div class="col-md-4">
+        <input type ="text" value="balance fee" class="form-control" ng-model="Balancefee">
+          </div>
+          </div>
+          </div>
+
+
+
+           <div class="row text-center">
+          <label class="text-danger" ng-bind="msg"></label>
+          </div>
+          </div>
+          <div class="modal-footer">
+          <button ng-if="isSave" type="submit" ng-click="save('0')" class="btn btn-primary">Save</button>
+           <button type="button" ng-click="print()" class="btn btn-primary">Print</button>
+          </div>
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         -->

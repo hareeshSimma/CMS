@@ -1,0 +1,162 @@
+<div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Generate Certificate</h4>
+        </div>
+
+        <div class="modal-body">
+
+         <div class="form-group form-inline">
+         <div class="row">
+         <label class="col-sm-3 text-right">Type Of Certificate:</label>
+         <div class="col-sm-3">
+         <select class="selectpicker form-control w-195" ng-change="selCertType(certType)" value="certificates"  ng-model="certType">
+         <option value="">Select Certificate </option>
+         <option value="Experience">Experience</option>
+         <option value="Relieving">Relieving</option>
+         <option value="Offer">Offer</option>
+         
+         </select>
+         </div>
+         </div>
+         </div> 
+
+        
+
+   <!-- Experience Start -->
+       
+<div  class="cerBonaBoarder" ng-show="isExperience" ng-repeat="inGenEmployeeObj in certiGenEmployee">
+<div class="form-group text-center m-t10">
+<div class="col-sm-3">
+<img src="images/s1.png" height="100px" width="100px"/>
+</div>
+<span style="font-size:30px;font-weight:bold">{{sName}}</span>
+<h5>{{sState}},{{sDistrict}},{{sStreet}},{{sPinCode}},{{sPhoneNo}},{{sEmail}}</h5>
+</div><br/>
+ <div class="form-group text-center ">
+<span class="bonifiedHeader">EXPERIENCE CERTIFICATE</span>
+</div>
+<div class="form-group" style="font-family:sans-serif;font-size: medium;word-spacing:5px">
+<p class="m-l20 m-r25" style="line-height: 3;font-size: 15px;">
+<br/>It is certified that  <i><b ng-bind="inGenEmployeeObj.name"></b></i>  is  working  here  in  {{sName}}  as  lecturer  in  <b ng-bind="inGenEmployeeObj.department">  </b>  department  from  <b ng-bind="inGenEmployeeObj.doj"> </b>.  He/she  earned  the  repute  of a devoted and  hardworking  teacher  among  the  students.He/she  has  taught  different courses  in  our  organisation  and  became good teacher.<br/><br/>
+He/She  got  the  'BEST TEACHER'  award  during  the  year  of  ________________. I wish  him/her  All  The  Best  in  his/her  future.
+</div>
+<div class="form-group" style="margin-bottom:40px">
+<b class="pull-left m-l20">Date: {{today| date:'shortDate'}}</b><b class="pull-right m-r40"><i >Principal</i></b>
+</div>
+
+</p>
+</div>
+</br>
+<!-- Experience end -->
+
+<!-- Relieving Start -->
+<div  class="cerBonaBoarder" ng-show="isRelieving" ng-repeat="inGenEmployeeObj in certiGenEmployee">
+<div class="form-group text-center m-t10">
+<div class="col-sm-3">
+<img src="images/s1.png" height="100px" width="100px"/>
+</div>
+<span style="font-size:30px;font-weight:bold">{{sName}}</span>
+<h5>{{sState}},{{sDistrict}},{{sStreet}},{{sPinCode}},{{sPhoneNo}},{{sEmail}}</h5>
+</div><br/>
+<div class="form-group text-center ">
+<span class="bonifiedHeader">RELIEVING LETTER</span>
+</div>
+
+<div class="form-group" style="font-family:sans-serif;font-size: medium;word-spacing:5px">
+<p class="m-l20 m-r25" style="line-height: 3; font-size: 15px;">
+ <div class="form-group text-left m-t10">
+<span style="font-size:15px;font-weight:bold">
+<b ng-bind="inGenEmployeeObj.name"></b></span>
+ <h5><p ng-bind="inGenEmployeeObj.address"></p>
+<p ng-bind="inGenEmployeeObj.emailid"></p>
+<p ng-bind="inGenEmployeeObj.phonenumber"></p>
+</h5>
+<br/>
+ Dear <b ng-bind="inGenEmployeeObj.name"></b>,<br/>
+
+  This is in reference to your resigantion dated_____________ where in you have requested to be relieved from your services  on  ____________.We wish to inform you that your   resignation has been accepted and you are being relieved  from your duties.<br/>
+
+  We would also want to confirm that your full and final settlement would be cleared  in the next 30 days with the organization.We appreciate your contributions made to the organization and wish you all the best for your future  endeavours.<br/>
+                  <br/>
+                  </div>
+
+<div class="form-group" style="margin-bottom:40px">
+<b class="pull-left m-l20">Date: {{today| date:'shortDate'}}</b><b class="pull-right m-r40"><i >Principal</i></b>
+             </div>
+             </br>
+            
+             </div>
+             </div>
+            
+
+ <!-- Relieving end -->
+<!-- offer Start --> 
+
+<div  class="cerBonaBoarder" ng-show="isOffer" ng-repeat="inGenEmployeeObj in certiGenEmployee">
+<div class="form-group text-center m-t10">
+<div class="col-sm-3">
+<img src="images/s1.png" height="100px" width="100px"/>
+</div>
+<span style="font-size:30px;font-weight:bold">{{sName}}</span>
+<h5>{{sState}},{{sDistrict}},{{sStreet}},{{sPinCode}},{{sPhoneNo}},{{sEmail}}</h5>
+</div><br/>
+<div class="form-group text-center ">
+<span class="bonifiedHeader">OFFER LETTER</span>
+</div>
+
+<div class="form-group" style="font-family:sans-serif;font-size: medium;word-spacing:5px">
+<p class="m-l20 m-r25" style="line-height: 3; font-size: 15px;">
+ <div class="form-group text-left m-t10">
+<span style="font-size:15px;font-weight:bold">
+<b ng-bind="inGenEmployeeObj.name"></b></span>
+ <h5><p ng-bind="inGenEmployeeObj.address"></p>
+<p ng-bind="inGenEmployeeObj.emailid"></p>
+<p ng-bind="inGenEmployeeObj.phonenumber"></p>
+</h5>
+<br/>
+ Dear <b ng-bind="inGenEmployeeObj.name"></b>,<br/>
+
+  Congratulations! We are pleased to confirm you have been selected to work for {{sName}}  for the position of ____________.The position we are offering is  at a salary Rs.<b ng-bind="inGenEmployeeObj.salary"></b>per annum. <br/>
+We would like you to start work on _____________ at __________. Please report to Human Resources, for documentation and orientation. If this date is not acceptable, please contact me immediately.
+As per the organization policy, the probation period applicable to you shall be 3 months. You would be posted at the above address.<br/>
+During the probation, the period of notice required for resignation is one month on either side.
+You will abide by the rules and regulations of the organization as may be in force from time to time and if any violation made would be subjected to the Disciplinary action.<br/>
+
+Please sign the enclosed copy of this letter and return it to me by (specify date) to indicate your acceptance of this offer.<br/>
+
+We are confident you will be able to make a significant contribution to the success of our organization and look forward to working with you.<br/><br/>
+
+On the date of joining, please bring the following documents for verification/submission.<br/>
+> Original and copies of educational certificates and mark sheets.<br/>
+> Relieving letter & experience certificate from previous employer[s].<br/>
+> Salary certificate from previous employer.<br/>
+> Original & copy of your Pan card.<br/>
+> Five passport size coloured photograph.<br/>
+> Address proof.<br/>
+<br/>
+Kindly sign and return to us the duplicate copy of this letter and Annexure as your Acceptance.
+<br/>
+Wish You All The Best<br/><br/><br/>
+<div class="form-group" style="margin-bottom:40px">
+<b class="pull-left m-l20">Date: {{today| date:'shortDate'}}</b><b class="pull-right m-r40"><i >Principal</i></b>
+             </div>
+</div>
+</div>
+</p>
+</div>
+</div>
+
+
+      <div class="modal-footer">
+          <button type="button" ng-click="printId()" class="btn btn-primary">Save&Print</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+</div>
+</div>
+
+
+      
+
+ 

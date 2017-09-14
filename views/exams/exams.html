@@ -1,0 +1,512 @@
+<!-- marks and timetable -->
+</br>
+<div class="row offsetMenu">
+    <div ng-show="isDefault">
+        <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Examination Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Exam's Module Contains 5 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Time Table Preparation</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Halltickets Generation</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Marks Allocation</li>
+                     <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Report </li>
+                       <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Final Report</li>
+                        
+              </ul>              
+        </div>
+    </div>
+    <div ng-show="!isDefault">
+        <div ng-if="isMarks" class="text-center stuHead">Exams : Marks</div>
+        <div ng-if="isTimeTable" class="text-center stuHead">Exams : TimeTable</div>
+        <div ng-if="isReport" class="stuHead" style="margin-left: 427px;">Exams : Report</div>
+        <div ng-if="isFinalReport" class="stuHead" style="margin-left: 427px;">Exams : Final Report</div>
+        <div ng-if="isHallTicket" class="text-center stuHead">Exams : Hall Ticket</div>
+        <div class="col-xs-12 p-0">
+         <form name="examForm" ng-show="isMarks || isTimeTable"> 
+                
+                
+  <div class="row mrow">
+ <div class="col-sm-3 form-group">
+    <select class="form-control dispInline" ng-model="cType" ng-change="changeCourseType(cType)" required=""  >
+       <option value="">Select Course Type</option>
+       <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+            </select>
+     
+ </div>
+ <div class="col-sm-3 form-group">
+   <select  class="form-control dispInline" ng-model="class" ng-change="changeStream(class)"  required ><option value="">Select Stream</option>
+    <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>
+   </select>
+     
+ </div>
+ <div class="col-sm-3 form-group">
+   <select class="form-control dispInline" ng-model="semester" ng-change="getTestSubject()" required >
+         <option value="">Select semester</option>
+         <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+    </select>   
+     
+ </div>
+ <div class="col-sm-3 form-group">
+     <select class="form-control dispInline" ng-model="section" ng-change="getTestSubject()" ng-change="changeSection(section)"  required >
+     <option value="">Select Section</option>
+     <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+     </select>
+     
+ </div>
+
+ </div>
+ <div class="row mrow">
+ <div class="col-sm-3 form-group">
+    <select class="form-control dispInline " ng-model="selTest" required >
+       <option value="">Select Test</option>
+         <option ng-repeat="obj in examsArr" value="{{obj}}">{{obj}}</option>
+       </select>
+     
+ </div>
+ <div class="col-sm-3 form-group">
+   <input  type="submit"  ng-show="isMarks" class="btn btn-primary btn-block" value="Search" ng-click="searchMarksData()" >
+ <input  type="submit"  ng-show="isTimeTable" class="btn btn-primary btn-block" value="Search" ng-click="searchTimeTable()" >
+     
+ </div>
+ <div class="col-sm-3 form-group">
+    <input  type="submit"  ng-show="isTimeTable" class="btn btn-primary btn-block " value="Enter TimeTable" ng-click="addTimeTable()" >
+    <input  type="submit"  ng-show="isMarks" class="btn btn-primary btn-block" value="Enter Markrs" ng-click="enterMarks()" >
+ </div>
+<!-- <div class="col-sm-3 form-group">
+    
+ </div>-->
+ 
+ </div>  
+                
+         
+       </form>
+
+        </div>             
+                
+                
+                
+                
+<!--                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-9" style="display: flex;padding: 0px;
+                             width: 74%;box-shadow: 0px 0px 2px 1px #507bca;
+                             background-color: white;    margin-left: 1%">
+                            <div >
+
+                                <select class="form-control dispInline" ng-model="cType" ng-change="changeCourseType(cType)" required="" style="  border-color: white!important;
+                                        border-radius: 0px!important;  width: 173px !important;" >
+                                    <option value="">Select Course Type</option>
+                                    <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+                                </select>
+                            </div>
+
+                            <div >
+
+                                <select  class="form-control dispInline" ng-model="class" ng-change="changeStream(class)"  required style="  border-color: white!important;border-radius: 0px!important;width: 173px !important;"><option value="">Select Stream</option>
+                                    <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option></select>
+                            </div>
+
+                            <div>
+
+                                <select class="form-control dispInline" ng-model="semester" ng-change="getTestSubject()" required style=" border-color: white!important;
+                                        border-radius: 0px!important;width: 173px !important;">
+                                    <option value="">Select semester</option>
+                                    <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+                                </select>
+                            </div>
+
+
+
+                            <div>
+                                <select class="form-control dispInline" ng-model="section" ng-change="getTestSubject()" ng-change="changeSection(section)"  required style=" border-color: white!important;
+                                        border-radius: 0px!important;width: 173px !important;">
+                                    <option value="">Select Section</option>
+                                    <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+                                </select>
+                            </div>
+                            <div >
+
+                                <select class="form-control dispInline " ng-model="selTest" required style=" border-color: white!important;border-radius: 0px!important;width: 173px !important;">
+                                    <option value="">Select Test</option>
+                                    <option ng-repeat="obj in examsArr" value="{{obj}}">{{obj}}</option>
+                                </select>
+                            </div>
+                            <div >
+                                <input  type="submit" style="width: 105%;background-color:#507bca!important;border-color: white!important;border-radius: 0px!important;background-image:none!important;" ng-show="isMarks" class="btn btn-primary" value="Search" ng-click="searchMarksData()" >
+
+                                <input  type="submit" style="width: 105%;background-color:#507bca!important;border-color: white!important;border-radius: 0px!important;background-image:none!important;" ng-show="isTimeTable" class="btn btn-primary" value="Search" ng-click="searchTimeTable()" >
+                            </div>
+                        </div>
+
+                        <div>  
+                            <input  type="submit" style="background-color:#507bca!important;border-color: white!important;border-radius: 0px!important;background-image:none!important;" ng-show="isTimeTable" class="btn btn-primary " value="Enter TimeTable" ng-click="addTimeTable()" >
+                            <input  type="submit" style="background-color:#507bca!important;border-color: white!important;border-radius: 0px!important;background-image:none!important;" ng-show="isMarks" class="btn btn-primary" value="Enter Markrs" ng-click="enterMarks()" >
+                        </div>
+                    </div>
+                </div>-->
+
+
+        
+
+
+<!--        // buttons end 
+
+         progress report   -->
+        <div ng-show="isReport" class="text-center">
+            <form id="ReportForm">
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Course Type:</label>
+                        <div class="col-sm-4 text-left">
+                            <select class="form-control w-195 dispInline" ng-model="cType" ng-change="changeCourseType(cType)" name="cType">
+                                <option value="">Select Course Type</option>
+                                <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}
+                                </option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Stream:</label>
+                        <div class="col-sm-4 text-left">
+                            <select class="form-control w-195 dispInline" ng-model="class"  ng-change="changeStream(class)" name="class">
+                                <option value="">Select Stream</option>
+                                <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>
+                            </select></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Section:</label>
+                        <div class="col-sm-4 text-left">
+                            <select class="form-control w-195 dispInline" ng-model="section" name="section">
+                                <option value="">Select Section</option>
+                                <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Semesters:</label>
+                        <div class="col-sm-4 text-left">
+                            <select class="form-control w-195 dispInline" ng-model="semester" ng-change="getTestSubject()" name="semester">
+                                <option value="">Select Semester</option>
+                                <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                      <label class="col-sm-5 text-right">Test:</label>
+                      <div class="col-sm-4 text-left">
+                      <select class="form-control w-195 dispInline" ng-model="selTest" name="selTest">
+                      <option value="">Select Test</option>
+                      <option ng-repeat="obj in examsArr" value="{{obj}}">{{obj}}</option>
+                      </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Adm No:</label>
+                        <div class="col-sm-6 text-left">
+                            <select  class="form-control w-195" ng-model="selObj" ng-options="sObj as sObj.admNo for  sObj in stdList" name="admNo">
+                                <option value="">Select Adm No</option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <div class="col-sm-5 text-right">
+                            <label >Student Name:</label>
+                        </div>
+                        <div class="col-sm-4 text-left">
+                            <input type='text' class="form-control" ng-disabled='true' ng-model="selObj.name"  style="width: 195px">
+                        </div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row form-inline mrow">
+                        <input  type="submit" class="btn btn-primary" value="Progress Report" ng-click="getProgressReport()">
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+
+        <!-- progress report end -->
+
+
+        <!-- final Report-->
+        <div ng-show="isFinalReport" class="text-center">
+            <form id="FinalForm">
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Course Type:</label>
+                        <div class="col-sm-4 text-left">
+                            <select class="form-control w-195 dispInline" ng-model="cType" ng-change="changeCourseType(cType)" name="cType">
+                                <option value="">Select Course Type</option>
+                                <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}
+                                </option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Stream:</label>
+                        <div class="col-sm-4 text-left">
+                            <select class="form-control w-195 dispInline" ng-model="class"  ng-change="changeStream(class)" name="class">
+                                <option value="">Select Stream</option>
+                                <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Section:</label>
+                        <div class="col-sm-4 text-left">
+                            <select class="form-control w-195 dispInline" ng-model="section" name="section">
+                                <option value="">Select Section</option>
+                                <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Semesters:</label>
+                        <div class="col-sm-4 text-left">
+                            <select class="form-control w-195 dispInline" ng-model="semester" ng-change="getTestSubject()" name="semester">
+                                <option value="">Select Semester</option>
+                                <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <label class="col-sm-5 text-right">Adm No:</label>
+                        <div class="col-sm-6 text-left">
+                            <select  class="form-control w-195" ng-model="selObj" ng-options="sObj as sObj.admNo for  sObj in stdList" name="admNo">
+                                <option value="">Select Adm No</option>
+                            </select></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row mrow">
+                        <div class="col-sm-5 text-right">
+                            <label >Student Name:</label>
+                        </div>
+                        <div class="col-sm-4 text-left">
+                            <input type='text' class="form-control" ng-disabled='true' ng-model="selObj.name" style="width: 190px"></div>
+                    </div></div>
+
+                <div class="form-group">
+                    <div class="row form-inline mrow">
+                        <input  type="submit" class="btn btn-primary" value="Final Report" ng-click="getFinalReport()">
+                    </div>
+                   
+                </div>
+            </form>
+        </div>
+        <!-- final Report End-->
+
+
+        <!-- hall ticket  -->
+        <div ng-show="(isHallTicket)">
+        
+        <div class="row  mrow">
+ <div class=" col-sm-offset- col-sm-3 form-group">
+     <select class="form-control  dispInline" ng-model="cType" ng-change="changeCourseType(cType)" required >
+      <option value="">Select Course Type</option>
+      <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+    </select>
+ </div>
+ <div class="col-sm-3 form-group">
+    <select  class="form-control  dispInline" ng-model="class" required  ng-change="changeStream(class)" >
+                            <option value="">Select Stream</option>
+                            <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>  
+                        </select>
+     
+ </div>
+ <div class="col-sm-3 form-group">
+    
+     <select  class="form-control  dispInline" ng-model="semester" ng-change="getTestSubject()" required >
+      <option value="">Select Semesters</option>
+            <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+      </select>
+ </div>
+ <div class="col-sm-3 form-group">
+    <select  class="form-control  dispInline" ng-model="section" ng-change="getTestSubject()" required 
+                        >
+                            <option value="">Select Section</option>
+                            <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+                        </select>
+ </div>
+            <div class="col-sm-3 form-group">
+                <input ng-if="isHallTicket" type="button" class="btn btn-primary btn-block" value="Get HallTickets" ng-click="getHallTickets()" >
+          </div>
+
+ </div>
+ 
+        </div>
+        
+        
+        
+        
+        
+        
+<!--        <div class="form-group" ng-show="(isHallTicket)">
+            <div class="row ">
+                <div class="col-sm-9 col-sm-offset-1" style="display:flex;padding: 0px;
+                     box-shadow: 0px 0px 1px 1px #507bca;
+                     background-color: white;    margin-left: 11%;width: 63%;">
+                    <div class="">
+                        <select class="form-control w-195 dispInline" ng-model="cType" ng-change="changeCourseType(cType)" required style=" border-color: white!important;
+                                border-radius: 0px!important;">
+                            <option value="">Select Course Type</option>
+                            <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+                        </select>
+                    </div>
+                    <div >
+
+                        <select  class="form-control w-195 dispInline" ng-model="class" required  ng-change="changeStream(class)" style=" border-color: white!important;
+                                 border-radius: 0px!important;">
+                            <option value="">Select Stream</option>
+                            <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>  
+                        </select>
+                    </div>
+                    <div >
+
+                        <select  class="form-control w-195 dispInline" ng-model="semester" ng-change="getTestSubject()" required style=" border-color: white!important;
+                                 border-radius: 0px!important;">
+                            <option value="">Select Semesters</option>
+                            <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+                        </select>
+                    </div>
+                    <div >
+                        <select  class="form-control w-195 dispInline" ng-model="section" ng-change="getTestSubject()" required style=" border-color: white!important;
+                                 border-radius: 0px!important;">
+                            <option value="">Select Section</option>
+                            <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <input ng-if="isHallTicket" type="button" class="btn btn-primary " style="background-color:#507bca!important;border-color: white!important;border-radius: 0px!important;background-image:none!important;margin-left:7px;" value="Get HallTickets" ng-click="getHallTickets()" >
+                </div>
+            </div> 
+        </div>-->
+
+        <!-- hall ticket end -->
+
+
+        <!-- hall ticket list -->
+        <div class="form-group"  ng-show="isHallTicket">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr class='t-head'>
+                        <th class='text-center'><span>S.No</span></th>
+                        <th class='text-center'> All<input type="checkbox" ng-change="checkAll(chkAll.isChk)" ng-model="chkAll.isChk"></th>
+                        <th class='text-center'>Admission No</th>
+                        <th class='text-center'>Name<input type="text" style="width:200px;display:inline" class="form-control" ng-model="fName"></th>
+                        <th class='text-center'>Gender</th>
+                        <th class='text-center'>Date of Admission</th>
+                        <th class='text-center'>Date of Birth</th>
+                        <th class='text-center'>Acedemic Year</th>
+                        <th class='text-center'>ph.No</th>
+                    </tr>
+                    <tr ng-repeat="listObj in stdList| filter:{name:fName}" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                        <td class="text-center">{{$index + 1}}</td>
+                        <td class="text-center"><input type="checkbox" ng-model="std[listObj.admNo]"></td>
+                        <td class='text-center'>{{listObj.admNo}}</td>
+                        <td class='text-center'>{{listObj.name}}</td>
+                        <td class='text-center'>{{listObj.gender}}</td>
+                        <td class='text-center'>{{listObj.doa}}</td>
+                        <td class='text-center'>{{listObj.dob}}</td>
+                        <td class='text-center'>{{listObj.aceYear}}</td>
+                        <td class='text-center'>{{listObj.phNo}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- hall ticket list end -->
+
+        <!-- Time table Start-->
+        <div class="form-group"  ng-show="isTimeTable" style="padding-top:10%" >
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr class='t-head'><th class='text-center'><span>S.No</span></th>
+                        <th class='text-center'>Subject</th>
+                        <th class='text-center'>Date</th>
+                        <th class='text-center'>StartTime</th>
+                        <th class='text-center'>End Time</th>
+                        <th class='text-center'>Edit</th>
+                        <th class='text-center'>Delete</th>
+                    </tr>
+                    <tr ng-repeat="listObj in ttList|filter:{className:fClass,section:fSec,test:fTest}" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                        <td class="text-center">{{$index + 1}}</td>
+                        <td class='text-center'>{{listObj.subject}}</td>
+                        <td class='text-center'>{{listObj.date}}</td>
+                        <td class='text-center'>{{listObj.sTime| date:'shortTime'}}</td>
+                        <td class='text-center'>{{listObj.eTime| date:'shortTime'}}</td>
+                        <td class="text-center"><a href ng-click="addTimeTable(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td class="text-center"><a href ng-click="deleteTimeTable(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!-- Time Table End-->
+
+
+        <!-- Enter Marks list Start -->
+        <div class="form-group"
+             ng-show="isMarks" style="padding-top:10%">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr class='t-head'>
+                        <th class='text-center'><span>S.No</span></th>
+                        <th  class='text-center'> All<input type="checkbox" ng-change="checkAll(chkAll.isChk)" ng-model="chkAll.isChk"></th>
+                        <th class='text-center'>Name</th>
+                        <th class='text-center'>AdmissionNo</th>
+                        <th class='text-center'>Marks</th>
+                        <th class='text-center'>TotalMarks</th>
+                        <th class='text-center'>Edit</th>
+                        <th class='text-center'>Delete</th>
+                    </tr>
+                    <tr ng-repeat="listObj in marksList|filter:{className:fClass,section:fSec,test:fTest}" ng-class="($index % 2==0 ? 'bg-danger' :'bg - info') ">
+                        <td class="text-center">{{$index + 1}}</td>
+                        <td class="text-center"><input type="checkbox" ng-model="std[listObj.admNo]"></td>
+                        <td class='text-center'>{{listObj.name}}</td>
+                        <td class='text-center'>{{listObj.admNo}}</td>
+                        <td class='text-center'>{{listObj.marks}}</td>
+                        <td class='text-center'>{{listObj.maxMarks}}</td>
+                        <td class="text-center"><a href ng-click="enterMarks(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                        <td class="text-center"><a href ng-click="deleteMarks(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center mrow">
+         <label class="text-danger font" ng-bind="msg">  
+         </label>
+          </div>
+</div>
+
+
+<!-- Enter Marks list  End-->

@@ -1,0 +1,66 @@
+
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" ng-click="close()" class="close">&times;</button>
+<h4 class="modal-title">Generate Id</h4>
+</div>
+<form style="width: 700px">
+<div class="modal-body">
+<div class="panel"  ng-repeat="inGenEmployeeObj in idGenEmployee" style="border-color: paleturquoise; width: 505px;margin-left: auto;width:466px">
+<div class="panel-heading" style="background-color:paleturquoise">
+         <div class="col-sm-2"><img src="images/s1.jpg" height="30px" width="30px"/></div>
+         <div class="col-sm-10"><span style="font-size:17px;font-weight:bold">{{sCampusName}}</span></div></br>
+        </div>
+<div class="panel-body">
+            <div class="row">
+               <div class="col-sm-3"><img src="images/s7.jpg" height="100px" width="100px" style="position:absolute" /></div>
+               <div class="col-sm-4"><span class="col-sm-8">Name</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenEmployeeObj.name"></b></i></div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-8">Gender</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenEmployeeObj.gender"></b></i></div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-11">Phone.No</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenEmployeeObj.phonenumber"></b></i></div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-8">EmailId</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenEmployeeObj.emailid"></b></i></div>
+            </div>
+
+            <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-11">Blood Group</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenEmployeeObj.bloodgrp"></b></i></div>
+            </div>
+            <div class="row">
+            <!--  <div class="col-sm-3"><i>Principal Sign</i></div> -->
+               <div class= "col-sm-offset-3 col-sm-4"><span class="col-sm-11">Department</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenEmployeeObj.department"></b></i></div>
+            </div>
+
+ 
+</div>
+   
+           <!--  <div class="row">
+               <div class="col-sm-offset-3 col-sm-4"><span class="col-sm-8">Photo</span><span class="pull-right">:</span></div>
+               <div class="col-sm-5"><i><b ng-bind="inGenEmployeeObj.photo"></b></i></div>
+            </div>
+  </div> -->
+  <div class="panel-footer" style="background-color:paleturquoise">School Address:{{sStreet}},{{sDistrict}},{{sState}},Pincode:{{sPinCode}},<br>Telephone:{{sPhoneNo}},Email:{{sEmail}}</div>
+         </div>
+         
+</div>
+    </form>
+         <div class="modal-footer">
+          <button type="button" ng-click="printId()" class="btn btn-primary">Save&Print</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button> 
+        </div>
+
+
+
+  </div>

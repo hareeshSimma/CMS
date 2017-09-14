@@ -1,0 +1,97 @@
+<style>
+  
+#category{
+ 
+}
+</style>
+<!-- Modal content-->
+  <div class="modal-content">
+  <div class="modal-header">
+  <button type="button" ng-click="close()" class="close">&times;</button>
+  <h4 class="modal-title">Inventory Details</h4>
+  </div>
+<div class="modal-body">
+      <div class="form-group form-inline">
+            <label class="col-sm-4 text-right" id="category">Vendors:</label>
+            <select  class="form-control w-195" ng-model="Vendors" ng-change="changeVendor(Vendors)" required>
+              <option value="">Vendors</option>
+              <option ng-repeat="obj in vendorList" value="{{obj.vendors}}">{{obj.vendors}}</option>
+            </select>
+          </div>
+
+            <div class="form-group form-inline">
+            <label class="col-sm-4 text-right" id="inventory">Category Name:</label>
+            <select class="form-control w-195 dispInline" ng-model="categoryName" required>
+              <option value="">Select Category</option>
+              <option ng-repeat="obj in catArr" value="{{obj}}">{{obj}}</option>
+            </select>
+            </div>
+
+
+   <!-- 
+   <div class="form-group form-inline">
+   <label class="col-sm-4 text-right" id="category" >Vendors:</label><input type="text" class="form-control" ng-model="Vendors">
+    </div>
+
+
+<div class="row" >
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Categories:</label>
+            <ul class="chkList" style="margin-left:200px;list-style-type: none;font-weight:bold" ng-init="i=1;">
+              <li ng-repeat="obj in categories" class="form-group form-inline"><input type="checkbox" ng-model="cat[obj.category]">{{obj.category}}</li>
+            </ul>
+          </div></div>
+
+          <div class="row" >
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Category1</label>
+            <input type="text" class="form-control" ng-model="cat.category1">
+            <a href ng-click="addCategoryTextBox()"><span class="glyphicon glyphicon-plus"></span></a>
+          </div></div>
+          <div class="row" ng-repeat="catObj in catList">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">{{catObj.catName}}</label>
+            <input type="text" class="form-control" ng-model="cat[catObj.catName]">
+            <a href ng-click="deleteCategoryTextBox(catObj.catName)"><span class="glyphicon glyphicon-trash"></span></a>
+          </div></div> -->
+
+
+
+<div class="row" >
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Inventory Items:</label>
+            <ul class="chkList" style="margin-left:200px;list-style-type: none;font-weight:bold" ng-init="i=1;">
+              <li ng-repeat="obj in categories" class="form-group form-inline"><input type="checkbox" ng-model="cat[obj.category]">{{obj.inventory}}</li>
+            </ul>
+          </div></div>
+
+
+
+
+          <div class="row" >
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">Inventory Item1</label>
+            <input type="text" class="form-control" ng-model="inv.inventory1">
+            <a href ng-click="addInventoryTextBox()"><span class="glyphicon glyphicon-plus"></span></a>
+          </div></div>
+          <div class="row" ng-repeat="invObj in invList">
+          <div class="form-group form-inline">
+            <label class="col-sm-4 text-right">{{invObj.invName}}</label>
+            <input type="text" class="form-control" ng-model="inv[invObj.invName]">
+            <a href ng-click="deleteInventoryTextBox(invObj.invName)"><span class="glyphicon glyphicon-trash"></span></a>
+          </div></div>
+
+
+            <div class="row text-center">
+            <label class="text-danger" ng-bind="msg"></label>
+          </div> 
+
+ </div>
+
+          <div class="modal-footer">
+          <button ng-if="isSave" type="button" ng-click="save('9')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave" type="button" ng-click="save('10')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
+        </div>
+      

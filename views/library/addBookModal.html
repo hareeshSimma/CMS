@@ -1,0 +1,87 @@
+<!-- Modal content-->
+<div class="modal-content">
+<form id="AddBookForm">
+
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Add Book</h4>
+        </div>
+
+    <div class="modal-body">
+
+       <div class="row form-group form-inline ">
+       <label class="control-label col-sm-3 text-right">Book Name:</label>
+       <div class="col-sm-3">
+       <input type="text" class="form-control" ng-model="bookName" name="bookName"></div>
+       <label class="control-label col-sm-2 text-right">Book Code:</label>
+       <div class="col-sm-3">
+       <input type="text" class="form-control" ng-model="bookTitle" name="bookTitle"></div>
+       </div>
+
+       <div class="row form-group form-inline ">
+        <label class="control-label col-sm-3 text-right">Author:</label>
+       <div class="col-sm-3">
+       <input type="text" class="form-control" ng-model="author" name="author"></div>
+       <label class="control-label col-sm-2 text-right">Quantity:</label>
+       <div class="col-sm-4">
+       <input type="text" class="form-control" ng-model="quantity" name="quantity"></div>
+      
+       </div>
+
+       <div class="row form-group form-inline ">
+       <label class="control-label col-sm-3 text-right">Publisher:</label>
+       <div class="col-sm-3">
+       <input type="text" class="form-control" ng-model="publisher" name="publisher"></div>
+       <label class="control-label col-sm-2 text-right">Year Of Publication:</label>
+       <div class="col-sm-4">
+       <input type="text" class="form-control" ng-model="yop" name="yop"></div>
+       </div>
+
+          <div class="row text-center">
+          <label class="text-danger" ng-bind="msg"></label>
+          </div>
+
+          <div class="row text-center">
+          <label class="text-danger" ng-bind="msgId"></label>
+          <div style="word-break:break-word; margin-left:20px; margin-right:20px; color:blue">
+          <span ng-bind="genIds"></span>
+          </div>
+          </div>
+    </div>
+        
+    <div class="modal-footer">
+      <button ng-if="isSave && isSaved" type="submit" ng-click="save('1')" class="btn btn-primary">Save</button>
+      <button ng-if="!isSave && isSaved" type="submit" ng-click="save('2')" class="btn btn-primary">Edit</button>
+      <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+    </div>
+
+      </form>
+      </div>
+
+
+      <!-- <div class="row form-group form-inline ">
+       <label class="control-label col-sm-3 text-right">Year:</label>
+       <div class="col-sm-3">
+       <input type="text" class="form-control" ng-model="year" name="year"></div>
+       </div> -->
+
+      <!-- <div class="row form-group form-inline "> 
+      <label class="control-label col-sm-3 text-right">Supplier:</label>
+       <div class="col-sm-3">
+       <input type="text" class="form-control" ng-model="supplier" name="supplier">
+       </div>
+       <label class="col-sm-2 text-right">Course Type:</label>
+      <select class="form-control w-195 col-sm-3" style="margin-left: 1.65%" ng-model="cType" ng-change="changeCourseType(cType)">
+      <option value="">Select Course Type</option>
+      <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option></select></div>
+
+      <div class="row form-group form-inline">
+            <label class="control-label  col-sm-3 text-right">Stream:</label>
+            <select  class="form-control w-195 col-sm-3" style="margin-left: 1.65%" ng-model="stream" ng-change="changeStream(stream)" >>
+            <option value="">Select Stream</option>
+            <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option></select>
+      <label class="col-sm-2 text-right" style="margin-left:1.7%">Semester:</label>
+      <select class="form-control w-195 col-sm-3" style="margin-left: 1.65%" ng-model="semesters">
+      <option value="">Select semester</option>
+      <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option></select>
+      </div> -->

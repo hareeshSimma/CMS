@@ -1,0 +1,315 @@
+
+</br>
+<!-- Vendor Start-->
+  <div class=" offsetMenu ">
+      <div class="row mrow" ng-show="isDefault">
+       <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Store Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Store Module Contains 7 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Vendor Registration</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Add Category</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Add Inventory</li>
+                     <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Stock Pricing Details </li>
+                      <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Stock Issue Details</li>
+                       <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Vendor Payment details</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Report</li>
+ 
+              </ul>              
+        </div>
+    </div>
+  <div ng-if="isVendor">
+  <div class="text-center stuHead">Store : Vendor Registration</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> <tr class='t-head'>
+          <th class='text-center'><button class="btn btn-primary pull-left" ng-click="addVendor()">Add New</button></th>
+          <th>S.No</th>
+          <th class='text-center'>Vendor Name</th>
+          <th class='text-center'>Vendor Phone</th>
+          <th class='text-center'>Vendor Email</th>
+          <th class='text-center'>Country</th>
+          <th class='text-center'>State</th>
+          <th class='text-center'>City</th>
+          <th class='text-center'>Name</th> 
+          <th class='text-center'>Phone</th>
+          <th class='text-center'>Address</th>
+          <th class='text-center'>Bank Name</th>
+          <th class='text-center'>Branch Name</th>
+          <th class='text-center'>Account Number</th>
+          <th class='text-center'>IFSC Code</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in vendorList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.companyName}}</td>
+            <td class='text-center'>{{listObj.companyPhone}}</td>
+            <td class='text-center'>{{listObj.companyEmail}}</td>
+            <td class='text-center'>{{listObj.country}}</td>
+            <td class='text-center'>{{listObj.state}}</td>
+            <td class='text-center'>{{listObj.city}}</td>
+            <td class='text-center'>{{listObj.name}}</td>
+            <td class='text-center'>{{listObj.phone}}</td>
+            <td class='text-center'>{{listObj.address}}</td>
+            <td class='text-center'>{{listObj.bankName}}</td>
+            <td class='text-center'>{{listObj.branchName}}</td>
+            <td class='text-center'>{{listObj.accountNo}}</td>
+            <td class='text-center'>{{listObj.ifscCode}}</td>
+            <td class="text-center"><a href ng-click="addVendor(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteVendor(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Vendor End-->
+
+  <!-- Category Details Start-->
+  
+  <div ng-if="isCategory" style="margin-left: -30px;">
+  <div class="text-center stuHead">Store : Category Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> <tr class='t-head'>
+          <th class='text-center'><button class="btn btn-primary pull-left" ng-click="addCategory()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Vendors</th>
+          <th class='text-center'>Categories</th>
+          <!-- <th class='text-center'>Inventories</th> -->
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in categoryList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.vendors}}</td>
+            <td class='text-center'>{{listObj.categories}}</td>
+            <!-- <td class='text-center'>{{listObj.inventories}}</td> -->
+            <td class="text-center"><a href ng-click="addCategory(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteCategory(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Category End-->
+
+  <div ng-if="isInventory" style="margin-left: -30px;">
+  <div class="text-center stuHead">Store : Inventory Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> <tr class='t-head'>
+          <th class='text-center'><button class="btn btn-primary pull-left" ng-click="addInventory()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Vendors</th>
+          <th class='text-center'>Categories</th>
+          <th class='text-center'>Inventories</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in inventoryList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.vendors}}</td>
+            <td class='text-center'>{{listObj.categories}}</td>
+            <td class='text-center'>{{listObj.inventories}}</td>
+            <td class="text-center"><a href ng-click="addInventory(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteInventory(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Inventory End-->
+
+  <!-- StockPricing Details Start-->
+  
+  <div ng-if="isStockPricing" style="margin-left: -30px;">
+  <div class="text-center stuHead">Store : Stock Pricing Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> <tr class='t-head'>
+          <th class='text-center'><button class="btn btn-primary pull-left" ng-click="addStockPricing()">Add New</button></th>
+            <th>S.No</th>
+          <th class='text-center'>Vendors</th>
+          <th class='text-center'>Category Name</th>
+          <th class='text-center'>Inventory Item</th>
+          <th class='text-center'>Quantity</th>
+          <th class='text-center'>Re-order Level</th>
+          <th class='text-center'>MRP</th>
+          <th class='text-center'>Rate</th>
+          <th class='text-center'>Discount</th>
+          <th class='text-center'>Complimentary</th>
+          <th class='text-center'>Amount</th>
+          <th class='text-center'>Total Amount</th>
+          <th class='text-center'>Date</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in stockPricingList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.vendors}}</td>
+            <td class='text-center'>{{listObj.categoryName}}</td>
+            <td class='text-center'>{{listObj.inventoryItem}}</td>
+            <td class='text-center'>{{listObj.quantity}}</td>
+            <td class='text-center'>{{listObj.reorderLevel}}</td>
+            <td class='text-center'>{{listObj.mrp}}</td>
+            <td class='text-center'>{{listObj.rate}}</td>
+             <td class='text-center'>{{listObj.discount}}</td>
+             <td class='text-center'>{{listObj.free}}</td>
+             <td class='text-center'>{{listObj.amount}}</td>
+             <td class='text-center'>{{listObj.totAmount}}</td>
+             <td class='text-center'>{{listObj.date}}</td>
+            <td class="text-center"><a href ng-click="addStockPricing(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteStockPricing(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+
+ 
+
+<!-- stock Details Start-->
+  
+  <div ng-if="isStock" style="margin-left: -30px;"> 
+  <div class="text-center stuHead">Store : Stock Issue Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> <tr class='t-head'>
+          <th class='text-center'><button class="btn btn-primary pull-left" ng-click="addStock()">Add New</button></th>
+           <th>S.No</th>
+          <th class='text-center'>User Type</th>
+          <th class='text-center'>Name</th>
+          <th class='text-center'>vendor</th>
+          <th class='text-center'>Category</th>
+          <th class='text-center'>Inventory Item</th>
+          <th class='text-center'>Available Stock</th>
+          <th class='text-center'>Issued Stock</th>
+          <th class='text-center'>Remaining Stock</th>
+          <th class='text-center'>Amount</th>
+          <th class='text-center'>Date</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in stockList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.userType}}</td>
+            <td class='text-center'>{{listObj.studentName}}</td>
+            <td class='text-center'>{{listObj.vendor}}</td>
+            <td class='text-center'>{{listObj.category}}</td>
+            <td class='text-center'>{{listObj.inventItem}}</td>
+            <td class='text-center'>{{listObj.availableStock}}</td>
+            <td class='text-center'>{{listObj.issuedStock}}</td>
+            <td class='text-center'>{{listObj.remainingStock}}</td>
+            <td class='text-center'>{{listObj.amount}}</td>
+            <td class='text-center'>{{listObj.date}}</td>
+            <td class="text-center"><a href ng-click="addStock(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteStock(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+<!-- stock Details End-->
+
+
+  <!-- payments start-->
+
+  <div ng-if="isPayment" style="margin-left: -30px;">
+  <div class="text-center stuHead">Store : Payment Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> <tr class='t-head'>
+          <th class='text-center'><button class="btn btn-primary pull-left" ng-click="addPayment()">Add New</button>
+           <th>S.No</th>
+          <th class='text-center'>Vendor Name</th>
+          <th class='text-center'>Category</th>
+          <th class='text-center'>Inventory Item</th>
+          <th class='text-center'>State</th>
+          <th class='text-center'>City</th>
+          <th class='text-center'>Contact Person</th>
+          <th class='text-center'>Phone Number</th>
+          <th class='text-center'>Total Amount</th>
+          <th class='text-center'>Amount Paid</th>
+          <th class='text-center'>Date of Payment</th>
+          <th class='text-center'>Balance Amount</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in paymentList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.companyName}}</td>
+            <td class='text-center'>{{listObj.category}}</td>
+            <td class='text-center'>{{listObj.invItem}}</td>
+            <td class='text-center'>{{listObj.state}}</td>
+            <td class='text-center'>{{listObj.city}}</td>
+            <td class='text-center'>{{listObj.contactPerson}}</td>
+            <td class='text-center'>{{listObj.phone}}</td>
+            <td class='text-center'>{{listObj.totAmount}}</td>
+            <td class='text-center'>{{listObj.amountPaid}}</td>
+            <td class='text-center'>{{listObj.payDate}}</td>
+            <td class='text-center'>{{listObj.balence}}</td>
+            <td class="text-center"><a href ng-click="addPayment(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deletePayment(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- payments End-->
+
+
+<!-- reports start-->
+
+  <div ng-if="isReports">
+<div class="row mrow">
+<div class="form-group form-inline">
+            <label class="col-sm-3 text-right"> From Date</label>
+            <div class="col-sm-2">
+              <past-date date-callback="fnInsuranceSelection(date)"></past-date>
+<!--<input type='date' ng-model="PayDate" class="form-control w-195">   -->
+
+            </div>
+            <label class="col-sm-3 text-right"> To Date</label>
+            <div class="col-sm-2">
+               <past-date date-callback="fnInsuranceSelection(date)"></past-date>
+<!--<input type='date' ng-model="PayDate" class="form-control w-195">   -->
+
+            </div>
+<input type="submit" class="btn btn-primary" value="Search" ng-click="Search()" style="
+    margin-left: 35px;
+">
+            </div></div>
+          <br>
+      <div class="table-responsive" style="margin-left: -30px;">
+        <table class="table table-bordered"> <tr class='t-head'>
+          <th class='text-center'><span>S.No</span></th>
+          <th class='text-center'>Vendors</th>
+          <th class='text-center'>Category Name</th>
+          <th class='text-center'>Inventory Item</th>
+          <th class='text-center'>Quantity Supplied</th>
+          <th class='text-center'>Balance Quantity</th>
+          <th class='text-center'>MRP</th>
+          <th class='text-center'>Rate</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          <tr ng-repeat="listObj in reportsList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.vendors}}</td>
+            <td class='text-center'>{{listObj.categoryName}}</td>
+            <td class='text-center'>{{listObj.inventoryItem}}</td>
+            <td class='text-center'>{{listObj.quantity}}</td>
+            <td class='text-center'>{{listObj.mrp}}</td>
+            <td class='text-center'>{{listObj.rate}}</td>
+            <td class="text-center"><a href ng-click="addReports(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteReports(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- reports End-->
+
+
+
+  </div>
+</div>
+</div>

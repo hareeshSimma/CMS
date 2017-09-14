@@ -1,0 +1,234 @@
+<br>
+<div class=" offsetMenu ">
+<div class="col-xs-12 p-0">
+<div class="row mrow" ng-show="isDefault">
+       <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Library Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Library Module Contains 4 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Add Books</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Issue Book/Receive Book</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Books Report</li>
+                     <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Date Report </li>
+                     
+              </ul>              
+        </div>
+    </div>
+<!-- Add Book Start-->
+  <div ng-if="isAddBook">
+  <div class="text-center stuHead">Library : Add Book Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+         <tr class='t-head'><th class='text-center'><button class="btn btn-primary pull-left" ng-click="addBook()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Book Name</th>
+          <th class='text-center'>Book Code</th>
+          <th class='text-center'>Book Author</th>
+          <th class='text-center'>Book Publisher</th>
+          <th class='text-center'>Year Of Publication</th>
+          <th class='text-center'>Quantity</th> 
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+          
+            <tr ng-repeat="listObj in bookList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class="text-center">{{listObj.bookName}}</td>
+            <td class='text-center'>{{listObj.bookTitle}}</td>
+            <td class='text-center'>{{listObj.author}}</td>
+            <td class='text-center'>{{listObj.publisher}}</td>
+            <td class='text-center'>{{listObj.yop}}</td>
+            <td class='text-center'>{{listObj.quantity}}</td>
+            <td class="text-center"><a href ng-click="addBook(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteBook(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Add Book  End-->
+
+  <!-- Issue Book  Start-->
+  <div ng-if="isIssueBook">
+  <div class="text-center stuHead">Library : Issue Book Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> <tr class='t-head'>
+          <th class='text-center'><button class="btn btn-primary pull-left" ng-click="addIssueBook()">Issue Book</button>
+              </th>
+              <th>S.No</th>
+          <th class='text-center'>User<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName1"></input></th>
+          <!-- <th class='text-center'>Course Type<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName2"></input></th>
+          <th class='text-center'>Stream<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName3"></input></th>
+          <th class='text-center'>Semester<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName4"></input></th>
+          <th class='text-center'>Section</th> -->
+          <th class='text-center'>Student AdmNo<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName5"></input></th>
+          <th class='text-center'>Name of Student</th>
+          <th class='text-center'>Employee Id<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName6"></input></th>
+          <th class='text-center'>Employee Name</th>
+          <th class='text-center'>Issued Books</th>
+          <th class='text-center'>DOI of Book</th>
+          <th class='text-center'>Valid Upto</th>
+          <!-- <th class='text-center'>DOI of Book3</th> -->
+          <th class='text-center'>Renewal Book</th>
+          <th class='text-center'>Receive Book/ Delete Record</th>
+          </tr>
+          
+          <tr ng-repeat="listObj in issbookList|filter:{user:fName1,cType:fName2,className:fName3,semester:fName4,admNo:fName5,empId:fName6}" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+              <td></td>
+              <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.user}}</td>
+            <!-- <td class='text-center'>{{listObj.cType}}</td>
+            <td class='text-center'>{{listObj.className}}</td>
+            <td class='text-center'>{{listObj.semester}}</td>
+            <td class='text-center'>{{listObj.section}}</td> -->
+            <td class='text-center'>{{listObj.admNo == 'null' ? '' : listObj.admNo}}</td> 
+            <td class='text-center'>{{listObj.name == 'null' ? '' : listObj.name}}</td> 
+            <td class='text-center'>{{listObj.empId == 'null' ? '' : listObj.empId}}</td> 
+            <td class="text-center">{{listObj.nameEmp == 'null' ? '' : listObj.nameEmp}}</td>  
+            <td class='text-center'>{{listObj.bookTitle}}</td>
+            <td class='text-center'>{{listObj.date1}}</td>
+            <td class='text-center'>{{listObj.date2}}</td>
+            <!-- <td class='text-center'>{{listObj.date3}}</td> -->
+            <td class="text-center"><a href ng-click="addIssueBook(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteIssueBook(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Issue Book  End-->
+
+   <!-- Book Transaction Start-->
+  <div ng-show="isTransReport || isDateReport">
+  <div ng-if="isTransReport" class="text-center stuHead">Library : Traction Reports</div>
+  <div ng-if="isDateReport" class="text-center stuHead">Library : Traction Reports</div>
+  <form id="ReportForm">
+
+  <div class="form-group">
+  <div class="row">
+  <div class="col-sm-4 text-right">
+  <div class="col-sm-5">
+  <label>Course Type:</label></div>
+  <div class="col-sm-7">
+  <select class="form-control w-195 dispInline" ng-model="cType" ng-change="changeCourseType(cType)" name="cType">
+  <option value="">Select Course Type</option>
+  <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+  </select>
+  </div></div>
+
+  <div class="col-sm-4 text-right">
+  <div class="col-sm-5">
+  <label>Streams:</label></div>
+  <div class="col-sm-7">
+  <select  class="form-control w-195 dispInline" ng-model="class" ng-change="changeStream(class)" name="class">
+  <option value="">Select Stream</option>
+  <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>  </select>
+  </div></div>
+
+  <div class="col-sm-4 text-right">
+  <div class="col-sm-5">
+  <label>Semesters:</label></div>
+  <div class="col-sm-7">
+  <select class="form-control w-195 dispInline" ng-model="semester" name="semester">
+  <option value="">Select semester</option>
+  <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+  </select>
+  </div></div>
+  </div></div>
+
+<div class="row">
+<div class="form-group">
+<div class="col-sm-4 text-right">
+<div class="col-sm-5">
+<label>Section:</label></div>
+<div class="col-sm-7">
+<select class="form-control w-195 dispInline" ng-model="section" name="section">
+<option value="">Select Section</option>
+<option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+</select>
+</div></div>
+  
+    <div ng-if="isTransReport">
+    <div class="col-sm-4">
+    <input style="margin-left: 183px" type="submit" class="btn btn-primary" value="Student Search" ng-click="libStdSearch()"></div>
+    <div class="col-sm-4">
+    <input style="margin-left: 183px;" type="button" class="btn btn-primary" value="Faculty Search" ng-click="libFacSearch()"></div>
+    </div>
+
+    <div ng-if="isDateReport">
+    <div class="col-sm-5 text-right">
+    <div class="col-sm-4">
+    <label>Date:</label></div>
+    <div class="col-sm-7" style="width: initial;">
+    <past-date date-callback="fnValidDate(date)"></past-date></div></div>
+    <div class="col-sm-offset-1 col-sm-2">
+    <input style="margin-left: -29px;" type="submit" class="btn btn-primary" value="Student Search" ng-click="libStdDateSearch()">
+    </div>
+    </div>
+
+</div></div>
+
+</form>
+
+<br>
+    <div ng-if="isTransReport">
+      <div class="table-responsive">
+        <table class="table table-bordered"> 
+          <tr class='t-head'>
+          <th class='text-center'><span>S.No</span></th>
+          <th class='text-center'>Student AdmNo<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName1"></input></th>
+          <th class="text-center">Student Name<!-- <input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName2"></input> --></th>
+          <th class='text-center'>Employee Id<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName3"></input></th>
+          <th class="text-center">Faculty Name<!-- <input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName4"></input> --></th>
+          <th class='text-center'>Book Name</th>
+          </tr>
+        <tr ng-repeat="listObj in libraryList|filter:{admNo:fName1,name:fName2,empId:fName3,nameEmp:fName4}" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.admNo == 'null' ? '' : listObj.admNo}}</td>
+            <td class="text-center">{{listObj.name == 'null' ? '' : listObj.name}}</td>
+            <td class='text-center'>{{listObj.empId == 'null' ? '' : listObj.empId}}</td>
+            <td class="text-center">{{listObj.nameEmp == 'null' ? '' : listObj.nameEmp}}</td>
+            <td class='text-center'>{{listObj.bookTitle}}</td>
+          </tr>
+        </table>
+      </div></div>
+
+      <div ng-if="isDateReport">
+      <div class="table-responsive">
+        <table class="table table-bordered"> 
+          <tr class='t-head'>
+          <th class='text-center'><span>S.No</span></th>
+          <th class='text-center'>Student AdmNo<input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName1"></input></th>
+          <th class="text-center">Student Name<!-- <input type="text" style="width:100px;height:30px;display:inline" class="form-control" ng-model="fName2"></input> --></th>
+          <th class='text-center'>Book Name</th>
+          <th class='text-center'>Date of Validation Completed on</th>
+          </tr>
+        <tr ng-repeat="listObj in libDatesList|filter:{admNo:fName1,name:fName2,empId:fName3,nameEmp:fName4}" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.admNo == 'null' ? '' : listObj.admNo}}</td>
+            <td class="text-center">{{listObj.name == 'null' ? '' : listObj.name}}</td>
+            <td class='text-center'>{{listObj.bookTitle}}</td>
+            <td class="text-center">{{listObj.date2}}</td>
+          </tr>
+        </table>
+      </div></div>
+
+  </div>
+  <!-- Transaction Report  End-->
+  
+</div>
+</div>
+
+
+
+

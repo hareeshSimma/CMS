@@ -1,0 +1,472 @@
+ <div class="modal-content">
+ <form id="StdRegForm">
+ <div class="modal-header">
+
+  <button type="button" ng-click="close()" class="close">&times;</button>
+  <h4 class="modal-title">New Registration</h4>
+  </div>
+        
+    <div class="modal-body">
+    <div ng-show="isPreview">
+
+    <div ng-show="isPersonlDet">
+<!--   <div class="row">
+    <div class="col-sm-2">AdmNo:{{currAdmNo}}</div></div>-->
+    <div class="form-group form-inline"> <div class="row">
+    <label class="col-sm-3 text-right">Admission Type:</label>
+    
+     <label class="radio-inline">
+    <input type="radio" name="admi" ng-model="admTyp" value="management">Management
+    </label>
+    <label class="radio-inline">
+    <input type="radio" name="admi" ng-model="admTyp" value="counselling">Convener Quota
+    </label>
+    </div>
+    </div>
+    
+    <div class="form-group form-inline"><div class="row">
+    <label class="col-sm-3 text-right">Course Type:</label>
+     <select class="form-control w-195 col-sm-3" ng-model="cType" ng-change="changeCourseType(cType)" >
+     <option value="">Select Course Type</option>
+     <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+     </select>
+    <label class="col-md-3 text-right">Stream:</label>
+    <select  class="form-control w-195 col-sm-3" ng-model="class" ng-change="changeStream(class)" >
+      <option value="">Select Stream</option>
+      <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>         
+    </select>
+   </div>
+   </div>
+
+
+
+   
+    <div class="form-group form-inline"><div class="row">
+    <label class="col-md-3 text-right">Semester:</label>
+     <select class="form-control w-195 col-sm-3" ng-model="semester">
+     <option value="">Select semester</option>
+     <option ng-repeat="obj in semesters track by $index" value="{{obj.semester}}">{{obj.semester}}</option>
+    </select>
+   <label class="col-sm-3 text-right">Section:</label>
+      <select class="col-sm-3 form-control w-195" ng-model="section" name="section">
+        <option value="">Select Section</option>
+        <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+      </select>
+      </div>
+      </div>
+
+          <div class="form-group form-inline">
+             <div class="row">
+            <label class="col-md-3 text-right">SurName:</label>
+            <input type="text" ng-model="sName" class="form-control col-md-3" name="sName">
+            <label class="col-md-3 text-right">Name:</label>
+            <input type="text" ng-model="name" class="form-control col-md-3" name="name">
+          </div></div>
+          
+          <div class="form-group form-inline">
+            <div class="row">
+            <label class="col-md-3 text-right">Father Name:</label>
+            <input type="text" ng-model="fname" class="form-control col-md-3" name="fname">
+            <label class="col-md-3 text-right">Mother Name:</label>
+            <input type="text" ng-model="mname" class="form-control col-md-3" name="mname">
+          </div>
+          </div>
+
+          <div class="form-group form-inline">
+          <div class="row">
+          <label class="col-md-3 text-right">Gender:</label>
+          <select class="form-control w-195 col-md-2" ng-model="gender" name="gender">
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+             <label class="col-md-3 text-right">Mother Tongue:</label>
+            <select class="form-control w-195 col-md-2" ng-model="mothertongue" name="mothertongue">
+               <option value="">Select Language</option>
+               <option value="telugu">Telugu</option>
+               <option value="hindi">Hindi</option>
+               <option value="kannada">Kannada</option>
+               <option value="marati">Marati</option>
+               <option value="tamil">Tamil</option>
+               <option value="malayalam">malayalam</option>
+               <option value="other">Other</option>
+            </select>
+            </div>
+            </div>
+
+          <div class="form-group form-inline">
+           <div class="row">
+           <label class="col-md-3 text-right">Father Qualification:</label>
+           <select class="form-control w-195 col-md-2" ng-model="fqual" name="fqual">
+              <option value="">Select qualification</option>
+              <option value="grad">Graduate</option>
+               <option value="pg">Post Graduate</option>
+               <option value="other">Other</option>
+            </select>
+            <label class="col-md-3 text-right">Occupation:</label>
+            <input type="text" ng-model="occu" class="form-control col-md-3" name="occu"> 
+            </div>
+            </div>
+
+            <div class="form-group form-inline">
+            <div class="row">
+            <label class="col-md-3 text-right">Religion:</label>
+            <select class="form-control w-195 col-md-3" ng-model="Religion" name="Religion">
+               <option value="">Select Religion</option>
+               <option value="Hinduism">Hinduism</option>
+               <option value=" Islam"> Islam</option>
+               <option value="Christianity">Christianity</option>
+               <option value="Sikhism">Sikhism</option>
+               <option value="Jainism">Jainism</option>
+               <option value="Zoroastrianism ">Zoroastrianism </option>
+               <option value="Judaism">Judaism</option>
+            </select>
+          <label class="col-md-3 text-right">Caste:</label>
+             <select class="form-control w-195 col-md-3" ng-model="Caste" name="Caste">
+              <option value="">Select Caste</option>
+              <option value="oc">OC</option>
+              <option value="bc">BC</option>
+               <option value="sc">SC</option>
+               <option value="st">ST</option>
+               <option value="other">Other</option>
+               </select>
+         </div></div>
+
+            <div class="form-group form-inline">
+            <div class="row">
+            <label class="col-md-3 text-right">Blood Group:</label>
+            <select class="form-control w-195 col-md-3" ng-model="bloodgroup" name="bloodgroup">
+              <option value="">Select Group</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+               <option value="B+">B+</option>
+               <option value="B-">B-</option>
+               <option value="AB+">AB+</option>
+               <option value="AB-">AB-</option>
+               <option value="A+">A+</option>
+                <option value="A-">A-</option>
+            </select>
+              <label class="col-md-3 text-right">Guardian Name:</label>
+            <input type="text" ng-model="Gname" class="form-control col-md-3" name="Gname">
+            </div></div>
+          </div>
+
+      <div ng-show="!isPersonlDet">
+
+          <div class="form-group form-inline">
+          <div class="row">
+          <label class="col-md-3 text-right">Res/Dayscholar:</label>
+            <select class="form-control w-195 col-md-3" ng-model="residence" name="residence">
+              <option value="" >Select Residence</option>
+              <option value="Dayscholar">Dayscholar</option>
+              <option value="Residence">Residence</option>
+               <option value="semiResidence">semiResidence</option>
+            </select>
+            <label class="col-md-3 text-right">Acedemic Year:</label>
+          <select class="form-control w-195 col-md-3" ng-model="aceYear" name="aceYear">
+              <option value="">Select Acedemic Year</option>
+              
+             <option value="2011-15">2011-15</option>
+              <option value="2012-16">2012-16</option>
+              <option value="2013-17">2013-17</option>
+              <option value="2014-18">2014-18</option>
+              <option value="2015-19">2015-19</option>
+              <option value="2016-20">2016-20</option>
+              <option value="2017-21">2017-21</option>
+              <option value="2018-22">2018-22</option>
+                <option value="2019-23">2019-23</option>
+          </select>
+          </div>
+          </div>
+
+          <div class="form-group form-inline">
+          <div class="row">
+          <label class="col-md-3 text-right">Date of Admission:</label>
+          <div class="col-md-3 p-0">
+<!--              <past-date date-callback="fnDOASelection(date)"> </past-date>-->
+                  <input type='date' ng-model="doa" class="form-control w-195">  
+             
+          </div>
+          <label class="col-md-3 text-right" style="margin-left: -30px">Date of Birth:</label>
+          <div class="col-md-3 p-0">
+<!--              <past-date date-callback="fnDOBSelection(date)"> </past-date>-->
+ <input type='date' ng-model="dob" class="form-control w-195">  
+                  
+              </div>
+          </div>
+          </div>
+
+          <div class="form-group form-inline">
+            <div class="row">
+            <label class="col-md-3 text-right">Email Id:</label>
+            <input type="email" ng-model="email" id="email" class="form-control col-md-3" name="email">
+            <label class="col-md-3 text-right">Nationality:</label>
+            <input type="text" ng-model="National" class="form-control col-md-3" name="National">
+          </div>
+          </div>
+
+          <div class="form-group form-inline">
+         <div class="row">
+         <label class="col-md-3 text-right">Phone No:</label>
+         <input type="text" ng-model="phNo" class="form-control col-md-3" name="phNo">
+         <label class="col-md-3 text-right">Transport:</label>
+         <select class="form-control w-195 col-md-3" ng-model="Transport" name="Transport">
+               <option value="">Select Transport Need</option>
+               <option value="Yes">Yes</option>
+               <option value=" No">No</option>
+               </select>
+          </div>
+          </div>
+
+          <div class="form-group form-inline">
+          <div class="row">
+          <label class="col-md-3 text-right">Address:</label>
+          <textarea rows="4" cols="22" ng-model="address" class="form-control col-md-3" name="address"></textarea>
+          <label class="col-md-3 text-right">Identification Marks:</label>
+          <textarea rows="4" cols="22" ng-model="iMarks" class="form-control col-md-3" name="iMarks"></textarea>
+          </div>
+          </div>
+
+          <div class="row">
+           <label class="col-md-3 text-right">Photo:</label>
+          <div class="col-md-3">
+          <input type ="file" value="name"  ng-model="photo" name="photo">
+          </div></div></div> 
+
+    </div>
+
+
+
+        <div ng-show="!isPreview && !isPersonlDet" >
+             <div style="position: absolute" class="col-sm-offset-10">
+       <img src="images/s6.jpg" height="90px" width="95px"/>
+             </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+       <label class="col-sm-3 control-label ">Admission Type  </label>
+       <label>:</label>
+        <b  class="" ng-bind="admTyp"></b>
+        
+        </div>
+        </div>
+           
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label">Admission Number</label>
+         <label>:</label>
+        <b class="" ng-bind="currAdmNo"></b>
+        
+        </div>
+        </div>
+    
+
+
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Course Type</label>
+        <label>:</label>
+        <b class="" ng-bind="cType"></b>
+        </div>
+        </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Stream</label>
+        <label>:</label>
+        <b class="" ng-bind="class"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Semester</label>
+        <label>:</label>
+        <b class="" ng-bind="semester"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Section</label>
+        <label>:</label>
+        <b class="" ng-bind="section"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Name</label>
+        <label>:</label>
+        <b class="" ng-bind="name"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Gender</label>
+        <label>:</label>
+        <b class="" ng-bind="gender"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Mother Name</label>
+        <label>:</label>
+        <b class="" ng-bind="mname"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Father Name</label>
+        <label>:</label>
+        <b class="" ng-bind="fname"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">MotherTongue</label>
+        <label>:</label>
+        <b class="" ng-bind="mothertongue"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1 ">
+            
+        <label class="col-sm-3 control-label ">BloodGroup</label>
+        <label>:</label>
+        <b class="" ng-bind="bloodgroup"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Religion</label>
+        <label>:</label>
+        <b class="" ng-bind="Religion"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Caste</label>
+        <label>:</label>
+        <b class="" ng-bind="Caste"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Residence</label>
+        <label>:</label>
+        <b class="" ng-bind="residence"></b>
+        </div>
+        </div>
+         <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Academic Year</label>
+        <label>:</label>
+        <b class="" ng-bind="aceYear"></b>
+        </div>
+        </div>
+
+         
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Date Of Admission</label>
+        <label>:</label>
+        <b class="" ng-bind="doa"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Date Of Birth</label>
+        <label>:</label>
+        <b class="" ng-bind="dob"></b>
+        </div>
+        </div>
+
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Transport</label>
+        <label>:</label>
+        <b class="" ng-bind="Transport"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Nationality</label>
+        <label>:</label>
+        <b class="" ng-bind="National"></b>
+        </div>
+        </div>
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">EmailId</label>
+        <label>:</label>
+        <b class="" ng-bind="email"></b>
+        </div>
+        </div>
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Mobile No</label>
+        <label>:</label>
+        <b class="" ng-bind="phNo"></b>
+        </div>
+        </div>
+
+
+        <div class="form-group ">
+        <div class="row col-sm-offset-1">
+        <label class="col-sm-3 control-label ">Address</label>
+        <label>:</label>
+        <b class="" ng-bind="address"></b>
+        </div>
+        </div>
+             <div class="form-group ">
+        <div class="row col-sm-offset-1">
+            
+        <label class="col-sm-3 control-label ">Identification Marks</label>
+        <label>:</label>
+        <b class="" ng-bind="iMarks"></b>
+        </div>
+        </div>
+       
+          </div> 
+          </div>
+
+        
+      <div class="modal-footer">
+           <div class="row text-center">
+          <label class="text-danger" ng-bind="msg"></label>
+          </div>
+       <button type="button" ng-if="isPersonlDet" ng-click="goNext()" class="btn btn-primary">Next</button>
+
+       <button type="button" ng-if="!isPersonlDet" ng-click="goBack()" class="btn btn-primary">Back</button>
+
+       <button type="button" ng-if="isPreview && !isPersonlDet" ng-click="goPreview()" class="btn btn-primary">Preview</button>
+
+       <button type="button" ng-if="!isPreview && !isPersonlDet" ng-click="goModify()" class="btn btn-primary">Modify</button>
+
+       <button ng-if="isSave && !isPersonlDet" type="submit" ng-click="save('1')" class="btn btn-primary">Save</button>
+
+       <button ng-if="!isSave && !isPersonlDet" type="submit" ng-click="save('2')" class="btn btn-primary">Edit</button>
+       <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+      </div>
+
+  </form>
+  </div>
+  
+      
+  
+  

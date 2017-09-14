@@ -1,0 +1,172 @@
+</br>
+<div class=" offsetMenu ">
+<div class="col-xs-12 p-0">
+  <div class="row mrow" ng-show="isDefault">
+      <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Hostel Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Hostel Module Contains 3 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Add Hostel</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Add Room</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;student Room Allocation</li>
+                     <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Student Room Vacated </li>
+                     
+              </ul>              
+        </div>
+    </div>
+	<!-- Hostel Details Start-->
+  <div ng-if="isHstDet">
+  <div class="text-center stuHead">Hostel : Hostel Details</div>
+      <div class="table-responsive">
+      	<table class="table table-bordered"> 
+         <tr class='t-head'>
+          <th class='text-center'>
+          <button class="btn btn-primary pull-left" ng-click="addHstDet()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Academic Year</th>
+          <th class='text-center'>Hostel Name</th>
+          <th class='text-center'>Hostel Location</th>
+          <th class='text-center'>Hostel For</th>
+          <th class='text-center'>Hostel Capacity</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+
+          <tr ng-repeat="listObj in hstDetList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.acaYear}}</td>
+            <td class='text-center'>{{listObj.hostelName}}</td>
+            <td class='text-center'>{{listObj.hostelLocation}}</td>
+            <td class='text-center'>{{listObj.hostelFor}}</td>
+            <td class='text-center'>{{listObj.hostelCap}}</td>
+            <td class="text-center"><a href ng-click="addHstDet(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteHstDet(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Hostel Details End-->
+
+  <!-- Student Allotment Start-->
+  <div ng-if="isStdAllot">
+  <div class="text-center stuHead">Hostel : Student Allotment</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> 
+         <tr class='t-head'>
+          <th class='text-center'>
+          <button class="btn btn-primary pull-left" ng-click="addStuAllot()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Academic Year</th>
+          <th class='text-center'>Course</th>
+          <th class='text-center'>Class</th>
+          <th class='text-center'>Semester</th>
+          <th class='text-center'>Section</th>
+          <th class='text-center'>AdmNo</th>
+          <th class='text-center'>Name</th>
+          <th class='text-center'>Hostel Name</th>
+          <th class='text-center'>Room Number</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+
+          <tr ng-repeat="listObj in stuAllotList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.acaYear}}</td>
+            <td class='text-center'>{{listObj.course}}</td>
+            <td class='text-center'>{{listObj.className}}</td>
+            <td class='text-center'>{{listObj.medium}}</td>
+            <td class='text-center'>{{listObj.section}}</td>
+            <td class='text-center'>{{listObj.admNo}}</td>
+            <td class='text-center'>{{listObj.name}}</td>
+            <td class='text-center'>{{listObj.hostelName}}</td>
+            <td class='text-center'>{{listObj.rmNum}}</td>
+            <td class="text-center"><a href ng-click="addStuAllot(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteStuAllot(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Student Allotment Details End-->  
+
+   <!-- Room Details Start-->
+  <div ng-if="isRoomDet">
+  <div class="text-center stuHead">Hostel : Room Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> 
+         <tr class='t-head'>
+          <th class='text-center'>
+          <button class="btn btn-primary pull-left" ng-click="addRoomDet()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Hostel Name</th>
+          <th class='text-center'>Hostel Location</th>
+          <th class='text-center'>Room Number</th>
+          <th class='text-center'>Capacity</th>
+          <th class='text-center'>Edit</th>
+          <th class='text-center'>Delete</th>
+          </tr>
+
+          <tr ng-repeat="listObj in roomDetList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.hostelName}}</td>
+            <td class='text-center'>{{listObj.hostelLocation}}</td>
+            <td class='text-center'>{{listObj.rmNum}}</td>
+            <td class='text-center'>{{listObj.rmCap}}</td>
+            <td class="text-center"><a href ng-click="addRoomDet(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td><td class="text-center"><a href ng-click="deleteRoomDet(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Room Details  Details End-->
+
+  <!-- Student Vacated Start-->
+  <div ng-if="isStdVacated">
+  <div class="text-center stuHead">Hostel : Student Vacated Details</div>
+      <div class="table-responsive">
+        <table class="table table-bordered"> 
+         <tr class='t-head'>
+          <th class='text-center'>
+          <button class="btn btn-primary pull-left" ng-click="addStuVacated()">Add New</button><span>S.No</span></th>
+          <th class='text-center'>Academic Year</th>
+          <th class='text-center'>Course</th>
+          <th class='text-center'>Class</th>
+          <th class='text-center'>Semester</th>
+           <th class='text-center'>Section</th>
+          <th class='text-center'>AdmNo</th>
+          <th class='text-center'>Name</th>
+          <th class='text-center'>Date Of Vacation</th>
+          <th class='text-center'>Reason</th>
+          <!-- <th class='text-center'>Edit</th> -->
+          <th class='text-center'>Delete</th>
+          </tr>
+
+          <tr ng-repeat="listObj in stuVacatedList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+            <td class='text-center'>{{$index+1}}</td>
+            <td class='text-center'>{{listObj.acaYear}}</td>
+            <td class='text-center'>{{listObj.course}}</td>
+            <td class='text-center'>{{listObj.className}}</td>
+              <td class='text-center'>{{listObj.medium}}</td>
+            <td class='text-center'>{{listObj.section}}</td>
+            <td class='text-center'>{{listObj.admNo}}</td>
+            <td class='text-center'>{{listObj.name}}</td>
+            <td class='text-center'>{{listObj.dol}}</td>
+            <td class='text-center'>{{listObj.reason}}</td>
+            <!-- <td class="text-center"><a href ng-click="addStuVacated(listObj)"><span class="glyphicon glyphicon-pencil"></span></a></td> -->
+            <td class="text-center"><a href ng-click="deleteStuVacated(listObj)"><span class="glyphicon glyphicon-trash"></span></a></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+  <!-- Student Vacated Details End-->  
+
+  </div>
+ </div>

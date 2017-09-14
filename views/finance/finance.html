@@ -1,0 +1,216 @@
+</br>
+<div class="row offsetMenu">
+   <div class="col-xs-12 p-0">
+      <!-- fee allocation details Start-->
+      <!-- fee allocation details Start-->
+      <div class="row mrow" ng-show="isDefault">
+         <div>
+            <img src="images/s1.jpg" class="hidden-xs img-responsive img-thumbnail" id="" >
+       
+        </div>
+        <div>
+            <h1 class="admHedd text-center">Welcome To Finance Module</h1>
+        </div>
+        <div>
+            <p class="adminPara">
+                To educate students from local and rural areas, 
+                so that they become enlightened individuals, 
+                improving the living standards of their families, industry and society. We provide individual attention, 
+                world class quality of technical education and take care of character building.
+              </p>
+              <p class="adminPara">A Reuters reporter in Surkhrod district in Nangarhar province, where 
+   villagers said the raids took place, said Afghan police fired at the crowd 
+    after some of them started throwing stones at local government buildings.</p>
+              <h3>Finance Module Contains 4 Sub-modules They Are:</h3>
+              <ul type="none" class='admul'>
+                  <li> <i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Fee Allocation</li>
+                   <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Fee Collection</li>
+                    <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Accounts</li>
+                     <li><i class="fa fa-spinner fa-spin" aria-hidden="true"></i>&nbsp;Reports </li>
+                     
+              </ul>              
+        </div>
+      </div>
+      <div ng-if="isFallocation">
+         <div class="table-responsive">
+            <table class="table table-bordered">
+               <tr class='t-head' style="white-space:nowrap;">
+                  <th class='text-center'><button class="btn btn-primary" ng-click="addFallocation()">Add New</button><span>S.No</span></th>
+                  <th class='text-center'>Course type</th>
+                  <th class='text-center'>Class</th>
+                  <th class='text-center'>Acedemic Year</th>
+                  <th class='text-center'>Admission Fee</th>
+                  <th class='text-center'>Acedemic Fee</th>
+                  <th class='text-center'>Transport Fee</th>
+                  <th class='text-center'>Hostel Fee</th>
+                  <th class='text-center'>Examination Fee</th>
+                  <th class='text-center'>Stationary Fee</th>
+                  <th class='text-center'>Edit</th>
+                  <th class='text-center'>Delete</th>
+               </tr>
+               <tr ng-repeat="listObj in fallocationList" ng-class="($index % 2==0 ? 'bg-danger' :'bg-info') ">
+                  <td class="text-center">{{$index+1}}</td>
+                  <td class='text-center'>{{listObj.cType}}</td>
+                  <td class='text-center'>{{listObj.className}}</td>
+                  <td class='text-center'>{{listObj.acdYear}}</td>
+                  <td class='text-center'>{{listObj.admFee}}</td>
+                  <td class='text-center'>{{listObj.acdFee}}</td>
+                  <td class='text-center'>{{listObj.transFee}}</td>
+                  <td class='text-center'>{{listObj.hstlFee}}</td>
+                  <td class='text-center'>{{listObj.examFee}}</td>
+                  <td class='text-center'>{{listObj.statFee}}</td>
+                  <td class="text-center">
+                     <a href ng-click="addFallocation(listObj)">
+                     <span class="glyphicon glyphicon-pencil"></span></a>
+                  </td>
+                  <td class="text-center">
+                     <a href ng-click="deleteFallocation(listObj)">
+                     <span class="glyphicon glyphicon-trash"></span></a>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+    
+     
+   <!-- fee allocation end -->
+   <!-- fee collection start -->
+   <div ng-show="isFcollection">
+      <div class="container">
+         <form role="form">
+         <label class="radio-inline">
+         <input type="radio" name="optradio" ng-model="admNo" value="aNo"><b style="font-size:17px">Admin.No</b>
+         </label>
+         <label class="radio-inline">
+         <input type="radio" name="optradio" ng-model="admNo" value="oth"><b style="font-size:17px">Others</b>
+         </label>
+         <div ng-show="admNo=='aNo'">
+            <label class="col-md-3 text-right">Admission No:</label>
+            <div class="col-sm-3">
+               <input type="text" class="form-control" ng-model="stdAdmNo">
+            </div>
+         </div>
+         <div ng-show="admNo =='oth'">
+            <div class="row mrow">
+               <div class="form-group form-inline">
+                  <label class="col-md-3 text-right">Course Type:</label>
+                  <select class="form-control w-195 col-md-3" ng-model="cType" ng-change="changeCourseType(cType)" >
+                     <option value="">Select Course Type</option>
+                     <option ng-repeat="obj in cTypes" value="{{obj.cType}}">{{obj.cType}}</option>
+                  </select>
+                  <label class="col-md-3 text-right">Stream:</label>
+                  <select  class="form-control w-195" ng-model="class" ng-change="changeStream(class)">
+                     <option value="">Select Stream</option>
+                     <option ng-repeat="obj in streams" value="{{obj.class}}">{{obj.class}}</option>
+                  </select>
+               </div>
+            </div>
+            <div class="form-group row mrow">
+               <div class="form-inline">
+                  <label class="col-sm-3 text-right">Section:</label>
+                  <select class="col-sm-3 form-control w-195" ng-model="section" >
+                     <option value="">Select Section</option>
+                     <option ng-repeat="obj in sections" value="{{obj.section}}">{{obj.section}}</option>
+                  </select>
+                  <label class="col-sm-3 text-right">Semesters:</label>
+                  <select class="col-sm-3 form-control w-195" ng-model="semesters">
+                     <option value="">Select Semester</option>
+                     <option ng-repeat="obj in semesters" value="{{obj.semester}}">{{obj.semester}}</option>
+                  </select>
+                  <div class="col-sm-2">
+                     <input type="submit" class="btn btn-primary" value="Search" ng-click="stdSearch()">
+                  </div>
+               </div>
+            </div>
+            <div class="row mrow">
+               <label class="col-sm-3 text-right">Studen Name:</label>
+               <select class="col-sm-3 form-control w-195" ng-model="name" >
+                  <option value="">Select Student</option>
+                  <option ng-repeat="obj in stdList" value="{{obj.admNo}}">{{obj.name}}</option>
+               </select>
+            </div>
+            </br>
+            <div class="row mrow">
+               <input type="checkbox" ng-model="isChecked" /><b>Admission Fee</b>
+               <div ng-show="isChecked">
+                  TotalFee<input type="text" name="totalfee" ng-bind="AdmFee">
+                  Paid Fee<input type="text" name="totalfee" ng-bind="AdmFee">
+                  Due Fee<input type="text" name="totalfee" ng-bind="AdmFee">
+                  <!-- <span><input type="checkbox" ng-model="ischecked"/><b>Admission Fee</b></span>
+                     <div ng-show="ischecked"></div>
+                     <input type="text" name="totalfee" ng-model="ischecked">
+                     <p ng-bind="AdmFee"></p> -->
+               </div>
+            </div>
+            <div class="row mrow">
+               <input type="checkbox"><b>Academic Fee</b>
+            </div>
+            <div class="row mrow">
+               <input type="checkbox"><b>Transport Fee</b>
+            </div>
+            <div class="row mrow">
+               <input type="checkbox"><b>Exam Fee</b>
+            </div>
+            <div class="row mrow">
+               <input type="checkbox"><b>Stationary Fee</b>
+            </div>
+            <!-- fee collection end -->
+         </div>
+     
+   <!-- mode of payment start -->
+   <div class="form-group form-inline">
+      <div class="row mrow">
+         <label class="col-sm-3 text-right">Mode Of Payment:</label>
+         <div class="col-sm-3">
+            <select class="selectpicker form-control w-195" ng-change="selPaymentType(paymentType)" value="Mode of Payment"  ng-model="paymentType">
+               <option value="">Select PaymentType </option>
+               <option value="Cash">Cash</option>
+               <option value="Cheque">Cheque</option>
+            </select>
+         </div>
+      </div>
+   </div>
+   <div ng-show="isCash">
+      <div class="form-group form-inline">
+         <label class="col-sm-4 text-right" id="category">Remarks:</label>
+         <input type="text" class="form-control" ng-model="Remark">
+      </div>
+      <div class="form-group form-inline">
+         <label class="col-sm-4 text-right" id="category">Total Amount:</label>
+         <input type="text" class="form-control" ng-model="TotAmount">
+      </div>
+   </div>
+   <div  ng-show="isCheque">
+      <div class="form-group form-inline">
+         <div class="row mrow">
+            <label class="control-label col-sm-4 text-right">Bank Name:</label>
+            <select class="form-control  w-195" ng-model="bank" >
+               <option value="">Select Bank</option>
+               <option ng-repeat="Listobj in banks" value="{{Listobj.bankName}}">{{Listobj.bankName}}</option>
+            </select>
+         </div>
+      </div>
+      <div class="form-group form-inline">
+         <label class="col-sm-4 text-right">Cheque Number:</label>
+         <input type="text" class="form-control" ng-model="ChqNo">
+      </div>
+      <div class="form-group form-inline">
+         <label class="col-sm-4 text-right">Cheque Date:</label>
+         <input type="text" class="form-control" ng-model="ChqDate">
+      </div>
+      <div class="form-group form-inline">
+         <label class="col-sm-4 text-right">Remarks:</label>
+         <input type="text" class="form-control" ng-model="Remarks">
+      </div>
+      <div class="form-group form-inline">
+         <label class="col-sm-4 text-right">Amount:</label>
+         <input type="text" class="form-control" ng-model="Amount">
+      </div>
+   </div>
+   <!-- mode of payment -->
+ </div>
+   </div>
+
+
+   </div>
+   </div>

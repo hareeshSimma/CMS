@@ -1,0 +1,152 @@
+<!-- Modal content-->
+      <div class="modal-content">
+
+
+        <div class="modal-header">
+          <button type="button" ng-click="close()" class="close">&times;</button>
+          <h4 class="modal-title">Stock Pricing Details</h4>
+        </div>
+        <div class="modal-body">
+           <div class="row">
+
+
+            <div class="col-sm-6">
+              <div class="form-group">
+            <div class="row">
+            <label class="col-sm-5 text-right" id="inventory">Vendors:</label>
+            <div class="col-sm-6  ">
+            <select  class="form-control w-195" ng-model="Vendors" ng-change="changeVendor(Vendors)"required>
+              <option value="">Vendors</option>
+              <option ng-repeat="obj in vendorList" value="{{obj.vendors}}">{{obj.vendors}}</option>
+            </select>
+            </div>
+            </div>
+            </div>
+             <div class="form-group">
+            <div class="row">
+            <label class="col-sm-5 text-right" id="inventory">Category Name:</label>
+            <div class="col-sm-6">
+            <select class="form-control w-195 dispInline" ng-model="categoryName" ng-change="changeCategory(categoryName)"required>
+              <option value="">Select Category</option>
+              <option ng-repeat="obj in catArr" value="{{obj}}">{{obj}}</option>
+            </select>
+            </div>
+            </div>
+            </div>
+
+             <div class="form-group">
+            <div class="row">
+            <label class="col-sm-5 text-right" id="inventory">Inventory Item:</label>
+            <div class="col-sm-6">
+            <select class="form-control w-195 dispInline" ng-model="InventoryItem" required>
+              <option value="">Select Inventory</option>
+              <option ng-repeat="obj in invArr" value="{{obj}}">{{obj}}</option>
+            </select>
+            </div>
+            </div>
+            </div>
+             <div class="form-group">
+            <div class="row">
+           <label class="col-sm-5 text-right" id="inventory">Quantity:</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="Quantity">
+            </div>
+            </div>
+            </div>
+             <div class="form-group">
+            <div class="row">
+            <label class="col-sm-5 text-right" id="inventory">Re-Order Level:</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="ReorderLevel">
+            </div>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <div class="row">
+            <label class="col-sm-5 text-right" id="inventory">Total Amount:</label>
+            
+            <div class="col-sm-6">
+            <input type="text" ng-readonly="true" class="form-control" value="{{TotAmont()}}" ng-model="TotAmount">
+            </div>
+            </div>
+            </div>
+            
+
+
+            </div>
+
+
+
+            <div class="col-sm-6">
+             <div class="form-group">
+            <div class="row">
+            <label class="control-label  col-sm-4  text-right" >MRP:</label>
+            <div class="col-sm-6">
+            <input type="text" class="form-control" ng-model="Mrp"  required>
+            </div>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <div class="row">
+            <label class="control-label  col-sm-4  text-right" >Rate:</label>
+            <div class="col-sm-6  ">
+            <input type="text" class="form-control" ng-model="Rate"   required>
+            </div>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <div class="row">
+            <label class="control-label  col-sm-4  text-right" >Discount:</label>
+            <div class="col-sm-6  ">
+            <input type="text" class="form-control" ng-model="Discount"  required>
+            </div>
+            </div>
+            </div>
+
+            <div class="form-group">
+            <div class="row">
+            <label class="control-label  col-sm-4 text-right" >Complimentary:</label>
+            <div class="col-sm-6 ">
+            <input type="text" class="form-control" ng-model="Free"  required>
+            </div>
+            </div>
+            </div>
+            
+            <div class="form-group">
+            <div class="row">
+            <label class="control-label  col-sm-4 text-right" >Amount:</label>
+            <div class="col-sm-6 ">
+            <input type="text" ng-readonly="true" class="form-control"   
+            value="{{Amont()}}" ng-model="Amount" required>
+            </div>
+            </div>
+            </div>
+            
+             <div class="form-group">
+            <div class="row">
+             <label class="control-label  col-sm-4 text-right" >Date:</label>
+            <div class="col-sm-6 ">
+<!--        <past-date date-callback="fnStockPricingSelection(date)"></past-date>-->
+         <input type='date' ng-model="Date" class="form-control w-195">   
+
+            </div>
+            </div>
+            </div>
+            </div>
+
+
+           </div>
+        
+         <div class="row text-center">
+            <label class="text-danger" ng-bind="msg"></label>
+            </div>
+            </div>
+         
+          <div class="modal-footer">
+          <button ng-if="isSave" type="button" ng-click="save('13')" class="btn btn-primary">Save</button>
+           <button ng-if="!isSave" type="button" ng-click="save('14')" class="btn btn-primary">Edit</button>
+          <button type="button" ng-click="close()" class="btn btn-primary">Close</button>
+        </div>
